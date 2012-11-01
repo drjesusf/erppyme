@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.erppyme.model" default-access="field" default-lazy="false">
+	<class name="Cliente" table="CLIENTE">
+		<id name="clienteId" type="integer">
+			<column name="CODCLIENTE" not-null="true"/>
+			<generator class="native"/>
+		</id>
+		<many-to-one name="tipoCliente" class="TipoCliente">
+			<column name="CODTIPOCLIENTE"/>
+		</many-to-one>
+		
+		<property name="numero" type="string">
+			<column name="NUMERO" not-null="true"></column>
+		</property>
+		
+		<property name="nombre" type="string">
+			<column name="NOMBRE" not-null="true"></column>
+		</property>
+	</class>
+</hibernate-mapping> 
