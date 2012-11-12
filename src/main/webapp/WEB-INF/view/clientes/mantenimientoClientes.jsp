@@ -22,10 +22,10 @@
 				type: "POST",
 				data : {clienteId : clienteId},				
 				beforeSend:function(){
-					alert("Enviando...");	
+						
 				},
 				success:function(){
-					alert("Success...");
+					
 					$("#modalModificar").modal("show");		
 				} 
 			});
