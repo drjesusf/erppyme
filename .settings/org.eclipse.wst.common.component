@@ -2,8 +2,9 @@
 <project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="erppyme">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
-        <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <property name="context-root" value="erppyme"/>
         <property name="java-output-path" value="/erppyme/target/classes"/>
     </wb-module>

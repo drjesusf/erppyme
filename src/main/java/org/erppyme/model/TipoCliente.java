@@ -1,6 +1,8 @@
 package org.erppyme.model;
 
-public class TipoCliente {
+import java.io.Serializable;
+
+public class TipoCliente implements Serializable{
 	private Integer tipoClienteId;
 	private String nombre;
 	

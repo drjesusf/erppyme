@@ -4,21 +4,35 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="org.erppyme.model" default-access="field" default-lazy="false">
-	<class name="Cliente" table="CLIENTE">
+	<class name="Cliente" table="CLIENTES">
 		<id name="clienteId" type="integer">
 			<column name="CODCLIENTE" not-null="true"/>
 			<generator class="native"/>
 		</id>
-		<many-to-one name="tipoCliente" class="TipoCliente">
-			<column name="CODTIPOCLIENTE"/>
-		</many-to-one>
-		
-		<property name="numero" type="string">
-			<column name="NUMERO" not-null="true"></column>
-		</property>
-		
+		 
 		<property name="nombre" type="string">
 			<column name="NOMBRE" not-null="true"></column>
+		</property>
+		<property name="apellidos" type="string">
+			<column name="APELLIDOS" not-null="true"></column>
+		</property>
+		<property name="direccion" type="string">
+			<column name="DIRECCION" not-null="true"></column>
+		</property>
+		<many-to-one name="tipoDocumentoIdentificacion" class="TipoDocumentoIdentificacion">
+			<column name="CODTIPODOCUMENTOIDENTIFICACION"/>
+		</many-to-one>
+		<property name="nroDocumentoIdentificacion" type="int">
+			<column name="NRODOCUMENTOIDENTIFICACION" not-null="true"></column>
+		</property>
+		<property name="telefono" type="int">
+			<column name="TELEFONO" not-null="true"></column>
+		</property>
+		<property name="celular" type="int">
+			<column name="CELULAR" not-null="true"></column>
+		</property>
+		<property name="estado" type="string">
+			<column name="ESTADO" not-null="true"></column>
 		</property>
 	</class>
 </hibernate-mapping> 
