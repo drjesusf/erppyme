@@ -9,6 +9,7 @@ import org.erppyme.service.TipoDocumentoIdentificacionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,7 +29,7 @@ public class ClienteController {
 		List<TipoDocumentoIdentificacion> lstTipoDocumentoIdentificacions = tipoDocumentoIdentificacionService.consulta();
 		model.addAttribute("lstTipoDocumentoIdentificacions", lstTipoDocumentoIdentificacions);
 		model.addAttribute("lstClientes", lstClientes);
-		
+		model.addAttribute("cliente", new Cliente());
 		return "clientes/mantenimientoClientes";
 	}
 	
@@ -42,11 +43,22 @@ public class ClienteController {
 	}
 	
 	@RequestMapping( value = "obtenerCliente.htm", method = RequestMethod.POST)
-	public @ResponseBody Cliente obtenerCliente(Integer clienteId){
+	public @ResponseBody Cliente obtenerCliente(Model model ,@RequestParam("clienteId") Integer clienteId){
 		System.out.println("Entro obtenerCliente con: " + clienteId);
 		Cliente existenteCliente = clienteService.obtenerCliente(clienteId);
+		model.addAttribute("cliente", existenteCliente);
+		System.out.println("Cliente ->" + existenteCliente.getNombre());
 		
 		return existenteCliente;
+		
+	}
+	
+	@RequestMapping(value = "/modificarCliente.htm", method = RequestMethod.GET)
+	public String modificarCliente(Model model,@RequestParam("clienteId") Integer clienteId){
+		System.out.println("Entro a modificarCVliente");
+		Cliente existenteCliente = clienteService.obtenerCliente(clienteId);
+		model.addAttribute("cliente", existenteCliente);
+		return "clientes/modificarCliente";
 	}
 	
 	@RequestMapping(value="/consultarClientes.htm",method= RequestMethod.GET)

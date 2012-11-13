@@ -19,15 +19,19 @@
 			
 			$.ajax({
 				url:"obtenerCliente.htm",
+				dataType : "JSON",
 				type: "POST",
 				data : {clienteId : clienteId},				
 				beforeSend:function(){
 						
 				},
-				success:function(){
-					
-					$("#modalModificar").modal("show");		
-				} 
+				success:function(response){
+					$("#modalModificar").modal("show");
+					$("#nombre").value(response);
+				} ,
+				error: function(response){
+					alert("eeror");
+				}
 			});
 		}
 		function guardarCliente(){
@@ -89,6 +93,8 @@
 				            				<td>				            					
 				            					<div class="btn-group">
 				            						<a class="btn" onclick="ventanaModificarCliente(${cliente.clienteId})" data-toggle="modal" role="button"> <i class="icon-pencil"></i> </a>
+<!-- 													<a class="btn" href="nuevoCliente.htm" data-toggle="modal" role="button"> <i class="icon-pencil"></i> </a> -->
+<%-- 													<a class="btn" href="modificarCliente.htm?clienteId=${cliente.clienteId}" data-toggle="modal" role="button"> <i class="icon-pencil"></i> </a> --%>
 				            						<a class="btn" onclick="ventanaEliminarCliente(${cliente.clienteId})" href="#modalEliminar" data-toggle="modal" role="button"> <i class="icon-trash"></i> </a>
 				            							
 				            					</div>
@@ -124,6 +130,7 @@
 	  </div>
 	  <div class="modal-body">
 	    <c:import url="nuevoCliente.jsp"></c:import>
+	
 	  </div>
 	  <div class="modal-footer">
 	    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>

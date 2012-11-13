@@ -3,9 +3,9 @@
 <%@ taglib prefix="f"  uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-
+${cliente.nombre}
 <form:form method="POST" commandName="cliente" class="form-horizontal">
-	
+	Nombre:<form:input path="nombre"/>
   <div class="control-group">
     <label class="control-label" for="nombre">Nombres</label>
     <div class="controls">
@@ -50,7 +50,7 @@
   <div class="control-group">
     <label class="control-label" for="inputCelular">Celular</label>
     <div class="controls">
-      <input type="text" id="inputCelular" placeholder="Celular">
+      <input type="text" id="inputCelular" placeholder="Celular" value="${cliente.celular}">
     </div>
   </div>
   <div class="control-group">
