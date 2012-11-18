@@ -3,9 +3,9 @@
 <%@ taglib prefix="f"  uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-${cliente.nombre}
-<form:form method="POST" commandName="cliente" class="form-horizontal">
-	Nombre:<form:input path="nombre"/>
+
+<form:form method="POST" modelAttribute="cliente" class="form-horizontal" action="grabarCliente.htm" name="grabarCliente">
+	<form:hidden path="clienteId" />
   <div class="control-group">
     <label class="control-label" for="nombre">Nombres</label>
     <div class="controls">
@@ -26,8 +26,8 @@ ${cliente.nombre}
   </div>
   <div class="control-group">
     <label class="control-label" for="inputTipoDoc">Tipo Doc.</label>
-    <div class="controls">
-      	<form:select path="tipoDocumentoIdentificacion">
+    <div id="tipoDocumentoIdentificacion" class="controls">
+      	<form:select path="tipoDocumentoIdentificacion.tipoDocumentoIdentificacionId" >
       		<form:option value="0">--Seleccionar--</form:option>
       		<form:options items="${lstTipoDocumentoIdentificacions}"
       					  itemValue="tipoDocumentoIdentificacionId" 
@@ -38,25 +38,25 @@ ${cliente.nombre}
   <div class="control-group">
     <label class="control-label" for="inputNroId">Nro Id.</label>
     <div class="controls">
-      <input type="text" id="inputNroId" placeholder="NroId">
+      <form:input path="nroDocumentoIdentificacion" />
     </div>
   </div>
   <div class="control-group">
     <label class="control-label" for="inputTelefono">Telefono</label>
     <div class="controls">
-      <input type="text" id="inputTelefono" placeholder="Telefono">
+      <form:input path="telefono" />
     </div>
   </div>
   <div class="control-group">
     <label class="control-label" for="inputCelular">Celular</label>
     <div class="controls">
-      <input type="text" id="inputCelular" placeholder="Celular" value="${cliente.celular}">
+      <form:input path="celular" />
     </div>
   </div>
   <div class="control-group">
     <label class="control-label" for="inputEstado">Estado</label>
     <div class="controls">
-      <input type="text" id="inputEstado" placeholder="Estado">
+      <form:input path="estado" />
     </div>
   </div>
 </form:form>

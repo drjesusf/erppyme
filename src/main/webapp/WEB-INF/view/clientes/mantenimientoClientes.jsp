@@ -10,24 +10,30 @@
 	<title>.:ERPPYME:. Relacion de Clientes</title>	
 	<style scoped>
        #clientsDb {
-<!--           width: 400px;-->
-<!--           height: 120px;-->   
+/*            width: 400px; */
+/*            height: 120px;   */
        }
     </style>
 	<script>
-		function ventanaModificarCliente(clienteId){
-			
+		function ventanaModificarCliente(clienteId){					
 			$.ajax({
 				url:"obtenerCliente.htm",
 				dataType : "JSON",
 				type: "POST",
 				data : {clienteId : clienteId},				
 				beforeSend:function(){
-						
 				},
 				success:function(response){
 					$("#modalModificar").modal("show");
-					$("#nombre").value(response);
+					$("#clienteId").val(response.clienteId);
+					$("#nombre").val(response.nombre);
+					$("#apellidos").val(response.apellidos);
+					$("#direccion").val(response.direccion);					
+					$("#tipoDocumentoIdentificacion select").val(response.tipoDocumentoIdentificacion.tipoDocumentoIdentificacionId);
+					$("#nroDocumentoIdentificacion").val(response.nroDocumentoIdentificacion);
+					$("#telefono").val(response.telefono);
+					$("#celular").val(response.celular);					
+					$("#estado").val(response.estado);
 				} ,
 				error: function(response){
 					alert("eeror");
@@ -35,9 +41,20 @@
 			});
 		}
 		function guardarCliente(){
-			
+			document.grabarCliente.submit();
+		}
+		function eliminaCliente(){
+			document.location.href = "eliminarCliente.htm?clienteEliminarId="+$("#clienteEliminarId").val();
+		}
+		function ventanaEliminarCliente(clienteId){
+			$("#modalEliminar").modal("show");
+			$("#clienteEliminarId").val(clienteId);
+		}
+		function cargarGrillaClientes(clienteId){
+			document.location.href = "obtenerClienteFiltrado.htm?clienteId="+clienteId;
 		}
 	</script>
+	
 </head>
 <body>
 
@@ -61,10 +78,10 @@
 				      	<div id="clientsDb">
 			            	<table class="table table-bordered">
 			            		<thead>
-			            			<tr >
-			            				<th colspan="9">Lista de clientes</th>
-			            			</tr>
 			            			<tr>
+			            				<th colspan="10">Lista de Clientes</th>
+			            			</tr>
+			            			<tr >
 			            				<th>C&oacute;digo</th>
 			            				<th>Nombre</th>
 			            				<th>Apellidos</th>
@@ -80,7 +97,11 @@
 			            		<tbody>
 			            			
 			            			<c:forEach items="${lstClientes}" var="cliente">
-			            				<tr>
+			            			
+			            				<tr  <c:if test="${cliente.estado =='PAS'}">
+			            						class='error'
+			            					 </c:if>
+			            				>
 				            				<td>${cliente.clienteId}</td>
 				            				<td>${cliente.nombre}</td>
 				            				<td>${cliente.apellidos}</td>
@@ -93,9 +114,7 @@
 				            				<td>				            					
 				            					<div class="btn-group">
 				            						<a class="btn" onclick="ventanaModificarCliente(${cliente.clienteId})" data-toggle="modal" role="button"> <i class="icon-pencil"></i> </a>
-<!-- 													<a class="btn" href="nuevoCliente.htm" data-toggle="modal" role="button"> <i class="icon-pencil"></i> </a> -->
-<%-- 													<a class="btn" href="modificarCliente.htm?clienteId=${cliente.clienteId}" data-toggle="modal" role="button"> <i class="icon-pencil"></i> </a> --%>
-				            						<a class="btn" onclick="ventanaEliminarCliente(${cliente.clienteId})" href="#modalEliminar" data-toggle="modal" role="button"> <i class="icon-trash"></i> </a>
+				            						<a class="btn" onclick="ventanaEliminarCliente(${cliente.clienteId})"  data-toggle="modal" role="button"> <i class="icon-trash"></i> </a>
 				            							
 				            					</div>
 				            				</td>
@@ -113,7 +132,6 @@
 				      </div>
 				      <div class="tab-pane active" id="tipoId3">
 				      	<div id="clientsDb">
-			            
 			            </div>
 				      </div>      
 				  </div>
@@ -133,8 +151,27 @@
 	
 	  </div>
 	  <div class="modal-footer">
+	    <button class="btn btn-primary" onclick="guardarCliente()">Guardar</button>
 	    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-	    <button class="btn btn-primary">Guardar</button>
+	  </div>
+	</div>
+	
+	<div id="modalEliminar" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    <h3 id="myModalLabel2">Eliminar Cliente</h3>
+	  </div>
+	  <div class="modal-body">
+	  	<form action="eliminarCliente.htm" name="eliminarCliente" method="POST" >
+	  		<input type="hidden" id="clienteEliminarId">
+	  	</form>
+	  	
+	    Esta seguro que desea eliminar el Cliente seleccionado?
+	
+	  </div>
+	  <div class="modal-footer">
+	    <button class="btn btn-primary" onclick="eliminaCliente()">Si</button>
+	    <button class="btn" data-dismiss="modal" aria-hidden="true">No</button>
 	  </div>
 	</div>
 </body>  

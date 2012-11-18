@@ -1,5 +1,5 @@
-<!--<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>-->
-<!--<%@ taglib prefix="f"  uri="http://java.sun.com/jsp/jstl/fmt"%>-->
+<!--<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>--> 
+<!--<%@ taglib prefix="f"  uri="http://java.sun.com/jsp/jstl/fmt"%>--> 
 
 <style>
     #project-label {
@@ -19,12 +19,11 @@
 </style>
 
 <script>
-    $(function() {
- 
-        $( "#buscarCliente" ).autocomplete({
-            minLength: 2, 
+     $(function() {  
+         $( "#buscarCliente" ).autocomplete({ 
+            minLength: 2,  
             source: function (request, response) {
-                $.getJSON("filtroClientes.htm", 
+                $.getJSON("filtroClientes.htm?identificador=nombre", 
                 		{	term: request.term }
                 		, 
                 		response
@@ -32,9 +31,9 @@
             },            
             select: function( event, ui ) {
             	var nombreCompleto = ui.item.nombre +" "+ ui.item.apellidos
-                $( "#buscarCliente" ).val( nombreCompleto );
-                $( "#buscarCliente-id" ).val( ui.item.clienteId );
-                
+                 $( "#buscarCliente" ).val( nombreCompleto ); 
+                 $( "#buscarCliente-id" ).val( ui.item.clienteId ); 
+                 cargarGrillaClientes(ui.item.clienteId);
                 return false;
             }
         })
@@ -47,6 +46,15 @@
         };
     });
 </script>
+<!-- <div class="row"> -->
+<!-- 	<div class="span12"> -->
+<!-- 		<div class="btn-group" data-toggle="buttons-radio"> -->
+<!--                 <button type="button" class="btn btn-primary">Left</button> -->
+<!--                 <button type="button" class="btn btn-primary">Middle</button> -->
+<!--                 <button type="button" class="btn btn-primary">Right</button> -->
+<!-- 			</div> -->
+<!-- 	</div> -->
+<!-- </div> -->
 <div class="row">
 	<div class="span12">
 		Buscar Cliente :&nbsp;  <input type="text" id="buscarCliente"  class="input-medium search-query" />
@@ -54,6 +62,5 @@
 	</div>
 	
 </div>
-
 
 

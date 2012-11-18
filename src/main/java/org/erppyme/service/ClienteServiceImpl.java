@@ -1,10 +1,9 @@
 package org.erppyme.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.erppyme.model.Cliente;
-import org.erppyme.model.TipoCliente;
+
 import org.erppyme.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,21 +16,20 @@ public class ClienteServiceImpl implements ClienteService {
 //	public ClienteServiceImpl(ClienteRepository clienteRepository){
 //		this.clienteRepository = clienteRepository;
 //	}
-	@Override
-	public void insert() {
-		// TODO Auto-generated method stub
+
+	public void insert(Cliente cliente) {
+		clienteRepository.insert(cliente);
 
 	}
 
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
+	public void update(Cliente cliente) {
+		clienteRepository.update(cliente);
 
 	}
 
-	@Override
-	public void delete() {
-		// TODO Auto-generated method stub
+
+	public void delete(Cliente cliente) {
+		clienteRepository.delete(cliente);
 
 	}
 
@@ -45,6 +43,9 @@ public class ClienteServiceImpl implements ClienteService {
 		return existenteCliente;
 	}
 
-	
+	public List filtrarClientes(String identificador, String cadena) {
+		return clienteRepository.filtrarClientes(identificador, cadena);
+		
+	}
 
 }
