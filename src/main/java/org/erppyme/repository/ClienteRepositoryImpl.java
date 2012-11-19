@@ -20,7 +20,10 @@ public class ClienteRepositoryImpl implements ClienteRepository {
 	}
 	
 	public void insert(Cliente cliente) {
-		// TODO Auto-generated method stub
+		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		session.save(cliente);
+		session.getTransaction().commit();
 	}
 
 	public void update(Cliente cliente) {

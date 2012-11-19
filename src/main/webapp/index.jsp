@@ -16,7 +16,7 @@
 	<div class="container-fluid">
 	  <div class="row-fluid">
 	    <div class="span2">	    	    
-	        <c:import url="WEB-INF/view/jspf/menu.jsp"></c:import>
+<%-- 	        <c:import url="WEB-INF/view/jspf/menu.jsp"></c:import> --%>
 	    </div>
 	    <div class="span10 ">
 	      

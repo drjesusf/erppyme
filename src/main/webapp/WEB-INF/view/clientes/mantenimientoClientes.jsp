@@ -15,6 +15,19 @@
        }
     </style>
 	<script>
+		$(function() {
+			$("a").each(function(){
+				$(this).tooltip("hide");
+			});
+			
+			$("table#clientes").tablesorter({ sortList: [[1,0]] });
+		});
+		function ventanaNuevoCliente(){
+			$("#modalNuevo").modal("show");
+		};
+		function agregarNuevoCliente(){
+			document.nuevoCliente.submit();
+		}
 		function ventanaModificarCliente(clienteId){					
 			$.ajax({
 				url:"obtenerCliente.htm",
@@ -40,6 +53,7 @@
 				}
 			});
 		}
+		
 		function guardarCliente(){
 			document.grabarCliente.submit();
 		}
@@ -63,10 +77,10 @@
 	<div class="container-fluid">
 	  <div class="row-fluid">
 	    
-	    <div class="span12">
+	    <div class="span12">	    	
 	    	<c:import url="busquedaClientes.jsp"></c:import>
 			<br>
-	    	<div class="row">
+	    	<div class="row-fluid">
 	    		<div class="tabbable tabs-left">
 				  <ul class="nav nav-tabs">
 				  	<li class="active"><a href="#tipoId1" data-toggle="tab">Tipo Id. 1</a></li>
@@ -76,10 +90,19 @@
 				  <div class="tab-content">
 					  <div class="tab-pane active" id="tipoId1">
 				      	<div id="clientsDb">
-			            	<table class="table table-bordered">
+			            	<table class="table table-bordered" id="clientes">
 			            		<thead>
 			            			<tr>
-			            				<th colspan="10">Lista de Clientes</th>
+			            				<th colspan="10">
+			            					Lista de Clientes
+			            					<a href="#" id="tooltip" rel="tooltip" data-placement="right" title="Click para agregar un nuevo cliente"
+			            						onclick="ventanaNuevoCliente()">
+			            						<i class="icon-plus">
+			            						</i>
+			            						<span class="label label-info">Agregar</span>  
+			            						
+			            					</a>
+			            				</th>
 			            			</tr>
 			            			<tr >
 			            				<th>C&oacute;digo</th>
@@ -147,7 +170,7 @@
 	    <h3 id="myModalLabel">Modificar Cliente</h3>
 	  </div>
 	  <div class="modal-body">
-	    <c:import url="nuevoCliente.jsp"></c:import>
+	    <c:import url="modificarCliente.jsp"></c:import>
 	
 	  </div>
 	  <div class="modal-footer">
@@ -170,9 +193,24 @@
 	
 	  </div>
 	  <div class="modal-footer">
-	    <button class="btn btn-primary" onclick="eliminaCliente()">Si</button>
+	    <button class="btn btn-danger" onclick="eliminaCliente()">Si</button>
 	    <button class="btn" data-dismiss="modal" aria-hidden="true">No</button>
 	  </div>
 	</div>
+	
+	<div id="modalNuevo" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+	  <div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    <h3 id="myModalLabel3">Nuevo Cliente</h3>
+	  </div>
+	  <div class="modal-body">
+	  	<c:import url="nuevoCliente.jsp"></c:import>
+	  </div>
+	  <div class="modal-footer">
+	    <button class="btn btn-primary" onclick="agregarNuevoCliente()">Agregar</button>
+	    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+	  </div>
+	</div>
+	
 </body>  
 </html>

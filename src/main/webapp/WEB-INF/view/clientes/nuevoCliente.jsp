@@ -4,7 +4,10 @@
 
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
-<form:form method="POST" modelAttribute="cliente" class="form-horizontal" action="grabarCliente.htm" name="grabarCliente">
+
+<form:form 	method="POST" modelAttribute="cliente" class="form-horizontal" name="nuevoCliente"
+			action="nuevoCliente.htm" >
+
 	<form:hidden path="clienteId" />
   <div class="control-group">
     <label class="control-label" for="nombre">Nombres</label>

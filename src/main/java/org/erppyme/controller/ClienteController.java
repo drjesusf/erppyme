@@ -96,6 +96,22 @@ public class ClienteController {
 		return lstClientes;
 	}
 	
+	@RequestMapping(value="/agregarCliente.htm",method= RequestMethod.GET)
+	public String agregarCliente( Model model){
+		System.out.println("Entrro a agregar Clientes");
+		
+		List<TipoDocumentoIdentificacion> lstTipoDocumentoIdentificacions = tipoDocumentoIdentificacionService.consulta();
+		model.addAttribute("lstTipoDocumentoIdentificacions", lstTipoDocumentoIdentificacions);
+		model.addAttribute("cliente", new Cliente());
+		return "clientes/nuevoCliente";
+	}
+	
+	@RequestMapping(value="/nuevoCliente.htm",method= RequestMethod.POST)
+	public String nuevoCliente( @ModelAttribute("cliente")Cliente cliente){
+		clienteService.insert(cliente);
+		return "redirect:/mantenimientoClientes.htm";
+	}
+	
 	@RequestMapping(value="/grabarCliente.htm",method= RequestMethod.POST)
 	public String grabarCliente( @ModelAttribute("cliente")Cliente cliente){
 		clienteService.update(cliente);

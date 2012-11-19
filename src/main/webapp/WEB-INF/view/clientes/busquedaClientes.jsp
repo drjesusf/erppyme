@@ -20,10 +20,11 @@
 
 <script>
      $(function() {  
+    	 
          $( "#buscarCliente" ).autocomplete({ 
             minLength: 2,  
             source: function (request, response) {
-                $.getJSON("filtroClientes.htm?identificador=nombre", 
+                $.getJSON("filtroClientes.htm?identificador="+$("#columna").val(), 
                 		{	term: request.term }
                 		, 
                 		response
@@ -45,22 +46,32 @@
                 .appendTo( ul );
         };
     });
+    function filtrarPor(columna){
+    	$("#columna").val(columna);
+    }
 </script>
-<!-- <div class="row"> -->
-<!-- 	<div class="span12"> -->
-<!-- 		<div class="btn-group" data-toggle="buttons-radio"> -->
-<!--                 <button type="button" class="btn btn-primary">Left</button> -->
-<!--                 <button type="button" class="btn btn-primary">Middle</button> -->
-<!--                 <button type="button" class="btn btn-primary">Right</button> -->
-<!-- 			</div> -->
-<!-- 	</div> -->
-<!-- </div> -->
-<div class="row">
+<input type="hidden" id="columna" value="nombre">
+<div class="row-fluid">
 	<div class="span12">
-		Buscar Cliente :&nbsp;  <input type="text" id="buscarCliente"  class="input-medium search-query" />
-		<input type="hidden" id="buscarCliente-id" />
+		Buscar por : 
+		<div class="btn-group" data-toggle="buttons-radio">
+		  <button type="button" class="btn btn-info active" onclick="filtrarPor('nombre')">Nombre</button>
+		  <button type="button" class="btn btn-info" onclick="filtrarPor('apellidos')">Apellido</button>
+		  <button type="button" class="btn btn-info" onclick="filtrarPor('nroDocumentoIdentificacion')">N.Docuemnto</button>
+		</div>	
 	</div>
-	
 </div>
+<br>
+<div class="row-fluid">
+	<div class="span12">
+		Buscar Cliente :&nbsp;  <input type="text" id="buscarCliente"  class="input-medium search-query"/>
+		<input type="hidden" id="buscarCliente-id" />
+		<a href="#" id="tooltip" rel="tooltip" data-placement = "right" title="Ingresar texto para realizar busqueda">
+			<i class="icon-search"></i>
+		</a>
+	</div>
+</div>
+
+
 
 
