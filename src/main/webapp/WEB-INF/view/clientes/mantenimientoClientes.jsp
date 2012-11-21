@@ -55,7 +55,7 @@
 		}
 		
 		function guardarCliente(){
-			document.grabarCliente.submit();
+			document.modificarCliente.submit();
 		}
 		function eliminaCliente(){
 			document.location.href = "eliminarCliente.htm?clienteEliminarId="+$("#clienteEliminarId").val();
@@ -109,8 +109,8 @@
 			            				<th>Nombre</th>
 			            				<th>Apellidos</th>
 			            				<th>Direcci&oacute;n</th>
-			            				<th>Tipo Documento</th>
-			            				<th>Nro. Documento</th>
+			            				<th>T,Doc</th>
+			            				<th>Nro.Doc</th>
 			            				<th>Telefono</th>
 			            				<th>Celular</th>
 			            				<th>Estado</th>

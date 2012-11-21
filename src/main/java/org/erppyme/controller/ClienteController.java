@@ -73,13 +73,13 @@ public class ClienteController {
 		return "clientes/mantenimientoClientes";
 		
 	}
-	@RequestMapping(value = "/modificarCliente.htm", method = RequestMethod.GET)
-	public String modificarCliente(Model model,@RequestParam("clienteId") Integer clienteId){
-		System.out.println("Entro a modificarCVliente");
-		Cliente existenteCliente = clienteService.obtenerCliente(clienteId);
-		model.addAttribute("cliente", existenteCliente);
-		return "clientes/modificarCliente";
-	}
+//	@RequestMapping(value = "/modificarCliente.htm", method = RequestMethod.GET)
+//	public String modificarCliente(Model model,@RequestParam("clienteId") Integer clienteId){
+//		System.out.println("Entro a modificarCVliente");
+//		Cliente existenteCliente = clienteService.obtenerCliente(clienteId);
+//		model.addAttribute("cliente", existenteCliente);
+//		return "clientes/modificarCliente";
+//	}
 	
 	@RequestMapping(value="/consultarClientes.htm",method= RequestMethod.GET)
 	public List<Cliente> consultarClientes(Model model){
@@ -112,7 +112,7 @@ public class ClienteController {
 		return "redirect:/mantenimientoClientes.htm";
 	}
 	
-	@RequestMapping(value="/grabarCliente.htm",method= RequestMethod.POST)
+	@RequestMapping(value="/modificarCliente.htm",method= RequestMethod.POST)
 	public String grabarCliente( @ModelAttribute("cliente")Cliente cliente){
 		clienteService.update(cliente);
 		return "redirect:/mantenimientoClientes.htm";

@@ -59,11 +59,6 @@
 		  <button type="button" class="btn btn-info" onclick="filtrarPor('apellidos')">Apellido</button>
 		  <button type="button" class="btn btn-info" onclick="filtrarPor('nroDocumentoIdentificacion')">N.Docuemnto</button>
 		</div>	
-	</div>
-</div>
-<br>
-<div class="row-fluid">
-	<div class="span12">
 		Buscar Cliente :&nbsp;  <input type="text" id="buscarCliente"  class="input-medium search-query"/>
 		<input type="hidden" id="buscarCliente-id" />
 		<a href="#" id="tooltip" rel="tooltip" data-placement = "right" title="Ingresar texto para realizar busqueda">
@@ -71,6 +66,7 @@
 		</a>
 	</div>
 </div>
+<br>
 
 
 
