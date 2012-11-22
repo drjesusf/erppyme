@@ -1,23 +1,3 @@
-<!--<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>--> 
-<!--<%@ taglib prefix="f"  uri="http://java.sun.com/jsp/jstl/fmt"%>--> 
-
-<style>
-    #project-label {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 1em;
-    }
-    #project-icon {
-        float: left;
-        height: 32px;
-        width: 32px;
-    }
-    #project-description {
-        margin: 0;
-        padding: 0;
-    }
-</style>
-
 <script>
      $(function() {  
     	 
@@ -50,22 +30,23 @@
     	$("#columna").val(columna);
     }
 </script>
-<input type="hidden" id="columna" value="nombre">
-<div class="row-fluid">
+
+<!--<div class="row">-->
+	<input type="hidden" id="columna" value="nombre">
 	<div class="span12">
-		Buscar por : 
+		<b>Buscar por :</b> 
 		<div class="btn-group" data-toggle="buttons-radio">
 		  <button type="button" class="btn btn-info active" onclick="filtrarPor('nombre')">Nombre</button>
 		  <button type="button" class="btn btn-info" onclick="filtrarPor('apellidos')">Apellido</button>
 		  <button type="button" class="btn btn-info" onclick="filtrarPor('nroDocumentoIdentificacion')">N.Docuemnto</button>
 		</div>	
-		Buscar Cliente :&nbsp;  <input type="text" id="buscarCliente"  class="input-medium search-query"/>
+		&nbsp;&nbsp;<b>Buscar Cliente :</b>&nbsp;  <input type="text" id="buscarCliente"  class="input-medium search-query"/>
 		<input type="hidden" id="buscarCliente-id" />
 		<a href="#" id="tooltip" rel="tooltip" data-placement = "right" title="Ingresar texto para realizar busqueda">
 			<i class="icon-search"></i>
 		</a>
 	</div>
-</div>
+<!--</div>-->
 <br>
 
 

@@ -74,94 +74,97 @@
 
 	<c:import url="../jspf/navbar.jsp"></c:import>
 	
-	<div class="container-fluid">
-	  <div class="row-fluid">
-	    
-	    <div class="span12">	    	
-	    	<c:import url="busquedaClientes.jsp"></c:import>
-			<br>
-	    	<div class="row-fluid">
-	    		<div class="tabbable tabs-left">
-				  <ul class="nav nav-tabs">
-				  	<li class="active"><a href="#tipoId1" data-toggle="tab">Tipo Id. 1</a></li>
-	    			<li><a href="#tipoId2" data-toggle="tab">Tipo Id. 2</a></li> 
-	    			<li><a href="#tipoId3" data-toggle="tab">Tipo Id. 3</a></li>
-				  </ul>
-				  <div class="tab-content">
-					  <div class="tab-pane active" id="tipoId1">
-				      	<div id="clientsDb">
-			            	<table class="table table-bordered" id="clientes">
-			            		<thead>
-			            			<tr>
-			            				<th colspan="10">
-			            					Lista de Clientes
-			            					<a href="#" id="tooltip" rel="tooltip" data-placement="right" title="Click para agregar un nuevo cliente"
-			            						onclick="ventanaNuevoCliente()">
-			            						<i class="icon-plus">
-			            						</i>
-			            						<span class="label label-info">Agregar</span>  
-			            						
-			            					</a>
-			            				</th>
-			            			</tr>
-			            			<tr >
-			            				<th>C&oacute;digo</th>
-			            				<th>Nombre</th>
-			            				<th>Apellidos</th>
-			            				<th>Direcci&oacute;n</th>
-			            				<th>T,Doc</th>
-			            				<th>Nro.Doc</th>
-			            				<th>Telefono</th>
-			            				<th>Celular</th>
-			            				<th>Estado</th>
-			            				<th>Acci&oacute;n</th>
-			            			</tr>
-			            		</thead>
-			            		<tbody>
-			            			
-			            			<c:forEach items="${lstClientes}" var="cliente">
-			            			
-			            				<tr  <c:if test="${cliente.estado =='PAS'}">
-			            						class='error'
-			            					 </c:if>
-			            				>
-				            				<td>${cliente.clienteId}</td>
-				            				<td>${cliente.nombre}</td>
-				            				<td>${cliente.apellidos}</td>
-				            				<td>${cliente.direccion}</td>
-				            				<td>${cliente.tipoDocumentoIdentificacion.descripcion}</td>
-				            				<td>${cliente.nroDocumentoIdentificacion}</td>
-				            				<td>${cliente.telefono}</td>
-				            				<td>${cliente.celular}</td>
-				            				<td>${cliente.estado}</td>
-				            				<td>				            					
-				            					<div class="btn-group">
-				            						<a class="btn" onclick="ventanaModificarCliente(${cliente.clienteId})" data-toggle="modal" role="button"> <i class="icon-pencil"></i> </a>
-				            						<a class="btn" onclick="ventanaEliminarCliente(${cliente.clienteId})"  data-toggle="modal" role="button"> <i class="icon-trash"></i> </a>
-				            							
-				            					</div>
-				            				</td>
-			            				</tr>
-			            			</c:forEach>
-			            			
-			            		</tbody>
-			            	</table>
-			            </div>
-				      </div>
-				      <div class="tab-pane active" id="tipoId2">
-				      	<div id="clientsDb">
-			            
-			            </div>
-				      </div>
-				      <div class="tab-pane active" id="tipoId3">
-				      	<div id="clientsDb">
-			            </div>
-				      </div>      
-				  </div>
-				</div>
-	    	</div>   
+	<div class="container">
+<!--	  <div class="row-fluid">-->
+	    <div class="row alert alert-info">
+	    	<div class="span12">
+	    		<c:import url="busquedaClientes.jsp"></c:import>
+	    	</div>
 	    </div>
-	  </div>
+	    <div class="row">
+	    	<div class="span12">
+	    		<div class="row ">
+		    		<div class="tabbable tabs-left">
+					  <ul class="nav nav-tabs">
+					  	<li class="active"><a href="#tipoId1" data-toggle="tab">Tipo Id. 1</a></li>
+		    			<li><a href="#tipoId2" data-toggle="tab">Tipo Id. 2</a></li> 
+		    			<li><a href="#tipoId3" data-toggle="tab">Tipo Id. 3</a></li>
+					  </ul>
+					  <div class="tab-content">
+						  <div class="tab-pane active" id="tipoId1">
+					      	<div id="clientsDb">
+				            	<table class="table table-bordered" id="clientes">
+				            		<thead>
+				            			<tr>
+				            				<th colspan="10">
+				            					Lista de Clientes
+				            					<a href="#" id="tooltip" rel="tooltip" data-placement="right" title="Click para agregar un nuevo cliente"
+				            						onclick="ventanaNuevoCliente()">
+				            						<i class="icon-plus">
+				            						</i>
+				            						<span class="label label-info">Agregar</span>  
+				            						
+				            					</a>
+				            				</th>
+				            			</tr>
+				            			<tr >
+				            				<th>C&oacute;digo</th>
+				            				<th>Nombre</th>
+				            				<th>Apellidos</th>
+				            				<th>Direcci&oacute;n</th>
+				            				<th>T,Doc</th>
+				            				<th>Nro.Doc</th>
+				            				<th>Telefono</th>
+				            				<th>Celular</th>
+				            				<th>Estado</th>
+				            				<th align="center" >Acci&oacute;n</th>
+				            			</tr>
+				            		</thead>
+				            		<tbody>
+				            			
+				            			<c:forEach items="${lstClientes}" var="cliente">
+				            			
+				            				<tr  <c:if test="${cliente.estado =='PAS'}">
+				            						class='error'
+				            					 </c:if>
+				            				>
+					            				<td>${cliente.clienteId}</td>
+					            				<td>${cliente.nombre}</td>
+					            				<td>${cliente.apellidos}</td>
+					            				<td>${cliente.direccion}</td>
+					            				<td>${cliente.tipoDocumentoIdentificacion.descripcion}</td>
+					            				<td>${cliente.nroDocumentoIdentificacion}</td>
+					            				<td>${cliente.telefono}</td>
+					            				<td>${cliente.celular}</td>
+					            				<td>${cliente.estado}</td>
+					            				<td>				            					
+					            					<div class="btn-group">
+					            						<a class="btn" onclick="ventanaModificarCliente(${cliente.clienteId})" data-toggle="modal" role="button"> <i class="icon-pencil"></i> </a>
+					            						<a class="btn" onclick="ventanaEliminarCliente(${cliente.clienteId})"  data-toggle="modal" role="button"> <i class="icon-trash"></i> </a>
+					            							
+					            					</div>
+					            				</td>
+				            				</tr>
+				            			</c:forEach>
+				            			
+				            		</tbody>
+				            	</table>
+				            </div>
+					      </div>
+					      <div class="tab-pane active" id="tipoId2">
+					      	<div id="clientsDb">
+				            
+				            </div>
+					      </div>
+					      <div class="tab-pane active" id="tipoId3">
+					      	<div id="clientsDb">
+				            </div>
+					      </div>      
+					  </div>
+					</div>
+	    		</div>  
+	    	</div>
+	    </div>
 	</div>
 	
 	<div id="modalModificar" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

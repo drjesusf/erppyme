@@ -61,11 +61,9 @@
     <div class="controls">
       <form:select path="estado" >
       		<form:option value="0">--Seleccionar--</form:option>
-      		<form:option value="ACT">--ACTIVO--</form:option>
-      		<form:option value="PAS">--PASIVO--</form:option>
-<!--      		<form:options items="${lstTipoDocumentoIdentificacions}"-->
-<!--      					  itemValue="tipoDocumentoIdentificacionId" -->
-<!--      					  itemLabel="descripcion"/>-->
+      		<form:option value="ACT">ACTIVO</form:option>
+      		<form:option value="PAS">PASIVO</form:option>
+
 		</form:select>
     </div>
   </div>

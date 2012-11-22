@@ -26,7 +26,9 @@
 			Logueado como <a class="navbar-link" href="#">Administrador</a>
 		  </p>
 		  <ul class="nav">
-			<li class="active"><a href="../erppyme">Inicio</a></li>
+			<li class="active">
+				<a href="../erppyme">Inicio</a>
+			</li>
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					Clientes
@@ -36,8 +38,12 @@
 			      <li> <a href="mantenimientoClientes.htm">Mantenimiento Clientes</a> </li> 
 			    </ul>
 			</li>
-			<li><a href="#contact">Productos</a></li>
-			<li><a href="#contact">Ventas</a></li>
+			<li>
+				<a href="#contact">Productos</a>
+			</li>
+			<li>
+				<a href="#contact">Ventas</a>
+			</li>
 		  </ul>
 		
        </div>
