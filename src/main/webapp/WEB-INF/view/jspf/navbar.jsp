@@ -38,8 +38,14 @@
 			      <li> <a href="mantenimientoClientes.htm">Mantenimiento Clientes</a> </li> 
 			    </ul>
 			</li>
-			<li>
-				<a href="#contact">Productos</a>
+			<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					Productos
+					<b class="caret"></b>
+				</a>
+				<ul class="dropdown-menu">
+			      <li> <a href="mantenimientoProductos.htm">Mantenimiento Productos</a> </li> 
+			    </ul>
 			</li>
 			<li>
 				<a href="#contact">Ventas</a>
