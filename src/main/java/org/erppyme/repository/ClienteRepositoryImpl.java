@@ -49,10 +49,10 @@ public class ClienteRepositoryImpl implements ClienteRepository {
 		return lstClientes;
 	}
 	@Override
-	public Cliente obtenerCliente(Integer clienteId) {
+	public Cliente obtenerCliente(Integer codCliente) {
 		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
-		Cliente existenteCliente= (Cliente)session.createQuery("from Cliente where clienteId = " + clienteId).uniqueResult();
+		Cliente existenteCliente= (Cliente)session.createQuery("from Cliente where codCliente = " + codCliente).uniqueResult();
 		
 		session.close();
 		return existenteCliente;
@@ -61,7 +61,7 @@ public class ClienteRepositoryImpl implements ClienteRepository {
 	public List filtrarClientes(String identificador,String cadena) {
 		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
-		//Cliente existenteCliente= (Cliente)session.createQuery("from Cliente where " + identificador + " + like " + clienteId).uniqueResult();
+		//Cliente existenteCliente= (Cliente)session.createQuery("from Cliente where " + identificador + " + like " + codCliente).uniqueResult();
 		List lstClientes = session.createCriteria(Cliente.class)
 									.add(Restrictions.like(identificador, cadena+"%")).list();
 		

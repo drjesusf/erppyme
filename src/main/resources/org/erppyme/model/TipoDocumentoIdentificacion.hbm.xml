@@ -5,7 +5,7 @@
 
 <hibernate-mapping package="org.erppyme.model" default-access="field" default-lazy="false">
 	<class name="TipoDocumentoIdentificacion" table="TIPODOCUMENTOIDENTIFICACION">
-		<id name="tipoDocumentoIdentificacionId" type="integer">
+		<id name="codTipoDocumentoIdentificacion" type="integer">
 			<column name="CODTIPODOCUMENTOIDENTIFICACION" not-null="true"/>
 			<generator class="native"/>
 		</id>		

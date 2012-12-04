@@ -6,21 +6,22 @@ public class TipoDocumentoIdentificacion implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	private Integer tipoDocumentoIdentificacionId;
+	private Integer codTipoDocumentoIdentificacion;
 	private String descripcion;
 	
 	public TipoDocumentoIdentificacion(){}
-	public TipoDocumentoIdentificacion(Integer tipoDocumentoIdentificacionId,
+	
+	public TipoDocumentoIdentificacion(Integer codTipoDocumentoIdentificacion,
 			String descripcion) {
 		super();
-		this.tipoDocumentoIdentificacionId = tipoDocumentoIdentificacionId;
+		this.codTipoDocumentoIdentificacion = codTipoDocumentoIdentificacion;
 		this.descripcion = descripcion;
 	}
-	public Integer getTipoDocumentoIdentificacionId() {
-		return tipoDocumentoIdentificacionId;
+	public Integer getcodTipoDocumentoIdentificacion() {
+		return codTipoDocumentoIdentificacion;
 	}
-	public void setTipoDocumentoIdentificacionId(Integer tipoDocumentoIdentificacionId) {
-		this.tipoDocumentoIdentificacionId = tipoDocumentoIdentificacionId;
+	public void setcodTipoDocumentoIdentificacion(Integer codTipoDocumentoIdentificacion) {
+		this.codTipoDocumentoIdentificacion = codTipoDocumentoIdentificacion;
 	}
 	public String getDescripcion() {
 		return descripcion;

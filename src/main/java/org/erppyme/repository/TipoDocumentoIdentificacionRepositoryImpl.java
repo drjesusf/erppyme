@@ -21,11 +21,8 @@ public class TipoDocumentoIdentificacionRepositoryImpl implements TipoDocumentoI
 	public List<TipoDocumentoIdentificacion> consulta(){
 		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
-		
 		List<TipoDocumentoIdentificacion> lstDocumentoIdentificacions = session.createQuery("from TipoDocumentoIdentificacion order by descripcion").list();
-		
 		session.close();
-		
 		return lstDocumentoIdentificacions;
 	}
 }

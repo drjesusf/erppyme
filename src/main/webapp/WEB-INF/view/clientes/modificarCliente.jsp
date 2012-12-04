@@ -8,7 +8,7 @@
 <form:form 	method="POST" modelAttribute="cliente" class="form-horizontal" name="modificarCliente"
 			action="modificarCliente.htm" >
 
-	<form:hidden path="clienteId" />
+	<form:hidden path="codCliente" />
   <div class="control-group">
     <label class="control-label" for="nombre">Nombres</label>
     <div class="controls">
@@ -30,10 +30,10 @@
   <div class="control-group">
     <label class="control-label" for="inputTipoDoc">Tipo Doc.</label>
     <div id="tipoDocumentoIdentificacion" class="controls">
-      	<form:select path="tipoDocumentoIdentificacion.tipoDocumentoIdentificacionId" >
+      	<form:select path="tipoDocumentoIdentificacion.codTipoDocumentoIdentificacion" >
       		<form:option value="0">--Seleccionar--</form:option>
-      		<form:options items="${lstTipoDocumentoIdentificacions}"
-      					  itemValue="tipoDocumentoIdentificacionId" 
+      		<form:options items="${lstTipoDocumentoIdentificacion}"
+      					  itemValue="codTipoDocumentoIdentificacion" 
       					  itemLabel="descripcion"/>
 		</form:select>
     </div>

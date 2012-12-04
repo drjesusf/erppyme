@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="f"  uri="http://java.sun.com/jsp/jstl/fmt"%>
 
@@ -28,21 +27,21 @@
 		function agregarNuevoCliente(){
 			document.nuevoCliente.submit();
 		}
-		function ventanaModificarCliente(clienteId){					
+		function ventanaModificarCliente(codCliente){					
 			$.ajax({
 				url:"obtenerCliente.htm",
 				dataType : "JSON",
 				type: "POST",
-				data : {clienteId : clienteId},				
+				data : {codCliente : codCliente},				
 				beforeSend:function(){
 				},
 				success:function(response){
 					$("#modalModificar").modal("show");
-					$("#clienteId").val(response.clienteId);
+					$("#codCliente").val(response.codCliente);
 					$("#nombre").val(response.nombre);
 					$("#apellidos").val(response.apellidos);
 					$("#direccion").val(response.direccion);					
-					$("#tipoDocumentoIdentificacion select").val(response.tipoDocumentoIdentificacion.tipoDocumentoIdentificacionId);
+					$("#tipoDocumentoIdentificacion select").val(response.tipoDocumentoIdentificacion.codTipoDocumentoIdentificacion);
 					$("#nroDocumentoIdentificacion").val(response.nroDocumentoIdentificacion);
 					$("#telefono").val(response.telefono);
 					$("#celular").val(response.celular);					
@@ -60,12 +59,12 @@
 		function eliminaCliente(){
 			document.location.href = "eliminarCliente.htm?clienteEliminarId="+$("#clienteEliminarId").val();
 		}
-		function ventanaEliminarCliente(clienteId){
+		function ventanaEliminarCliente(codCliente){
 			$("#modalEliminar").modal("show");
-			$("#clienteEliminarId").val(clienteId);
+			$("#clienteEliminarId").val(codCliente);
 		}
-		function cargarGrillaClientes(clienteId){
-			document.location.href = "obtenerClienteFiltrado.htm?clienteId="+clienteId;
+		function cargarGrillaClientes(codCliente){
+			document.location.href = "obtenerClienteFiltrado.htm?codCliente="+codCliente;
 		}
 	</script>
 	
@@ -86,9 +85,9 @@
 	    		<div class="row ">
 		    		<div class="tabbable tabs-left">
 					  <ul class="nav nav-tabs">
-					  	<li class="active"><a href="#tipoId1" data-toggle="tab">Tipo Id. 1</a></li>
-		    			<li><a href="#tipoId2" data-toggle="tab">Tipo Id. 2</a></li> 
-		    			<li><a href="#tipoId3" data-toggle="tab">Tipo Id. 3</a></li>
+					  	<li class="active"><a href="#tipoId1" data-toggle="tab">Lista de Clientes</a></li>
+<!-- 		    			<li><a href="#tipoId2" data-toggle="tab">Tipo Id. 2</a></li>  -->
+<!-- 		    			<li><a href="#tipoId3" data-toggle="tab">Tipo Id. 3</a></li> -->
 					  </ul>
 					  <div class="tab-content">
 						  <div class="tab-pane active" id="tipoId1">
@@ -97,7 +96,6 @@
 				            		<thead>
 				            			<tr>
 				            				<th colspan="10">
-				            					Lista de Clientes
 				            					<a href="#" id="tooltip" rel="tooltip" data-placement="right" title="Click para agregar un nuevo cliente"
 				            						onclick="ventanaNuevoCliente()">
 				            						<i class="icon-plus">
@@ -108,15 +106,15 @@
 				            				</th>
 				            			</tr>
 				            			<tr >
-				            				<th>C&oacute;digo</th>
-				            				<th>Nombre</th>
-				            				<th>Apellidos</th>
-				            				<th>Direcci&oacute;n</th>
-				            				<th>T,Doc</th>
-				            				<th>Nro.Doc</th>
-				            				<th>Telefono</th>
-				            				<th>Celular</th>
-				            				<th>Estado</th>
+				            				<th hidden="true">C&oacute;digo</th>
+				            				<th align="center">Nombre</th>
+				            				<th align="center">Apellidos</th>
+				            				<th align="center">Direcci&oacute;n</th>
+				            				<th align="center">T,Doc</th>
+				            				<th align="center">Nro.Doc</th>
+				            				<th align="center">Telefono</th>
+				            				<th align="center">Celular</th>
+				            				<th align="center">Estado</th>
 				            				<th align="center" >Acci&oacute;n</th>
 				            			</tr>
 				            		</thead>
@@ -128,7 +126,7 @@
 				            						class='error'
 				            					 </c:if>
 				            				>
-					            				<td>${cliente.clienteId}</td>
+					            				<td hidden="true">${cliente.codCliente}</td>
 					            				<td>${cliente.nombre}</td>
 					            				<td>${cliente.apellidos}</td>
 					            				<td>${cliente.direccion}</td>
@@ -139,8 +137,8 @@
 					            				<td>${cliente.estado}</td>
 					            				<td>				            					
 					            					<div class="btn-group">
-					            						<a class="btn" onclick="ventanaModificarCliente(${cliente.clienteId})" data-toggle="modal" role="button"> <i class="icon-pencil"></i> </a>
-					            						<a class="btn" onclick="ventanaEliminarCliente(${cliente.clienteId})"  data-toggle="modal" role="button"> <i class="icon-trash"></i> </a>
+					            						<a class="btn" onclick="ventanaModificarCliente(${cliente.codCliente})" data-toggle="modal" role="button"> <i class="icon-pencil"></i> </a>
+					            						<a class="btn" onclick="ventanaEliminarCliente(${cliente.codCliente})"  data-toggle="modal" role="button"> <i class="icon-trash"></i> </a>
 					            							
 					            					</div>
 					            				</td>
