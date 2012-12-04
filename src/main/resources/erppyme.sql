@@ -1,109 +1,100 @@
--- phpMyAdmin SQL Dump
--- version 3.4.5
--- http://www.phpmyadmin.net
---
--- Host: localhost
--- Generation Time: Jan 27, 2012 at 06:50 AM
--- Server version: 5.5.16
--- PHP Version: 5.3.8
+CREATE DATABASE  IF NOT EXISTS `ERPPYME` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `erppyme`;
+-- MySQL dump 10.13  Distrib 5.5.16, for Win32 (x86
+DROP TABLE IF EXISTS `tipodocumentoidentificacion`;
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
---
--- Database: `spring_jqgrid_tutorial`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `role`
---
-CREATE TABLE IF NOT EXISTS `TIPOCLIENTE`(
-	`CODTIPOCLIENTE` bigint(20) NOT NULL AUTO_INCREMENT,
-	`TIPO`			 VARCHAR(20) NOT NULL,
-	PRIMARY KEY(`CODTIPOCLIENTE`)
-)
-
-CREATE TABLE IF NOT EXISTS `CLIENTE`(
-	`CODCLIENTE` bigint(20) NOT NULL AUTO_INCREMENT,
-	`CODTIPOCLIENTE` bigint(20) NOT NULL,
-	`NUMERO`	 VARCHAR(30) NOT NULL,
-	`NOMBRE`	 VARCHAR(50) NOT NULL,
-	PRIMARY KEY(`CODCLIENTE`),
-	FOREIGN KEY(CODTIPOCLIENTE)
-		REFERENCES TIPOCLIENTE(`CODTIPOCLIENTE`)
-) 
+CREATE TABLE `tipodocumentoidentificacion` (
+  `CODTIPODOCUMENTOIDENTIFICACION` int(11) NOT NULL AUTO_INCREMENT,
+  `DESCRIPCION` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`CODTIPODOCUMENTOIDENTIFICACION`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 
-CREATE TABLE IF NOT EXISTS `role` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `role` int(11) DEFAULT NULL,
-  `user_id` bigint(20) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FK3580769128426C` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+DROP TABLE IF EXISTS `tiposdocumentoventa`;
 
---
--- Dumping data for table `role`
---
+CREATE TABLE `tiposdocumentoventa` (
+  `CODTIPODOCUMENTOVENTA` int(6) NOT NULL AUTO_INCREMENT,
+  `NOMBRE` varchar(50) NOT NULL,
+  `DESCRIPCION` varchar(50) DEFAULT NULL,
+  `ESTADO` varchar(3) NOT NULL,
+  PRIMARY KEY (`CODTIPODOCUMENTOVENTA`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 COMMENT='Esta tabla guarda los tipos de documento de venta (factura, guia, recibo, etc)';
 
-INSERT INTO `role` (`id`, `role`, `user_id`) VALUES
-(1, 1, 1),
-(2, 2, 2),
-(3, 1, 3),
-(4, 1, 4),
-(5, 2, 5),
-(6, 1, 6),
-(7, 2, 7),
-(8, 1, 8),
-(9, 1, 9),
-(10, 1, 10),
-(11, 1, 11),
-(12, 1, 12),
-(13, 2, 13);
+DROP TABLE IF EXISTS `productos`;
 
--- --------------------------------------------------------
+CREATE TABLE `productos` (
+  `CODPRODUCTO` int(6) NOT NULL AUTO_INCREMENT,
+  `NOMBRE` varchar(50) NOT NULL,
+  `DESCRIPCION` varchar(50) DEFAULT NULL,
+  `CODUNIDADMEDIDA` int(6) NOT NULL,
+  `ESTADO` varchar(3) NOT NULL,
+  PRIMARY KEY (`CODPRODUCTO`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 COMMENT='Esta es la tabla de Productos';
 
---
--- Table structure for table `user`
---
 
-CREATE TABLE IF NOT EXISTS `user` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `firstName` varchar(255) DEFAULT NULL,
-  `lastName` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `username` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+DROP TABLE IF EXISTS `CLIENTES`;
 
---
--- Dumping data for table `user`
---
+CREATE TABLE `CLIENTES` (
+  `CODCLIENTE` int(6) NOT NULL AUTO_INCREMENT,
+  `NOMBRE` varchar(50) NOT NULL,
+  `APELLIDOS` varchar(50) DEFAULT NULL,
+  `DIRECCION` varchar(50) DEFAULT NULL,
+  `CODTIPODOCUMENTOIDENTIFICACION` int(6) DEFAULT NULL,
+  `NRODOCUMENTOIDENTIFICACION` int(15) NOT NULL,
+  `TELEFONO` int(15) DEFAULT NULL,
+  `CELULAR` int(11) DEFAULT NULL,
+  `ESTADO` varchar(3) NOT NULL,
+  PRIMARY KEY (`CODCLIENTE`),
+  KEY `FK_TIPODOCIDENT_idx` (`CODTIPODOCUMENTOIDENTIFICACION`),
+  CONSTRAINT `FK_TIPODOCIDENT` FOREIGN KEY (`CODTIPODOCUMENTOIDENTIFICACION`) REFERENCES `tipodocumentoidentificacion` (`CODTIPODOCUMENTOIDENTIFICACION`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 COMMENT='Esta es la tabla de Clientes';
 
-INSERT INTO `user` (`id`, `firstName`, `lastName`, `password`, `username`) VALUES
-(1, 'Jesus', 'Ramirez', '21232f297a57a5a743894a0e4a801fc3', 'jramirez'),
-(2, 'Jane', 'Adams', 'ee11cbb19052e40b07aac0ca060c23ee', 'jane'),
-(3, 'Michael', 'Watson', 'xdhhjkd', 'mike'),
-(4, 'Alice', 'Smith', 'zvksdfm', 'alice'),
-(5, 'Nancy', 'Kerr', 'xmnogpd', 'nancy'),
-(6, 'Jeff', 'Sprouse', 'mvbnko', 'jeff'),
-(7, 'Betty', 'Star', 'mnhtiep', 'betty'),
-(8, 'John', 'Tracy', 'trrtyur', 'johnny'),
-(9, 'Selena', 'Garcia', 'iriopow', 'selena'),
-(10, 'Jennifer', 'Vogtle', 'zxvbcvb', 'jenny'),
-(11, 'Steve', 'Martin', 'z34ghgd', 'steve'),
-(12, 'Gail', 'Hansen', 'xjmcmik', 'gail'),
-(13, 'Edward', 'Zeigler', 'mncmksk', 'edward');
+DROP TABLE IF EXISTS `ventas`; 
 
---
--- Constraints for dumped tables
---
+CREATE TABLE IF NOT EXISTS `ventas` (
+  `CODVENTA` int(6) NOT NULL AUTO_INCREMENT,
+  `CODCLIENTE` int(6) NOT NULL,
+  `FECHAVENTA` datetime DEFAULT NULL,
+  `MONTOBRUTO` decimal(10,2) NOT NULL,
+  `MONTONETO` decimal(10,2) NOT NULL,
+  `DESCUENTO` decimal(10,2) NOT NULL,
+  `ESTADO` varchar(3) NOT NULL,
+  PRIMARY KEY (`CODVENTA`),
+  KEY `CODCLIENTE` (`CODCLIENTE`),
+  CONSTRAINT `VENTAS_ibfk_1` FOREIGN KEY (`CODCLIENTE`) REFERENCES `CLIENTES` (`CODCLIENTE`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 COMMENT='Esta es la tabla de Clientes';;
 
---
--- Constraints for table `role`
---
-ALTER TABLE `role`
-  ADD CONSTRAINT `FK3580769128426C` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+DROP TABLE IF EXISTS `DOCUMENTOSVENTAS`;
+
+CREATE TABLE `DOCUMENTOSVENTAS` (
+  `CODDOCUMENTOVENTA` int(6) NOT NULL AUTO_INCREMENT,
+  `CODVENTA` int(6) NOT NULL,
+  `CODTIPODOCUMENTOVENTA` int(6) NOT NULL,
+  `NRODOCUMENTO` varchar(50) DEFAULT NULL,
+  `FECHAEMISION` datetime NOT NULL,
+  `ESTADO` varchar(3) NOT NULL,
+  PRIMARY KEY (`CODDOCUMENTOVENTA`),
+  KEY `CODVENTA` (`CODVENTA`),
+  KEY `CODTIPODOCUMENTOVENTA` (`CODTIPODOCUMENTOVENTA`),
+  CONSTRAINT `DOCUMENTOSVENTAS_ibfk_2` FOREIGN KEY (`CODTIPODOCUMENTOVENTA`) REFERENCES `tiposdocumentoventa` (`CODTIPODOCUMENTOVENTA`),
+  CONSTRAINT `DOCUMENTOSVENTAS_ibfk_1` FOREIGN KEY (`CODVENTA`) REFERENCES `ventas` (`CODVENTA`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1 COMMENT='Esta es la tabla donde se guardan los tipos de documentos que se generan en vent';
+
+
+DROP TABLE IF EXISTS `detallesdocumentoventaproducto`;
+
+CREATE TABLE `detallesdocumentoventaproducto` (
+  `CODPRODUCTO` int(6) NOT NULL,
+  `CODDOCUMENTOVENTA` int(6) NOT NULL,
+  `CANTIDADUNIDADESPRODUCTO` int(11) NOT NULL,
+  `PRECIOPRODUCTO` decimal(10,2) NOT NULL,
+  `ESTADO` int(11) NOT NULL,
+  `DESCRIPCION` varchar(50) NOT NULL,
+  KEY `CODPRODUCTO` (`CODPRODUCTO`),
+  KEY `CODDOCUMENTOVENTA` (`CODDOCUMENTOVENTA`),
+  CONSTRAINT `detallesdocumentoventaproducto_ibfk_1` FOREIGN KEY (`CODDOCUMENTOVENTA`) REFERENCES `documentosventas` (`CODVENTA`),
+  CONSTRAINT `detallesdocumentoventaproducto_ibfk_2` FOREIGN KEY (`CODPRODUCTO`) REFERENCES `productos` (`CODPRODUCTO`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Esta tabla guarda el detalle de los documentos generados en una venta';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
