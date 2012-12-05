@@ -8,61 +8,68 @@
 <form:form method="POST" modelAttribute="cliente"
 	class="form-horizontal" name="nuevoCliente" action="nuevoCliente.htm">
 
-	<div class="control-group">
+	<div id="controlNombre" class="control-group">
 		<label class="control-label" for="nombre">Nombres</label>
 		<div class="controls">
-			<form:input path="nombre" />
+			<form:input path="nombre" class="input-medium" />
+			<span class="help-inline" id="e_nombre" style="visibility: hidden;">Ingresar nombre</span>
 		</div>
+		
 	</div>
-	<div class="control-group">
+	<div id="controlApellidos" class="control-group">
 		<label class="control-label" for="apellidos">Apellidos</label>
 		<div class="controls">
-			<form:input path="apellidos" />
+			<form:input path="apellidos" class="input-medium" />
+			<span class="help-inline" id="e_apellido" style="visibility: hidden;">Ingresar apellido</span>
 		</div>
 	</div>
-	<div class="control-group">
-		<label class="control-label" for="direccion">Direcci&oacute;n</label>
+	<div id="controlDireccion" class="control-group">
+		<label class="control-label" for="direccion" class="input-medium">Direcci&oacute;n</label>
 		<div class="controls">
 			<form:input path="direccion" />
+			<span class="help-inline" id="e_direccion" style="visibility: hidden;">Ingresar direcci&oacute;n</span>
 		</div>
 	</div>
-	<div class="control-group">
+	<div id="controlTipoDocumentoIdentificacion" class="control-group">
 		<label class="control-label" for="inputTipoDoc">Tipo Doc.</label>
 		<div id="tipoDocumentoIdentificacion" class="controls">
-			<form:select
+			<form:select class="input-medium"
 				path="tipoDocumentoIdentificacion.codTipoDocumentoIdentificacion">
 				<form:option value="0">--Seleccionar--</form:option>
 				<form:options items="${lstTipoDocumentoIdentificacion}"
 					itemValue="codTipoDocumentoIdentificacion" itemLabel="descripcion" />
 			</form:select>
+			<span class="help-inline" id="e_tipoDocumentoIdentificacion" style="visibility: hidden;">Seleccionar Documento</span>
 		</div>
 	</div>
-	<div class="control-group">
+	<div id="controlNroDocumentoIdentificacion" class="control-group">
 		<label class="control-label" for="inputNroId">Nro Id.</label>
 		<div class="controls">
-			<form:input path="nroDocumentoIdentificacion" />
+			<form:input path="nroDocumentoIdentificacion" class="input-medium"/>
+			<span class="help-inline" id="e_nroDocumentoIdentificacion" style="visibility: hidden;">Ingresar Documento</span>
 		</div>
 	</div>
-	<div class="control-group">
+	<div id="controlTelefono" class="control-group">
 		<label class="control-label" for="inputTelefono">Telefono</label>
 		<div class="controls">
-			<form:input path="telefono" />
+			<form:input path="telefono" class="input-medium"/>
+			<span class="help-inline" id="e_telefono" style="visibility: hidden;">Ingresar Telefono</span>
 		</div>
 	</div>
-	<div class="control-group">
+	<div id="controlCelular" class="control-group">
 		<label class="control-label" for="inputCelular">Celular</label>
 		<div class="controls">
-			<form:input path="celular" />
+			<form:input path="celular" class="input-medium" />
+			<span class="help-inline" id="e_celular" style="visibility: hidden;">Ingresar celular</span>
 		</div>
 	</div>
-	<div class="control-group">
+	<div id="controlEstado" class="control-group">
 		<label class="control-label" for="inputEstado">Estado</label>
 		<div class="controls">
-			<form:select path="estado">
-				<form:option value="0">--Seleccionar--</form:option>
+			<form:select path="estado" class="input-medium">
 				<form:option value="ACT">ACTIVO</form:option>
-				<form:option value="PAS">PASIVO</form:option>
 			</form:select>
+			<span class="help-inline" id="e_estado" style="visibility: hidden;">Seleccionar un estado</span>
 		</div>
 	</div>
 </form:form>

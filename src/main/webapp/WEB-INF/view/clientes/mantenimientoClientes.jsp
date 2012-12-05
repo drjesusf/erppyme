@@ -25,7 +25,9 @@
 			$("#modalNuevo").modal("show");
 		};
 		function agregarNuevoCliente(){
-			document.nuevoCliente.submit();
+			if(validarCliente())
+				document.nuevoCliente.submit();
+			
 		}
 		function ventanaModificarCliente(codCliente){					
 			$.ajax({
@@ -67,7 +69,53 @@
 			document.location.href = "obtenerClienteFiltrado.htm?codCliente="+codCliente;
 		}
 	</script>
-	
+	<script type="text/javascript">
+		function validarCliente(){
+			var validar = true;
+			$("#controlNombre").css("control-group");
+			$("#controlApellidos").removeClass();
+			$("#controlDireccion").removeClass();
+			$("#controlTipoDocumentoIdentificacion").remove();
+			$("#controlNroDocumentoIdentificacion").remove();
+			$("#controlTelefono").remove();
+			$("#controlCelular").remove();
+			$("#controlEstado").remove();
+			
+			if($("#nombre").val() == "") {
+				validar = false;
+				$("#controlNombre").addClass("error");
+			}
+			if($("#apellidos").val() == "") {
+				validar = false;
+				$("#controlApellidos").addClass("error");
+			}
+			if($("#direccion").val() == "") {
+				validar = false;
+				$("#controlDireccion").addClass("error");
+			}
+			if($("#tipoDocumentoIdentificacion select").val() == "") {
+				validar = false;
+				$("#controlTipoDocumentoIdentificacion").addClass("error");
+			}
+			if($("#nroDocumentoIdentificacion select").val() == "") {
+				validar = false;
+				$("#controlNroDocumentoIdentificacion").addClass("error");
+			}
+			if($("#telefono").val() == "") {
+				validar = false;
+				$("#controlTelefono").addClass("error");
+			}
+			if($("#celular").val() == "") {
+				validar = false;
+				$("#controlCelular").addClass("error");
+			}
+			if($("#estado").val() == "") {
+				validar = false;
+				$("#controlEstado").addClass("error");
+			}
+			return validar;
+		}
+	</script>
 </head>
 <body>
 
@@ -137,7 +185,7 @@
 					            				<td>${cliente.estado}</td>
 					            				<td>				            					
 					            					<div class="btn-group">
-					            						<a class="btn" onclick="ventanaModificarCliente(${cliente.codCliente})" data-toggle="modal" role="button"> <i class="icon-pencil"></i> </a>
+					            						<a class="btn" onclick="ventanaModificarCliente(${cliente.codCliente})" data-toggle="modal" role="button"> <i class="icon-pencil"></i> </a> &nbsp;
 					            						<a class="btn" onclick="ventanaEliminarCliente(${cliente.codCliente})"  data-toggle="modal" role="button"> <i class="icon-trash"></i> </a>
 					            							
 					            					</div>
@@ -149,15 +197,7 @@
 				            	</table>
 				            </div>
 					      </div>
-					      <div class="tab-pane active" id="tipoId2">
-					      	<div id="clientsDb">
-				            
-				            </div>
-					      </div>
-					      <div class="tab-pane active" id="tipoId3">
-					      	<div id="clientsDb">
-				            </div>
-					      </div>      
+					          
 					  </div>
 					</div>
 	    		</div>  
