@@ -1,12 +1,13 @@
 package org.erppyme.model;
 
 import java.io.Serializable;
-
 import org.springframework.stereotype.Component;;
+
 @Component(value = "cliente")
 public class Cliente implements Serializable{
+	
 	private static final long serialVersionUID = 1L;
-	private Integer clienteId;
+	private Integer codCliente;
 	
 	private String nombre;
 	private String apellidos;
@@ -16,17 +17,16 @@ public class Cliente implements Serializable{
 	private Integer telefono;
 	private Integer celular;
 	private String estado;
-	public Cliente(){
-		
-	}
 	
-	public Cliente(Integer clienteId, String nombre, String apellidos,
+	public Cliente(){}
+	
+	public Cliente(Integer codCliente, String nombre, String apellidos,
 			String direccion,
 			TipoDocumentoIdentificacion tipoDocumentoIdentificacion,
 			Integer nroDocumentoIdentificacion, Integer telefono,
 			Integer celular, String estado) {
 		super();
-		this.clienteId = clienteId;
+		this.codCliente = codCliente;
 		this.nombre = nombre;
 		this.apellidos = apellidos;
 		this.direccion = direccion;
@@ -37,11 +37,11 @@ public class Cliente implements Serializable{
 		this.estado = estado;
 	}
 
-	public Integer getClienteId() {
-		return clienteId;
+	public Integer getcodCliente() {
+		return codCliente;
 	}
-	public void setClienteId(Integer clienteId) {
-		this.clienteId = clienteId;
+	public void setcodCliente(Integer codCliente) {
+		this.codCliente = codCliente;
 	}
 	public String getNombre() {
 		return nombre;

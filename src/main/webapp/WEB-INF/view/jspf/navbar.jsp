@@ -48,7 +48,7 @@
 			    </ul>
 			</li>
 			<li>
-				<a href="#contact">Ventas</a>
+				<a href="mantenimientoVentas.htm">Ventas</a>
 			</li>
 		  </ul>
 		

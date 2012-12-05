@@ -1,25 +1,27 @@
 package org.erppyme.model;
 
-import java.io.Serializable;
+import org.springframework.stereotype.Component;
 
-public class TipoCliente implements Serializable{
-	private Integer tipoClienteId;
+@Component(value="tipoCliente")
+public class TipoCliente{
+	
+	private Integer codTipoCliente;
 	private String nombre;
 	
 	public TipoCliente(){}
 
-	public TipoCliente(Integer tipoClienteId, String nombre) {
+	public TipoCliente(Integer codTipoCliente, String nombre) {
 		super();
-		this.tipoClienteId = tipoClienteId;
+		this.codTipoCliente = codTipoCliente;
 		this.nombre = nombre;
 	}
 
-	public Integer getTipoClienteId() {
-		return tipoClienteId;
+	public Integer getcodTipoCliente() {
+		return codTipoCliente;
 	}
 
-	public void setTipoClienteId(Integer tipoClienteId) {
-		this.tipoClienteId = tipoClienteId;
+	public void setcodTipoCliente(Integer codTipoCliente) {
+		this.codTipoCliente = codTipoCliente;
 	}
 
 	public String getNombre() {

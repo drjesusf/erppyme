@@ -31,7 +31,7 @@ public class ClienteController {
 	public String mantenimientoClientes(Model model){		
 		List<Cliente> lstClientes = clienteService.consulta();
 		List<TipoDocumentoIdentificacion> lstTipoDocumentoIdentificacions = tipoDocumentoIdentificacionService.consulta();
-		model.addAttribute("lstTipoDocumentoIdentificacions", lstTipoDocumentoIdentificacions);
+		model.addAttribute("lstTipoDocumentoIdentificacion", lstTipoDocumentoIdentificacions);
 		model.addAttribute("lstClientes", lstClientes);
 		model.addAttribute("cliente", new Cliente());
 		return "clientes/mantenimientoClientes";
@@ -49,9 +49,9 @@ public class ClienteController {
 	}
 	
 	@RequestMapping( value = "obtenerCliente.htm", method = RequestMethod.POST)
-	public @ResponseBody Cliente obtenerCliente(Map<String, Object> model ,@RequestParam("clienteId") Integer clienteId){
-		System.out.println("Entro obtenerCliente con: " + clienteId);
-		Cliente existenteCliente = clienteService.obtenerCliente(clienteId);
+	public @ResponseBody Cliente obtenerCliente(Map<String, Object> model ,@RequestParam("codCliente") Integer codCliente){
+		System.out.println("Entro obtenerCliente con: " + codCliente);
+		Cliente existenteCliente = clienteService.obtenerCliente(codCliente);
 		model.put("cliente", existenteCliente);
 		System.out.println("Cliente ->" + existenteCliente.getNombre());
 		
@@ -60,9 +60,9 @@ public class ClienteController {
 	}
 	
 	@RequestMapping( value = "obtenerClienteFiltrado.htm", method = RequestMethod.GET)
-	public String  obtenerClienteFiltrado(Model model,@RequestParam("clienteId") Integer clienteId){
-		System.out.println("Entro obtenerClienteFiltrado con: " + clienteId);
-		Cliente existenteCliente = clienteService.obtenerCliente(clienteId);
+	public String  obtenerClienteFiltrado(Model model,@RequestParam("codCliente") Integer codCliente){
+		System.out.println("Entro obtenerClienteFiltrado con: " + codCliente);
+		Cliente existenteCliente = clienteService.obtenerCliente(codCliente);
 		System.out.println("Cliente ->" + existenteCliente.getNombre());
 		List<Cliente> lstClientes = new ArrayList<Cliente>();
 		lstClientes.add(existenteCliente);

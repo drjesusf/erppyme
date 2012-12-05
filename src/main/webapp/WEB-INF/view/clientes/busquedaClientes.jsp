@@ -13,8 +13,8 @@
             select: function( event, ui ) {
             	var nombreCompleto = ui.item.nombre +" "+ ui.item.apellidos
                  $( "#buscarCliente" ).val( nombreCompleto ); 
-                 $( "#buscarCliente-id" ).val( ui.item.clienteId ); 
-                 cargarGrillaClientes(ui.item.clienteId);
+                 $( "#buscarCliente-id" ).val( ui.item.codCliente ); 
+                 cargarGrillaClientes(ui.item.codCliente);
                 return false;
             }
         })

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.erppyme.model"
+	default-access="field" default-lazy="false">
+	<class name="DetalleDocumentoVentaProducto" table="DETALLESDOCUMENTOVENTAPRODUCTO">
+		<id name="codDetallesDocumentoVentaProducto" type="integer">
+			<column name="CODDETALLESDOCUMENTOVENTAPRODUCTO" not-null="true" />
+			<generator class="native" />
+		</id>
+
+		<many-to-one name="Producto" class="Producto">
+			<column name="CODPRODUCTO" />
+		</many-to-one>
+		<many-to-one name="DocumentoVenta" class="DocumentoVenta">
+			<column name="CODDOCUMENTOVENTA" />
+		</many-to-one>
+		<property name="cantidadUnidadesProducto" type="int">
+			<column name="CANTIDADUNIDADESPRODUCTO" not-null="true"></column>
+		</property>
+		<property name="precioProducto" type="big_decimal">
+			<column name="PRECIOPRODUCTO" not-null="true"></column>
+		</property>
+		<property name="descripcion" type="string">
+			<column name="DESCRIPCION" not-null="true"></column>
+		</property>
+		<property name="estado" type="string">
+			<column name="ESTADO" not-null="true"></column>
+		</property>
+	</class>
+</hibernate-mapping> 

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.erppyme.model"
+	default-access="field" default-lazy="false">
+	<class name="Producto" table="PRODUCTOS">
+		<id name="codProducto" type="integer">
+			<column name="CODPRODUCTO" not-null="true" />
+			<generator class="native" />
+		</id>
+		<property name="nombre" type="string">
+			<column name="NOMBRE" not-null="true"></column>
+		</property>
+		<property name="descripcion" type="string">
+			<column name="DESCRIPCION" not-null="false"></column>
+		</property>
+<!-- 		Aqui se debe agregar esto  -->
+<!-- 		<many-to-one name="tipoDocumentoIdentificacion" class="TipoDocumentoIdentificacion"> -->
+<!-- 			<column name="CODTIPODOCUMENTOIDENTIFICACION"/> -->
+<!-- 		</many-to-one> -->
+		<property name="codUnidadMedida" type="int">
+			<column name="CODUNIDADMEDIDA" not-null="true"></column>
+		</property>
+		<property name="estado" type="string">
+			<column name="ESTADO" not-null="true"></column>
+		</property>
+		<property name="precioReferencial" type="big_decimal">
+			<column name="PRECIOREFERENCIAL" not-null="true"></column>
+		</property>
+	</class>
+</hibernate-mapping> 
