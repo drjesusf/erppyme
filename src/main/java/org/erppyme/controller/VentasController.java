@@ -1,5 +1,6 @@
 package org.erppyme.controller;
 
+import org.erppyme.model.Cliente;
 import org.erppyme.model.Venta;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

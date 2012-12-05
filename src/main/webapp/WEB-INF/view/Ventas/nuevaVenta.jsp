@@ -5,10 +5,16 @@
 <form:form method="POST" modelAttribute="venta"
 	class="form-horizontal" name="nuevaVenta" action="nuevaVenta.htm">
 
-	<div class="control-group">
-		<label class="control-label" for="codCliente">Nombre de Cliente</label>
+	<div class="control-group" hidden = "true">
+		<label class="control-label" for="codCliente"></label>
 		<div class="controls">
-			<form:input path="codCliente" />
+			<form:input path="cliente.codCliente" />
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="nombreCliente">Nombre de Cliente</label>
+		<div class="controls">
+			<form:input path="cliente.nombreCliente" />
 		</div>
 	</div>
 	
