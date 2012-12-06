@@ -15,6 +15,15 @@
 </style>
 <script>
 	function ventanaNuevo() {
+		$('#modalNuevo').modal({
+	        backdrop: true,
+	        keyboard: true
+	    }).css({
+	        width: 'auto',
+	        'margin-left': function () {
+	            return -($(this).width() / 2);
+	        }
+	    });
 		$("#modalNuevo").modal("show");
 	};
 	function agregarNuevo() {
@@ -56,8 +65,11 @@
 	function cargarGrillaProductos(codProducto){
 		document.location.href = "obtenerProductoFiltrado.htm?codProducto="+codProducto;
 	}
+	
 </script>
+<style type="text/css" >
 
+</style>
 </head>
 <body>
 

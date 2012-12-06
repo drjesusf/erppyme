@@ -77,7 +77,7 @@
 <!--	  <div class="row-fluid">-->
 	    <div class="row alert alert-info">
 	    	<div class="span12">
-	    		<c:import url="busquedaClientes.jsp"></c:import>
+	    		<c:import url="../clientes/busquedaClientes.jsp"></c:import>
 	    	</div>
 	    </div>
 	    <div class="row">
@@ -171,7 +171,7 @@
 	    <h3 id="myModalLabel">Modificar Cliente</h3>
 	  </div>
 	  <div class="modal-body">
-	    <c:import url="modificarCliente.jsp"></c:import>
+	    <c:import url="../clientes/modificarCliente.jsp"></c:import>
 	
 	  </div>
 	  <div class="modal-footer">
@@ -205,7 +205,7 @@
 	    <h3 id="myModalLabel3">Nuevo Cliente</h3>
 	  </div>
 	  <div class="modal-body">
-	  	<c:import url="nuevoCliente.jsp"></c:import>
+	  	<c:import url="../clientes/nuevoCliente.jsp"></c:import>
 	  </div>
 	  <div class="modal-footer">
 	    <button class="btn btn-primary" onclick="agregarNuevoCliente()">Agregar</button>
