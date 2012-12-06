@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 
 @Controller
-//@SessionAttributes({"usuario","cliente"})
 public class ProductoController {
 	
 	@Autowired

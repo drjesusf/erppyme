@@ -59,8 +59,8 @@
 </script>
 
 </head>
-<body>
-
+<body onload="seleccionarItemNavBar()">
+	<input id="ventanaActiva" hidden="true" value="mantenimientoProductos">
 	<c:import url="../jspf/navbar.jsp"></c:import>
 
 	<div class="container">

@@ -14,9 +14,9 @@ public class VentasController {
 	@RequestMapping(value="/mantenimientoVentas.htm", method=RequestMethod.GET )
 	public String mantenimientoVentas(Model model)
 	{
-		model.addAttribute("cliente", new Cliente());
+//		model.addAttribute("cliente", new Cliente());
 		model.addAttribute("venta", new Venta());
-		return "Ventas/mantenimientoVentas";
+		return "ventas/mantenimientoVentas";
 	}
 	
 	

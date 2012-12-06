@@ -71,8 +71,8 @@
 
 </style>
 </head>
-<body>
-
+<body onload="seleccionarItemNavBar()">
+	<input id="ventanaActiva" hidden="true" value="mantenimientoVentas">
 	<c:import url="../jspf/navbar.jsp"></c:import>
 
 	<div class="container">
@@ -198,7 +198,7 @@
 			<h3 id="myModalLabel3">Nueva Venta</h3>
 		</div>
 		<div class="modal-body">
-			<c:import url="nuevaVenta.jsp"></c:import>
+<%-- 			<c:import url="nuevaVenta.jsp"></c:import> --%>
 		</div>
 		<div class="modal-footer">
 			<button class="btn btn-primary" onclick="agregarNuevo()">Agregar</button>
