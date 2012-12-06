@@ -22,14 +22,17 @@
 			$("table#clientes").tablesorter({ sortList: [[1,0]] });
 		});
 		function ventanaNuevoCliente(){
+			$("#nuevoCliente").attr("action", "nuevoCliente.htm");
 			$("#modalNuevo").modal("show");
 		};
 		function agregarNuevoCliente(){
+			limpiarFormulario();
 			if(validarCliente())
 				document.nuevoCliente.submit();
 			
 		}
-		function ventanaModificarCliente(codCliente){					
+		function ventanaModificarCliente(codCliente){
+			$("#nuevoCliente").attr("action", "modificarCliente.htm");
 			$.ajax({
 				url:"obtenerCliente.htm",
 				dataType : "JSON",
@@ -38,7 +41,7 @@
 				beforeSend:function(){
 				},
 				success:function(response){
-					$("#modalModificar").modal("show");
+					$("#modalNuevo").modal("show");
 					$("#codCliente").val(response.codCliente);
 					$("#nombre").val(response.nombre);
 					$("#apellidos").val(response.apellidos);
@@ -50,7 +53,7 @@
 					$("#estado").val(response.estado);
 				} ,
 				error: function(response){
-					alert("eeror");
+					alert("error");
 				}
 			});
 		}
@@ -72,14 +75,6 @@
 	<script type="text/javascript">
 		function validarCliente(){
 			var validar = true;
-			$("#controlNombre").css("control-group");
-			$("#controlApellidos").removeClass();
-			$("#controlDireccion").removeClass();
-			$("#controlTipoDocumentoIdentificacion").remove();
-			$("#controlNroDocumentoIdentificacion").remove();
-			$("#controlTelefono").remove();
-			$("#controlCelular").remove();
-			$("#controlEstado").remove();
 			
 			if($("#nombre").val() == "") {
 				validar = false;
@@ -93,11 +88,11 @@
 				validar = false;
 				$("#controlDireccion").addClass("error");
 			}
-			if($("#tipoDocumentoIdentificacion select").val() == "") {
+			if($("#tipoDocumentoIdentificacion select").val() == 0) {
 				validar = false;
 				$("#controlTipoDocumentoIdentificacion").addClass("error");
 			}
-			if($("#nroDocumentoIdentificacion select").val() == "") {
+			if($("#nroDocumentoIdentificacion").val() == "") {
 				validar = false;
 				$("#controlNroDocumentoIdentificacion").addClass("error");
 			}
@@ -109,11 +104,32 @@
 				validar = false;
 				$("#controlCelular").addClass("error");
 			}
-			if($("#estado").val() == "") {
+			if($("#estado").val() == 0) {
 				validar = false;
 				$("#controlEstado").addClass("error");
+				alert("controlEstado");
 			}
+			
 			return validar;
+		}
+		function limpiarFormulario(){
+			$("#controlNombre").removeClass();
+			$("#controlNombre").addClass("control-group");
+			$("#controlApellidos").removeClass();
+			$("#controlApellidos").addClass("control-group");
+			$("#controlDireccion").removeClass();
+			$("#controlDireccion").addClass("control-group");
+			$("#controlTipoDocumentoIdentificacion").removeClass();
+			$("#controlTipoDocumentoIdentificacion").addClass("control-group");
+			$("#controlNroDocumentoIdentificacion").removeClass();
+			$("#controlNroDocumentoIdentificacion").addClass("control-group");
+			$("#controlTelefono").removeClass();
+			$("#controlTelefono").addClass("control-group");
+			$("#controlCelular").removeClass();
+			$("#controlCelular").addClass("control-group");
+			$("#controlEstado").removeClass();
+			$("#controlEstado").addClass("control-group");
+			
 		}
 	</script>
 </head>
@@ -205,20 +221,20 @@
 	    </div>
 	</div>
 	
-	<div id="modalModificar" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-header">
-	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-	    <h3 id="myModalLabel">Modificar Cliente</h3>
-	  </div>
-	  <div class="modal-body">
-	    <c:import url="modificarCliente.jsp"></c:import>
+<!-- 	<div id="modalModificar" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> -->
+<!-- 	  <div class="modal-header"> -->
+<!-- 	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> -->
+<!-- 	    <h3 id="myModalLabel">Modificar Cliente</h3> -->
+<!-- 	  </div> -->
+<!-- 	  <div class="modal-body"> -->
+<%-- 	    <c:import url="modificarCliente.jsp"></c:import> --%>
 	
-	  </div>
-	  <div class="modal-footer">
-	    <button class="btn btn-primary" onclick="guardarCliente()">Guardar</button>
-	    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-	  </div>
-	</div>
+<!-- 	  </div> -->
+<!-- 	  <div class="modal-footer"> -->
+<!-- 	    <button class="btn btn-primary" onclick="guardarCliente()">Guardar</button> -->
+<!-- 	    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button> -->
+<!-- 	  </div> -->
+<!-- 	</div> -->
 	
 	<div id="modalEliminar" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
 	  <div class="modal-header">
