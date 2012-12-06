@@ -70,6 +70,7 @@ public class ClienteController {
 		lstClientes.add(existenteCliente);
 		//List<TipoDocumentoIdentificacion> lstTipoDocumentoIdentificacions = tipoDocumentoIdentificacionService.consulta();
 		//model.addAttribute("lstTipoDocumentoIdentificacions", lstTipoDocumentoIdentificacions);
+
 		model.addAttribute("lstClientes", lstClientes);
 		model.addAttribute("cliente", new Cliente());
 		return "clientes/mantenimientoClientes";
@@ -94,9 +95,9 @@ public class ClienteController {
 	@RequestMapping(value="/agregarCliente.htm",method= RequestMethod.GET)
 	public String agregarCliente( Model model){
 		System.out.println("Entrro a agregar Clientes");
-		
 		//List<TipoDocumentoIdentificacion> lstTipoDocumentoIdentificacions = tipoDocumentoIdentificacionService.consulta();
 		//model.addAttribute("lstTipoDocumentoIdentificacions", lstTipoDocumentoIdentificacions);
+
 		model.addAttribute("cliente", new Cliente());
 		return "clientes/nuevoCliente";
 	}
