@@ -1,5 +1,7 @@
 package org.erppyme.controller;
 
+import org.erppyme.model.Cliente;
+import org.erppyme.model.Venta;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +14,9 @@ public class VentasController {
 	@RequestMapping(value="/mantenimientoVentas.htm", method=RequestMethod.GET )
 	public String mantenimientoVentas(Model model)
 	{
-		return "Ventas/mantenimientoVentas";
+//		model.addAttribute("cliente", new Cliente());
+		model.addAttribute("venta", new Venta());
+		return "ventas/mantenimientoVentas";
 	}
 	
 	

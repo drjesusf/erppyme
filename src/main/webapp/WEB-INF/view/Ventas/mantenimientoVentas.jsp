@@ -15,6 +15,15 @@
 </style>
 <script>
 	function ventanaNuevo() {
+		$('#modalNuevo').modal({
+	        backdrop: true,
+	        keyboard: true
+	    }).css({
+	        width: 'auto',
+	        'margin-left': function () {
+	            return -($(this).width() / 2);
+	        }
+	    });
 		$("#modalNuevo").modal("show");
 	};
 	function agregarNuevo() {
@@ -56,11 +65,14 @@
 	function cargarGrillaProductos(codProducto){
 		document.location.href = "obtenerProductoFiltrado.htm?codProducto="+codProducto;
 	}
+	
 </script>
+<style type="text/css" >
 
+</style>
 </head>
-<body>
-
+<body onload="seleccionarItemNavBar()">
+	<input id="ventanaActiva" hidden="true" value="mantenimientoVentas">
 	<c:import url="../jspf/navbar.jsp"></c:import>
 
 	<div class="container">
@@ -107,7 +119,7 @@
 									</table>
 								</div>
 							</div>
-							<div class="tab-pane active" id="ListaDocumentos">
+							<div class="tab-pane " id="ListaDocumentos">
 								<div id="clientsDb">
 									<table class="table table-bordered" id="clientes">
 										<thead>
@@ -183,10 +195,10 @@
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal"
 				aria-hidden="true">×</button>
-			<h3 id="myModalLabel3">Nuevo Producto</h3>
+			<h3 id="myModalLabel3">Nueva Venta</h3>
 		</div>
 		<div class="modal-body">
-<%-- 			<c:import url="nuevoProducto.jsp"></c:import> --%>
+<%-- 			<c:import url="nuevaVenta.jsp"></c:import> --%>
 		</div>
 		<div class="modal-footer">
 			<button class="btn btn-primary" onclick="agregarNuevo()">Agregar</button>

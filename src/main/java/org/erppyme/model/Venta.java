@@ -10,7 +10,7 @@ public class Venta {
 
 	private int codVenta;
 	private Cliente cliente;
-	private Date fechaventa;
+	private Date fechaVenta;
 	private BigDecimal montoBruto;
 	private BigDecimal montoNeto;
 	private BigDecimal descuento;
@@ -18,12 +18,12 @@ public class Venta {
 	
 	public Venta(){}
 	
-	public Venta( int codVenta, Cliente cliente, Date fechaventa, BigDecimal montoBruto,
+	public Venta( int codVenta, Cliente cliente, Date fechaVenta, BigDecimal montoBruto,
 			 		BigDecimal montoNeto, BigDecimal descuento, String estado)
 	{
 		this.codVenta = codVenta;
 		this.cliente = cliente;
-		this.fechaventa = fechaventa;
+		this.fechaVenta = fechaVenta;
 		this.montoBruto = montoBruto;
 		this.montoNeto = montoNeto;
 		this.descuento = descuento;
@@ -49,12 +49,12 @@ public class Venta {
 		this.cliente = cliente;
 	}
 
-	public Date getFechaventa() {
-		return fechaventa;
+	public Date getFechaVenta() {
+		return fechaVenta;
 	}
 
-	public void setFechaventa(Date fechaventa) {
-		this.fechaventa = fechaventa;
+	public void setFechaVenta(Date fechaventa) {
+		this.fechaVenta = fechaventa;
 	}
 
 	public BigDecimal getMontoBruto() {
