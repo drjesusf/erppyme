@@ -80,7 +80,17 @@
 		$(document).ready(function () {
 			$("#nombre,#apellidos,#direccion,#nroDocumentoIdentificacion,#telefono,#celular").keyup(function(){
 			    validarCliente();
-			});	
+			});
+			$("#tipoDocumentoIdentificacion select").change(function(){
+				if($("#tipoDocumentoIdentificacion select").val()!=0){
+					$("#controlTipoDocumentoIdentificacion").removeClass();
+					$("#controlTipoDocumentoIdentificacion").addClass("control-group");
+					$("#e_tipoDocumentoIdentificacion").css('visibility', 'hidden');
+				}else {
+					$("#controlTipoDocumentoIdentificacion").addClass("error");
+					$("#e_tipoDocumentoIdentificacion").css('visibility', 'visible');
+				}
+			});
 		});
 	
 		function validarCliente(){
@@ -91,7 +101,6 @@
 				$("#controlNombre").addClass("error");
 				$("#e_nombre").css('visibility', 'visible');				
 			}else{
-				alert("entro");
 				$("#e_nombre").css('visibility', 'hidden');
 				$("#controlNombre").removeClass();
 				$("#controlNombre").addClass("control-group");
@@ -100,37 +109,65 @@
 				validar = false;
 				$("#controlApellidos").addClass("error");
 				$("#e_apellido").css('visibility', 'visible');
-			}else{$("#e_apellido").css('visibility', 'hidden');}
+			}else{
+				$("#e_apellido").css('visibility', 'hidden');
+				$("#controlApellidos").removeClass();
+				$("#controlApellidos").addClass("control-group");
+			}
 			if($("#direccion").val() == "") {
 				validar = false;
 				$("#controlDireccion").addClass("error");
 				$("#e_direccion").css('visibility', 'visible');
-			}else{$("#e_direccion").css('visibility', 'hidden');}
+			}else{
+				$("#e_direccion").css('visibility', 'hidden');
+				$("#controlDireccion").removeClass();
+				$("#controlDireccion").addClass("control-group");
+			}
 			if($("#tipoDocumentoIdentificacion select").val() == 0) {
 				validar = false;
 				$("#controlTipoDocumentoIdentificacion").addClass("error");
 				$("#e_tipoDocumentoIdentificacion").css('visibility', 'visible');
-			}else{$("#e_tipoDocumentoIdentificacion").css('visibility', 'hidden');}
+			}else{
+				$("#e_tipoDocumentoIdentificacion").css('visibility', 'hidden');
+				$("#controlTipoDocumentoIdentificacion").removeClass();
+				$("#controlTipoDocumentoIdentificacion").addClass("control-group");
+			}
 			if($("#nroDocumentoIdentificacion").val() == "") {
 				validar = false;
 				$("#controlNroDocumentoIdentificacion").addClass("error");
 				$("#e_nroDocumentoIdentificacion").css('visibility', 'visible');
-			}else{$("#e_nroDocumentoIdentificacion").css('visibility', 'hidden');}
+			}else{
+				$("#e_nroDocumentoIdentificacion").css('visibility', 'hidden');
+				$("#controlNroDocumentoIdentificacion").removeClass();
+				$("#controlNroDocumentoIdentificacion").addClass("control-group");
+			}
 			if($("#telefono").val() == "") {
 				validar = false;
 				$("#controlTelefono").addClass("error");
 				$("#e_telefono").css('visibility', 'visible');
-			}else{$("#e_telefono").css('visibility', 'hidden');}
+			}else{
+				$("#e_telefono").css('visibility', 'hidden');
+				$("#controlTelefono").removeClass();
+				$("#controlTelefono").addClass("control-group");
+			}
 			if($("#celular").val() == "") {
 				validar = false;
 				$("#controlCelular").addClass("error");
 				$("#e_celular").css('visibility', 'visible');
-			}else{$("#e_celular").css('visibility', 'hidden');}
+			}else{
+				$("#e_celular").css('visibility', 'hidden');
+				$("#controlCelular").removeClass();
+				$("#controlCelular").addClass("control-group");
+			}
 			if($("#estado").val() == 0) {
 				validar = false;
 				$("#controlEstado").addClass("error");
 				$("#e_estado").css('visibility', 'visible');
-			}else{$("#e_estado").css('visibility', 'hidden');}
+			}else{
+				$("#e_estado").css('visibility', 'hidden');
+				$("#controlEstado").removeClass();
+				$("#controlEstado").addClass("control-group");
+			}
 			
 			return validar;
 		}
