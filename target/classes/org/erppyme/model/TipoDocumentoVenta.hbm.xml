@@ -4,14 +4,19 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping package="org.erppyme.model" default-access="field" default-lazy="false">
-	<class name="TipoDocumentoIdentificacion" table="TIPODOCUMENTOIDENTIFICACION">
-		<id name="codTipoDocumentoIdentificacion" type="integer">
-			<column name="CODTIPODOCUMENTOIDENTIFICACION" not-null="true"/>
+	<class name="TipoDocumentoVenta" table="TIPODOCUMENTOVENTA">
+		<id name="codTipoDocumentoVenta" type="integer">
+			<column name="CODTIPODOCUMENTOVENTA" not-null="true"/>
 			<generator class="native"/>
-		</id>		
+		</id>
+		<property name="nombre" type="string">
+			<column name="NOMBRE" not-null="true"></column>
+		</property>
 		<property name="descripcion" type="string">
 			<column name="DESCRIPCION" not-null="true"></column>
 		</property>
-		
+		<property name="estado" type="string">
+			<column name="ESTADO" not-null="true"></column>
+		</property>
 	</class>
 </hibernate-mapping> 

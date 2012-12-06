@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.erppyme.model" default-access="field" default-lazy="false">
+	<class name="Venta" table="VENTAS">
+		<id name="codVenta" type="integer">
+			<column name="CODVENTA" not-null="true"/>
+			<generator class="native"/>
+		</id>
+		
+		<many-to-one name="Cliente" class="Cliente">
+			<column name="CODCLIENTE"/>
+		</many-to-one>
+		<property name="fechaVenta" type="date">
+			<column name="FECHAVENTA" not-null="true"></column>
+		</property>
+		<property name="montoBruto" type="big_decimal">
+			<column name="MONTOBRUTO" not-null="true"></column>
+		</property>
+		<property name="montoNeto" type="big_decimal">
+			<column name="MONTONETO" not-null="true"></column>
+		</property>
+				<property name="descuento" type="big_decimal">
+			<column name="MONTONETO" not-null="true"></column>
+		</property>
+		<property name="estado" type="string">
+			<column name="ESTADO" not-null="true"></column>
+		</property>
+	</class>
+</hibernate-mapping> 
