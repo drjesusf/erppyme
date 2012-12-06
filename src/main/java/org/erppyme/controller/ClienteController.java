@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
+@SessionAttributes("lstTipoDocumentoIdentificacion")
 public class ClienteController {
 	
 	@Autowired
@@ -66,21 +68,14 @@ public class ClienteController {
 		System.out.println("Cliente ->" + existenteCliente.getNombre());
 		List<Cliente> lstClientes = new ArrayList<Cliente>();
 		lstClientes.add(existenteCliente);
-		List<TipoDocumentoIdentificacion> lstTipoDocumentoIdentificacions = tipoDocumentoIdentificacionService.consulta();
-		model.addAttribute("lstTipoDocumentoIdentificacions", lstTipoDocumentoIdentificacions);
+		//List<TipoDocumentoIdentificacion> lstTipoDocumentoIdentificacions = tipoDocumentoIdentificacionService.consulta();
+		//model.addAttribute("lstTipoDocumentoIdentificacions", lstTipoDocumentoIdentificacions);
 		model.addAttribute("lstClientes", lstClientes);
 		model.addAttribute("cliente", new Cliente());
 		return "clientes/mantenimientoClientes";
 		
 	}
-//	@RequestMapping(value = "/modificarCliente.htm", method = RequestMethod.GET)
-//	public String modificarCliente(Model model,@RequestParam("clienteId") Integer clienteId){
-//		System.out.println("Entro a modificarCVliente");
-//		Cliente existenteCliente = clienteService.obtenerCliente(clienteId);
-//		model.addAttribute("cliente", existenteCliente);
-//		return "clientes/modificarCliente";
-//	}
-	
+
 	@RequestMapping(value="/consultarClientes.htm",method= RequestMethod.GET)
 	public List<Cliente> consultarClientes(Model model){
 		List<Cliente> lstClientes = clienteService.consulta();
@@ -100,8 +95,8 @@ public class ClienteController {
 	public String agregarCliente( Model model){
 		System.out.println("Entrro a agregar Clientes");
 		
-		List<TipoDocumentoIdentificacion> lstTipoDocumentoIdentificacions = tipoDocumentoIdentificacionService.consulta();
-		model.addAttribute("lstTipoDocumentoIdentificacions", lstTipoDocumentoIdentificacions);
+		//List<TipoDocumentoIdentificacion> lstTipoDocumentoIdentificacions = tipoDocumentoIdentificacionService.consulta();
+		//model.addAttribute("lstTipoDocumentoIdentificacions", lstTipoDocumentoIdentificacions);
 		model.addAttribute("cliente", new Cliente());
 		return "clientes/nuevoCliente";
 	}

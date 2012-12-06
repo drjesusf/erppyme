@@ -22,6 +22,7 @@
 			$("table#clientes").tablesorter({ sortList: [[1,0]] });
 		});
 		function ventanaNuevoCliente(){
+			$("#tipoDocumentoIdentificacion select").val(0);
 			$("#modalNuevo").modal("show");
 		};
 		function agregarNuevoCliente(){
