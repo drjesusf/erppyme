@@ -22,15 +22,19 @@
 			$("table#clientes").tablesorter({ sortList: [[1,0]] });
 		});
 		function ventanaNuevoCliente(){
-			$("#tipoDocumentoIdentificacion select").val(0);
+			limpiarFormulario();
+			$("#formCliente").attr("action", "nuevoCliente.htm");
 			$("#modalNuevo").modal("show");
 		};
 		function agregarNuevoCliente(){
+			limpiarFormulario();
 			if(validarCliente())
-				document.nuevoCliente.submit();
+				document.formCliente.submit();
 			
 		}
-		function ventanaModificarCliente(codCliente){					
+		function ventanaModificarCliente(codCliente){
+			limpiarFormulario();
+			$("#formCliente").attr("action", "modificarCliente.htm");
 			$.ajax({
 				url:"obtenerCliente.htm",
 				dataType : "JSON",
@@ -39,7 +43,7 @@
 				beforeSend:function(){
 				},
 				success:function(response){
-					$("#modalModificar").modal("show");
+					$("#modalNuevo").modal("show");
 					$("#codCliente").val(response.codCliente);
 					$("#nombre").val(response.nombre);
 					$("#apellidos").val(response.apellidos);
@@ -51,13 +55,15 @@
 					$("#estado").val(response.estado);
 				} ,
 				error: function(response){
-					alert("eeror");
+					alert("error");
 				}
 			});
 		}
 		
 		function guardarCliente(){
-			document.modificarCliente.submit();
+			limpiarFormulario();
+			if(validarCliente())
+				document.nuevoCliente.submit();
 		}
 		function eliminaCliente(){
 			document.location.href = "eliminarCliente.htm?clienteEliminarId="+$("#clienteEliminarId").val();
@@ -71,62 +77,102 @@
 		}
 	</script>
 	<script type="text/javascript">
+		$(document).ready(function () {
+			$("#nombre,#apellidos,#direccion,#nroDocumentoIdentificacion,#telefono,#celular").keyup(function(){
+			    validarCliente();
+			});	
+		});
+	
 		function validarCliente(){
 			var validar = true;
-			$("#controlNombre").css("control-group");
-			$("#controlApellidos").css("control-group");
-			$("#controlDireccion").css("control-group");
-			$("#controlTipoDocumentoIdentificacion").css("control-group");
-			$("#controlNroDocumentoIdentificacion").css("control-group");
-			$("#controlTelefono").css("control-group");
-			$("#controlCelular").css("control-group");
-			$("#controlEstado").css("control-group");
 			
 			if($("#nombre").val() == "") {
 				validar = false;
 				$("#controlNombre").addClass("error");
+				$("#e_nombre").css('visibility', 'visible');				
+			}else{
+				alert("entro");
+				$("#e_nombre").css('visibility', 'hidden');
+				$("#controlNombre").removeClass();
+				$("#controlNombre").addClass("control-group");
 			}
 			if($("#apellidos").val() == "") {
 				validar = false;
 				$("#controlApellidos").addClass("error");
-			}
+				$("#e_apellido").css('visibility', 'visible');
+			}else{$("#e_apellido").css('visibility', 'hidden');}
 			if($("#direccion").val() == "") {
 				validar = false;
 				$("#controlDireccion").addClass("error");
-			}
-			if($("#tipoDocumentoIdentificacion select").val() == "") {
+				$("#e_direccion").css('visibility', 'visible');
+			}else{$("#e_direccion").css('visibility', 'hidden');}
+			if($("#tipoDocumentoIdentificacion select").val() == 0) {
 				validar = false;
 				$("#controlTipoDocumentoIdentificacion").addClass("error");
-			}
-			if($("#nroDocumentoIdentificacion select").val() == "") {
+				$("#e_tipoDocumentoIdentificacion").css('visibility', 'visible');
+			}else{$("#e_tipoDocumentoIdentificacion").css('visibility', 'hidden');}
+			if($("#nroDocumentoIdentificacion").val() == "") {
 				validar = false;
 				$("#controlNroDocumentoIdentificacion").addClass("error");
-			}
+				$("#e_nroDocumentoIdentificacion").css('visibility', 'visible');
+			}else{$("#e_nroDocumentoIdentificacion").css('visibility', 'hidden');}
 			if($("#telefono").val() == "") {
 				validar = false;
 				$("#controlTelefono").addClass("error");
-			}
+				$("#e_telefono").css('visibility', 'visible');
+			}else{$("#e_telefono").css('visibility', 'hidden');}
 			if($("#celular").val() == "") {
 				validar = false;
 				$("#controlCelular").addClass("error");
-			}
-			if($("#estado").val() == "") {
+				$("#e_celular").css('visibility', 'visible');
+			}else{$("#e_celular").css('visibility', 'hidden');}
+			if($("#estado").val() == 0) {
 				validar = false;
 				$("#controlEstado").addClass("error");
-			}
+				$("#e_estado").css('visibility', 'visible');
+			}else{$("#e_estado").css('visibility', 'hidden');}
+			
 			return validar;
+		}
+		
+		function limpiarFormulario(){
+			$("#controlNombre").removeClass();
+			$("#controlNombre").addClass("control-group");
+			$("#controlApellidos").removeClass();
+			$("#controlApellidos").addClass("control-group");
+			$("#controlDireccion").removeClass();
+			$("#controlDireccion").addClass("control-group");
+			$("#controlTipoDocumentoIdentificacion").removeClass();
+			$("#controlTipoDocumentoIdentificacion").addClass("control-group");
+			$("#controlNroDocumentoIdentificacion").removeClass();
+			$("#controlNroDocumentoIdentificacion").addClass("control-group");
+			$("#controlTelefono").removeClass();
+			$("#controlTelefono").addClass("control-group");
+			$("#controlCelular").removeClass();
+			$("#controlCelular").addClass("control-group");
+			$("#controlEstado").removeClass();
+			$("#controlEstado").addClass("control-group");
+			
+			$("#e_nombre").css('visibility', 'hidden');
+			$("#e_apellido").css('visibility', 'hidden');
+			$("#e_direccion").css('visibility', 'hidden');
+			$("#e_tipoDocumentoIdentificacion").css('visibility', 'hidden');
+			$("#e_nroDocumentoIdentificacion").css('visibility', 'hidden');
+			$("#e_telefono").css('visibility', 'hidden');
+			$("#e_celular").css('visibility', 'hidden');
+			$("#e_estado").css('visibility', 'hidden');			
 		}
 	</script>
 </head>
-<body>
-
+<body onload="seleccionarItemNavBar()">
+	<input id="ventanaActiva" hidden="true" value="mantenimientoClientes">
 	<c:import url="../jspf/navbar.jsp"></c:import>
 	
 	<div class="container">
 <!--	  <div class="row-fluid">-->
 	    <div class="row alert alert-info">
 	    	<div class="span12">
-	    		<c:import url="busquedaClientes.jsp"></c:import>
+	    		<c:import url="../clientes/busquedaClientes.jsp"></c:import>
 	    	</div>
 	    </div>
 	    <div class="row">
@@ -206,21 +252,6 @@
 	    </div>
 	</div>
 	
-	<div id="modalModificar" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-header">
-	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-	    <h3 id="myModalLabel">Modificar Cliente</h3>
-	  </div>
-	  <div class="modal-body">
-	    <c:import url="modificarCliente.jsp"></c:import>
-	
-	  </div>
-	  <div class="modal-footer">
-	    <button class="btn btn-primary" onclick="guardarCliente()">Guardar</button>
-	    <button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-	  </div>
-	</div>
-	
 	<div id="modalEliminar" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
 	  <div class="modal-header">
 	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -246,7 +277,7 @@
 	    <h3 id="myModalLabel3">Nuevo Cliente</h3>
 	  </div>
 	  <div class="modal-body">
-	  	<c:import url="nuevoCliente.jsp"></c:import>
+	  	<c:import url="../clientes/cliente.jsp"></c:import>
 	  </div>
 	  <div class="modal-footer">
 	    <button class="btn btn-primary" onclick="agregarNuevoCliente()">Agregar</button>

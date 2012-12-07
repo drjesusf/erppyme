@@ -6,8 +6,10 @@
 
 
 <form:form method="POST" modelAttribute="cliente"
-	class="form-horizontal" name="nuevoCliente" action="nuevoCliente.htm">
-
+	class="form-horizontal" name="nuevoCliente" id="nuevoCliente" action="nuevoCliente.htm">
+	<input type="hidden" id="accion" name="accion" value="nuevo">
+	
+	<form:hidden path="codCliente" />
 	<div id="controlNombre" class="control-group">
 		<label class="control-label" for="nombre">Nombres</label>
 		<div class="controls">
@@ -68,6 +70,7 @@
 		<div class="controls">
 			<form:select path="estado" class="input-medium">
 				<form:option value="ACT">ACTIVO</form:option>
+				<form:option value="PAS">PASIVO</form:option>
 			</form:select>
 			<span class="help-inline" id="e_estado" style="visibility: hidden;">Seleccionar un estado</span>
 		</div>

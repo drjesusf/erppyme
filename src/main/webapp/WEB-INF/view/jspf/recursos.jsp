@@ -24,5 +24,5 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <!-- GreyPower -->
-//<link href="resources/css/greypower/validaciones.css" rel="stylesheet">
+<link href="resources/css/greypower/validaciones.css" rel="stylesheet">
 
