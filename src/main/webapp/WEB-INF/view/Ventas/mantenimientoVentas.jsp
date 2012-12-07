@@ -15,11 +15,36 @@
 </style>
 <script>
 	function ventanaNuevo() {
+		$('#modalNuevo').modal({
+	        backdrop: true,
+	        keyboard: true
+	    }).css({
+	        width: 'auto',
+	        'margin-left': function () {
+	            return -($(this).width() / 2);
+	        }
+	    });
 		$("#modalNuevo").modal("show");
 	};
+	
 	function agregarNuevo() {
 		document.nuevoProducto.submit();
 	}
+	
+	function mostrarModalDocumentosVenta() {
+		$('#modalDocumentosVenta').modal({
+	        backdrop: true,
+	        keyboard: true
+	    }).css({
+// 	    	height: '300px',
+	        width: '800px',
+	        'margin-left': function () {
+	            return -($(this).width() / 2);
+	        }
+	    });
+		$("#modalDocumentosVenta").modal("show");
+	};
+	
 	function ventanaModificar(codProducto){					
 		$.ajax({
 			url:"obtenerProducto.htm",
@@ -56,11 +81,14 @@
 	function cargarGrillaProductos(codProducto){
 		document.location.href = "obtenerProductoFiltrado.htm?codProducto="+codProducto;
 	}
+	
 </script>
+<style type="text/css" >
 
+</style>
 </head>
-<body>
-
+<body onload="seleccionarItemNavBar()">
+	<input id="ventanaActiva" hidden="true" value="mantenimientoVentas">
 	<c:import url="../jspf/navbar.jsp"></c:import>
 
 	<div class="container">
@@ -89,7 +117,9 @@
 													title="Click para agregar una nueva venta"
 													onclick="ventanaNuevo()"> <i class="icon-plus" /></i>
 														<span class="label label-info">Agregar</span>
-												</a></th>
+												</a>
+												<a class="btn" href="#" onclick="mostrarModalDocumentosVenta()"><i class="icon-fire"></i></a>
+												</th>
 											</tr>
 											<tr>
 												<th align="center">C&oacute;digo de Venta</th>
@@ -107,7 +137,7 @@
 									</table>
 								</div>
 							</div>
-							<div class="tab-pane active" id="ListaDocumentos">
+							<div class="tab-pane " id="ListaDocumentos">
 								<div id="clientsDb">
 									<table class="table table-bordered" id="clientes">
 										<thead>
@@ -183,15 +213,32 @@
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal"
 				aria-hidden="true">×</button>
-			<h3 id="myModalLabel3">Nuevo Producto</h3>
+			<h3 id="myModalLabel3">Nueva Venta</h3>
 		</div>
 		<div class="modal-body">
-<%-- 			<c:import url="nuevoProducto.jsp"></c:import> --%>
+<%-- 			<c:import url="nuevaVenta.jsp"></c:import> --%>
 		</div>
 		<div class="modal-footer">
 			<button class="btn btn-primary" onclick="agregarNuevo()">Agregar</button>
 			<button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
 		</div>
 	</div>
+	
+	<div id="modalDocumentosVenta" class="modal hide" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel3" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">×</button>
+			<h3 id="myModalLabel3">Documentos Venta</h3>
+		</div>
+		<div class="modal-body" style="height: 380px">
+			<c:import url="../ventas/documentosVenta.jsp"></c:import>
+		</div>
+		<div class="modal-footer">
+			<button class="btn btn-primary" onclick="agregarNuevo()">Agregar</button>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
+		</div>
+	</div>
+	
 </body>
 </html>
