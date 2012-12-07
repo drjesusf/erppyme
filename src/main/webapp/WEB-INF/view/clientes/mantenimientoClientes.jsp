@@ -74,13 +74,13 @@
 		function validarCliente(){
 			var validar = true;
 			$("#controlNombre").css("control-group");
-			$("#controlApellidos").removeClass();
-			$("#controlDireccion").removeClass();
-			$("#controlTipoDocumentoIdentificacion").remove();
-			$("#controlNroDocumentoIdentificacion").remove();
-			$("#controlTelefono").remove();
-			$("#controlCelular").remove();
-			$("#controlEstado").remove();
+			$("#controlApellidos").css("control-group");
+			$("#controlDireccion").css("control-group");
+			$("#controlTipoDocumentoIdentificacion").css("control-group");
+			$("#controlNroDocumentoIdentificacion").css("control-group");
+			$("#controlTelefono").css("control-group");
+			$("#controlCelular").css("control-group");
+			$("#controlEstado").css("control-group");
 			
 			if($("#nombre").val() == "") {
 				validar = false;
