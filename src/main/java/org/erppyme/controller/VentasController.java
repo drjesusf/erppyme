@@ -19,5 +19,4 @@ public class VentasController {
 		return "ventas/mantenimientoVentas";
 	}
 	
-	
 }

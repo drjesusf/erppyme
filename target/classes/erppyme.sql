@@ -2,7 +2,7 @@ CREATE DATABASE  IF NOT EXISTS `ERPPYME` /*!40100 DEFAULT CHARACTER SET latin1 *
 USE `erppyme`;
 -- MySQL dump 10.13  Distrib 5.5.16, for Win32 (x86
 DROP TABLE IF EXISTS `tipodocumentoidentificacion`;
-
+ 
 CREATE TABLE `tipodocumentoidentificacion` (
   `CODTIPODOCUMENTOIDENTIFICACION` int(11) NOT NULL AUTO_INCREMENT,
   `DESCRIPCION` varchar(45) DEFAULT NULL,
