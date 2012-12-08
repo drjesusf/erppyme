@@ -78,9 +78,49 @@
 	</script>
 	<script type="text/javascript">
 		$(document).ready(function () {
-			$("#nombre,#apellidos,#direccion,#nroDocumentoIdentificacion,#telefono,#celular").keyup(function(){
-			    validarCliente();
+			$("#nombre").keyup(function(){
+				if($("#nombre").val()!= ""){
+					$("#controlNombre").removeClass();
+					$("#controlNombre").addClass("control-group");
+					$("#e_nombre").css('visibility', 'hidden');
+				}
 			});
+			$("#apellidos").keyup(function(){
+				if($("#apellidos").val()!= ""){
+					$("#controlApellidos").removeClass();
+					$("#controlApellidos").addClass("control-group");
+					$("#e_apellidos").css('visibility', 'hidden');
+				}
+			});
+			$("#direccion").keyup(function(){
+				if($("#direccion").val()!= ""){
+					$("#controlDireccion").removeClass();
+					$("#controlDireccion").addClass("control-group");
+					$("#e_direccion").css('visibility', 'hidden');
+				}
+			});
+			$("#nroDocumentoIdentificacion").keyup(function(){
+				if($("#nroDocumentoIdentificacion").val()!= ""){
+					$("#controlNroDocumentoIdentificacion").removeClass();
+					$("#controlNroDocumentoIdentificacion").addClass("control-group");
+					$("#e_nroDocumentoIdentificacion").css('visibility', 'hidden');
+				}
+			});
+			$("#telefono").keyup(function(){
+				if($("#telefono").val()!= ""){
+					$("#controlTelefono").removeClass();
+					$("#controlTelefono").addClass("control-group");
+					$("#e_telefono").css('visibility', 'hidden');
+				}
+			});
+			$("#celular").keyup(function(){
+				if($("#celular").val()!= ""){
+					$("#controlCelular").removeClass();
+					$("#controlCelular").addClass("control-group");
+					$("#e_celular").css('visibility', 'hidden');
+				}
+			});
+			
 			$("#tipoDocumentoIdentificacion select").change(function(){
 				if($("#tipoDocumentoIdentificacion select").val()!=0){
 					$("#controlTipoDocumentoIdentificacion").removeClass();
@@ -94,6 +134,7 @@
 		});
 	
 		function validarCliente(){
+			var numeros = /0-9/;
 			var validar = true;
 			
 			if($("#nombre").val() == "") {
@@ -132,7 +173,7 @@
 				$("#controlTipoDocumentoIdentificacion").removeClass();
 				$("#controlTipoDocumentoIdentificacion").addClass("control-group");
 			}
-			if($("#nroDocumentoIdentificacion").val() == "") {
+			if($("#nroDocumentoIdentificacion").val() == "" && !numeros.test($("#nroDocumentoIdentificacion").val())) {
 				validar = false;
 				$("#controlNroDocumentoIdentificacion").addClass("error");
 				$("#e_nroDocumentoIdentificacion").css('visibility', 'visible');
