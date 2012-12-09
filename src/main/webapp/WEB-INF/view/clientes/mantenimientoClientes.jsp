@@ -91,7 +91,6 @@
 				$("#controlNombre").addClass("error");
 				$("#e_nombre").css('visibility', 'visible');				
 			}else{
-				alert("entro");
 				$("#e_nombre").css('visibility', 'hidden');
 				$("#controlNombre").removeClass();
 				$("#controlNombre").addClass("control-group");
