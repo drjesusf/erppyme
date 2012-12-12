@@ -9,7 +9,10 @@
 
 	<context-param>
 	  	<param-name>contextConfigLocation</param-name>
-	  	<param-value>/WEB-INF/erppyme-application-config.xml</param-value>
+	  	<param-value>
+	  		/WEB-INF/erppyme-application-config.xml
+	  		/WEB-INF/erppyme-security.xml
+	  	</param-value>
 	</context-param>
   
 	<listener>
@@ -24,10 +27,18 @@
 			<param-value>/WEB-INF/erppyme-servlet-config.xml</param-value>
 		</init-param>
 	</servlet>
-
+	
 	<servlet-mapping>
 		<servlet-name>erppyme</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-
+	
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
 </web-app>
