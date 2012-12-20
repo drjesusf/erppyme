@@ -179,9 +179,11 @@
 												</a></th>
 											</tr>
 											<tr>
-												<th align="center">C&oacute;digo de Guia</th>
+												<th align="center" hidden="true">C&oacute;digo de Guia</th>
+												<th align="center">Nro. Guia</th>
 												<th align="center">Cliente</th>
 												<th align="center">Fecha</th>
+												<th align="center">Nro. Factura Relacionada</th>
 												<th align="center">Estado</th>
 												<th align="center">Acci&oacute;n</th>
 											</tr>
@@ -205,12 +207,14 @@
 												</a></th>
 											</tr>
 											<tr>
-												<th align="center">C&oacute;digo de Factura</th>
+												<th align="center" hidden="true">C&oacute;digo de Factura</th>
+												<th align="center">Nro. Factura</th>
 												<th align="center">Cliente</th>
 												<th align="center">Fecha</th>
 												<th align="center">Total Monto Bruto</th>
-												<th align="center">Descuentos</th>
+												<th align="center">Total Descuentos</th>
 												<th align="center">Total Monto Neto</th>
+												<th align="center">Nro. Guia Relacionada</th>
 												<th align="center">Estado</th>
 												<th align="center">Acci&oacute;n</th>
 											</tr>

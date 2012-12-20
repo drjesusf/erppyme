@@ -5,7 +5,7 @@ import org.erppyme.model.DocumentoVenta;
 import org.erppyme.model.Venta;
 import org.springframework.stereotype.Component;
 
-@Component(value="factura")
+//@Component(value="factura")
 public class Factura {
 	
 	private Venta venta;
