@@ -45,6 +45,34 @@
 		$("#modalDocumentosVenta").modal("show");
 	};
 	
+	function mostrarModalNuevaGuiaRemision() {
+		$('#modalNuevaGuiaRemision').modal({
+	        backdrop: true,
+	        keyboard: true
+	    }).css({
+// 	    	height: '300px',
+	        width: '900px',
+	        'margin-left': function () {
+	            return -($(this).width() / 2);
+	        }
+	    });
+		$("#modalNuevaGuiaRemision").modal("show");
+	};
+	
+	function mostrarModalNuevaFactura() {
+		$('#modalNuevaFactura').modal({
+	        backdrop: true,
+	        keyboard: true
+	    }).css({
+// 	    	height: '300px',
+	        width: '800px',
+	        'margin-left': function () {
+	            return -($(this).width() / 2);
+	        }
+	    });
+		$("#modalNuevaFactura").modal("show");
+	};
+	
 	function ventanaModificar(codProducto){					
 		$.ajax({
 			url:"obtenerProducto.htm",
@@ -119,7 +147,7 @@
 													onclick="ventanaNuevo()"> <i class="icon-plus" /></i>
 														<span class="label label-info">Agregar</span>
 												</a>
-												<a class="btn" href="#" onclick="mostrarModalDocumentosVenta()"><i class="icon-fire"></i></a>
+<!-- 												<a class="btn" href="#" onclick="mostrarModalDocumentosVenta()"><i class="icon-fire"></i></a> -->
 												</th>
 											</tr>
 											<tr>
@@ -146,14 +174,14 @@
 												<th colspan="10"><a href="#" id="tooltip" rel="tooltip"
 													data-placement="right"
 													title="Click para agregar un nuevo documento"
-													onclick="ventanaNuevo()"> <i class="icon-plus" /></i>
+													onclick="mostrarModalNuevaGuiaRemision()"> <i class="icon-plus" /></i>
 														<span class="label label-info">Agregar</span>
 												</a></th>
 											</tr>
 											<tr>
-												<th align="center">C&oacute;digo de Venta</th>
+												<th align="center">C&oacute;digo de Guia</th>
+												<th align="center">Cliente</th>
 												<th align="center">Fecha</th>
-												<th align="center">Tipo de Documento</th>
 												<th align="center">Estado</th>
 												<th align="center">Acci&oacute;n</th>
 											</tr>
@@ -165,7 +193,33 @@
 								</div>
 							</div>
 							<div class="tab-pane" id="ListaFacturas">
-								<div id="clientsDb"></div>
+								<div id="clientsDb">
+									<table class="table table-bordered" id="clientes">
+										<thead>
+											<tr>
+												<th colspan="10"><a href="#" id="tooltip" rel="tooltip"
+													data-placement="right"
+													title="Click para agregar un nuevo documento"
+													onclick="ventanaNuevo()"> <i class="icon-plus" /></i>
+														<span class="label label-info">Agregar</span>
+												</a></th>
+											</tr>
+											<tr>
+												<th align="center">C&oacute;digo de Factura</th>
+												<th align="center">Cliente</th>
+												<th align="center">Fecha</th>
+												<th align="center">Total Monto Bruto</th>
+												<th align="center">Descuentos</th>
+												<th align="center">Total Monto Neto</th>
+												<th align="center">Estado</th>
+												<th align="center">Acci&oacute;n</th>
+											</tr>
+										</thead>
+										<tbody>
+
+										</tbody>
+									</table>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -173,73 +227,21 @@
 			</div>
 		</div>
 	</div>
-	<div id="modalModificar" class="modal hide" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal"
-				aria-hidden="true">×</button>
-			<h3 id="myModalLabel">Modificar Producto</h3>
-		</div>
-		<div class="modal-body">
-<%-- 			<c:import url="modificarProducto.jsp"></c:import> --%>
-		</div>
-		<div class="modal-footer">
-			<button class="btn btn-primary" onclick="guardarProducto()">Guardar</button>
-			<button class="btn" data-dismiss="modal" aria-hidden="true">Cerrar</button>
-		</div>
-	</div>
 
-	<div id="modalEliminar" class="modal hide" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel2" aria-hidden="true">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal"
-				aria-hidden="true">×</button>
-			<h3 id="myModalLabel2">Eliminar Producto</h3>
-		</div>
-		<div class="modal-body">
-			<form action="eliminarProducto.htm" name="eliminarProducto"
-				method="POST">
-				<input type="hidden" id="codProductoEliminar">
-			</form>
-			¿Esta seguro que desea eliminar la venta seleccionada?
-		</div>
-		<div class="modal-footer">
-			<button class="btn btn-danger" onclick="eliminaProducto()">Si</button>
-			<button class="btn" data-dismiss="modal" aria-hidden="true">No</button>
-		</div>
-	</div>
-
-	<div id="modalNuevo" class="modal hide" tabindex="-1" role="dialog"
+	<div id="modalNuevaGuiaRemision" class="modal hide" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel3" aria-hidden="true">
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal"
 				aria-hidden="true">×</button>
-			<h3 id="myModalLabel3">Nueva Venta</h3>
-		</div>
-		<div class="modal-body">
-<%-- 			<c:import url="nuevaVenta.jsp"></c:import> --%>
-		</div>
-		<div class="modal-footer">
-			<button class="btn btn-primary" onclick="agregarNuevo()">Agregar</button>
-			<button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
-		</div>
-	</div>
-	
-	<div id="modalDocumentosVenta" class="modal hide" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel3" aria-hidden="true">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal"
-				aria-hidden="true">×</button>
-			<h3 id="myModalLabel3">Documentos Venta</h3>
+			<h3 id="myModalLabel3">Nueva Guia de Remision</h3>
 		</div>
 		<div class="modal-body" style="height: 380px">
-<%-- 			<c:import url="../ventas/documentosVenta.jsp"></c:import> --%>
+			<c:import url="../ventas/guiaRemision.jsp"></c:import>
 		</div>
 		<div class="modal-footer">
 			<button class="btn btn-primary" onclick="agregarNuevo()">Agregar</button>
 			<button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
 		</div>
 	</div>
-	
 </body>
 </html>
