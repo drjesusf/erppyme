@@ -15,7 +15,7 @@ public class VentasController {
 	public String mantenimientoVentas(Model model)
 	{
 //		model.addAttribute("cliente", new Cliente());
-		model.addAttribute("venta", new Venta());
+//		model.addAttribute("venta", new Venta());
 		return "ventas/mantenimientoVentas";
 	}
 	
