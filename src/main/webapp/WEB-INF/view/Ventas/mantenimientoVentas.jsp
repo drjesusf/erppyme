@@ -104,7 +104,8 @@
 					<div class="tabbable tabs-left">
 						<ul class="nav nav-tabs">
 							<li class="active"><a href="#ListaVentas" data-toggle="tab">Lista de Ventas</a></li>
-							<li><a href="#ListaDocumentos" data-toggle="tab">Lista de Documentos</a></li> 
+							<li><a href="#ListaGuiasRemision" data-toggle="tab">Guias de Remision</a></li> 
+							<li><a href="#ListaFacturas" data-toggle="tab">Facturas</a></li>
 						</ul>
 						<div class="tab-content">
 							<div class="tab-pane active" id="ListaVentas">
@@ -137,7 +138,7 @@
 									</table>
 								</div>
 							</div>
-							<div class="tab-pane " id="ListaDocumentos">
+							<div class="tab-pane" id="ListaGuiasRemision">
 								<div id="clientsDb">
 									<table class="table table-bordered" id="clientes">
 										<thead>
@@ -163,7 +164,7 @@
 									</table>
 								</div>
 							</div>
-							<div class="tab-pane active" id="tipoId3">
+							<div class="tab-pane" id="ListaFacturas">
 								<div id="clientsDb"></div>
 							</div>
 						</div>
@@ -232,7 +233,7 @@
 			<h3 id="myModalLabel3">Documentos Venta</h3>
 		</div>
 		<div class="modal-body" style="height: 380px">
-			<c:import url="../ventas/documentosVenta.jsp"></c:import>
+<%-- 			<c:import url="../ventas/documentosVenta.jsp"></c:import> --%>
 		</div>
 		<div class="modal-footer">
 			<button class="btn btn-primary" onclick="agregarNuevo()">Agregar</button>
