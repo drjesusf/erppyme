@@ -2,9 +2,8 @@
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
-
 <form:form method="POST" modelAttribute="guiaRemision"
-	class="form-horizontal" name="nuevaGuiaRemision" action="nuevaGuiaRemision.htm">
+	class="form-horizontal" name="guiaRemision" action="guardarNuevaGuiaRemision.htm">
 	<div class="control-group">
 		<label class="control-label" for="tipoDocumentoIdentificacion">Tipo Doc. Ident.</label>
 		<div class="controls">
@@ -49,4 +48,3 @@
 		</div>
 	</div>
 </form:form>
-
