@@ -4,7 +4,7 @@
          $( "#buscarProducto" ).autocomplete({ 
             minLength: 2,  
             source: function (request, response) {
-                $.getJSON("filtroProductos.htm?identificador="+$("#columna").val(), 
+                $.getJSON("../productos/filtroProductos.htm?identificador="+$("#columna").val(), 
                 		{	term: request.term }
                 		, 
                 		response

@@ -34,9 +34,9 @@
 		}
 		function ventanaModificarCliente(codCliente){
 			limpiarFormulario();
-			$("#formCliente").attr("action", "modificarCliente.htm");
+			$("#formCliente").attr("action", "../clientes/modificarCliente.htm");
 			$.ajax({
-				url:"obtenerCliente.htm",
+				url:"../clientes/obtenerCliente.htm",
 				dataType : "JSON",
 				type: "POST",
 				data : {codCliente : codCliente},				
@@ -66,14 +66,14 @@
 				document.nuevoCliente.submit();
 		}
 		function eliminaCliente(){
-			document.location.href = "eliminarCliente.htm?clienteEliminarId="+$("#clienteEliminarId").val();
+			document.location.href = "../clientes/eliminarCliente.htm?clienteEliminarId="+$("#clienteEliminarId").val();
 		}
 		function ventanaEliminarCliente(codCliente){
 			$("#modalEliminar").modal("show");
 			$("#clienteEliminarId").val(codCliente);
 		}
 		function cargarGrillaClientes(codCliente){
-			document.location.href = "obtenerClienteFiltrado.htm?codCliente="+codCliente;
+			document.location.href = "../clientes/obtenerClienteFiltrado.htm?codCliente="+codCliente;
 		}
 	</script>
 	<script type="text/javascript">
@@ -244,6 +244,7 @@
 </head>
 <body onload="seleccionarItemNavBar()">
 	<input id="ventanaActiva" hidden="true" value="mantenimientoClientes">
+	
 	<c:import url="../jspf/navbar.jsp"></c:import>
 	
 	<div class="container">
@@ -297,6 +298,9 @@
 				            			
 				            				<tr  <c:if test="${cliente.estado =='PAS'}">
 				            						class='error'
+				            					 </c:if>
+				            					 <c:if test="${cliente.estado =='ACT'}">
+				            						class='success'
 				            					 </c:if>
 				            				>
 					            				<td hidden="true">${cliente.codCliente}</td>

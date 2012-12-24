@@ -22,7 +22,7 @@
 	}
 	function ventanaModificar(codProducto){					
 		$.ajax({
-			url:"obtenerProducto.htm",
+			url:"../productos/obtenerProducto.htm",
 			dataType : "JSON",
 			type: "POST",
 			data : {codProducto : codProducto},				
@@ -47,14 +47,14 @@
 		document.modificarProducto.submit();
 	}
 	function eliminaProducto(){
-		document.location.href = "eliminarProducto.htm?codProducto="+$("#codProductoEliminar").val();
+		document.location.href = "../productos/eliminarProducto.htm?codProducto="+$("#codProductoEliminar").val();
 	}
 	function ventanaEliminar(codProducto){
 		$("#modalEliminar").modal("show");
 		$("#codProductoEliminar").val(codProducto);
 	}
 	function cargarGrillaProductos(codProducto){
-		document.location.href = "obtenerProductoFiltrado.htm?codProducto="+codProducto;
+		document.location.href = "../productos/obtenerProductoFiltrado.htm?codProducto="+codProducto;
 	}
 </script>
 
@@ -172,7 +172,7 @@
 			<h3 id="myModalLabel2">Eliminar Producto</h3>
 		</div>
 		<div class="modal-body">
-			<form action="eliminarProducto.htm" name="eliminarProducto"
+			<form action="../productos/eliminarProducto.htm" name="eliminarProducto"
 				method="POST">
 				<input type="hidden" id="codProductoEliminar">
 			</form>

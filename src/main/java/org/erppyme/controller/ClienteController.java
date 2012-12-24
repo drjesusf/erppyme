@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
 @SessionAttributes("lstTipoDocumentoIdentificacion")
+@RequestMapping("clientes/")
 public class ClienteController {
 	
 	@Autowired
@@ -29,7 +30,7 @@ public class ClienteController {
 	@Autowired
 	private TipoDocumentoIdentificacionService tipoDocumentoIdentificacionService;
 	
-	@RequestMapping(value="/mantenimientoClientes.htm",method= RequestMethod.GET)
+	@RequestMapping(value="mantenimientoClientes.htm",method= RequestMethod.GET)
 	public String mantenimientoClientes(Model model){		
 		List<Cliente> lstClientes = clienteService.consulta();
 		List<TipoDocumentoIdentificacion> lstTipoDocumentoIdentificacions = tipoDocumentoIdentificacionService.consulta();
@@ -39,11 +40,10 @@ public class ClienteController {
 		return "clientes/mantenimientoClientes";
 	}
 	
-	@RequestMapping(value="/filtroClientes.htm",method= RequestMethod.GET)
+	@RequestMapping(value="filtroClientes.htm",method= RequestMethod.GET)
 	public @ResponseBody List<Cliente> filtroClientes(@RequestParam("term") String buscarCliente,
 													  @RequestParam("identificador") String identificador){
 		
-		System.out.println("Entro Filtro Clientes con: " + buscarCliente + " con identificador=" + identificador);
 		
 		List<Cliente> lstClientes = clienteService.filtrarClientes(identificador, buscarCliente);
 		
@@ -52,10 +52,8 @@ public class ClienteController {
 	
 	@RequestMapping( value = "obtenerCliente.htm", method = RequestMethod.POST)
 	public @ResponseBody Cliente obtenerCliente(Map<String, Object> model ,@RequestParam("codCliente") Integer codCliente){
-		System.out.println("Entro obtenerCliente con: " + codCliente);
 		Cliente existenteCliente = clienteService.obtenerCliente(codCliente);
 		model.put("cliente", existenteCliente);
-		System.out.println("Cliente ->" + existenteCliente.getNombre());
 		
 		return existenteCliente;
 		
@@ -68,23 +66,22 @@ public class ClienteController {
 		System.out.println("Cliente ->" + existenteCliente.getNombre());
 		List<Cliente> lstClientes = new ArrayList<Cliente>();
 		lstClientes.add(existenteCliente);
-		//List<TipoDocumentoIdentificacion> lstTipoDocumentoIdentificacions = tipoDocumentoIdentificacionService.consulta();
-		//model.addAttribute("lstTipoDocumentoIdentificacions", lstTipoDocumentoIdentificacions);
 
 		model.addAttribute("lstClientes", lstClientes);
 		model.addAttribute("cliente", new Cliente());
+		
 		return "clientes/mantenimientoClientes";
 		
 	}
 
-	@RequestMapping(value="/consultarClientes.htm",method= RequestMethod.GET)
+	@RequestMapping(value="consultarClientes.htm",method= RequestMethod.GET)
 	public List<Cliente> consultarClientes(Model model){
 		List<Cliente> lstClientes = clienteService.consulta();
 		model.addAttribute("lstClientes", lstClientes);
 		return lstClientes;
 	}
 	
-	@RequestMapping(value="/crearCliente.htm",method= RequestMethod.GET)
+	@RequestMapping(value="crearCliente.htm",method= RequestMethod.GET)
 	public List<Cliente> crearCliente( Model model){
 		System.out.println("Entrro a crer Clientes");
 		List<Cliente> lstClientes = clienteService.consulta();
@@ -92,33 +89,31 @@ public class ClienteController {
 		return lstClientes;
 	}
 	
-	@RequestMapping(value="/agregarCliente.htm",method= RequestMethod.GET)
+	@RequestMapping(value="agregarCliente.htm",method= RequestMethod.GET)
 	public String agregarCliente( Model model){
 		System.out.println("Entrro a agregar Clientes");
-		//List<TipoDocumentoIdentificacion> lstTipoDocumentoIdentificacions = tipoDocumentoIdentificacionService.consulta();
-		//model.addAttribute("lstTipoDocumentoIdentificacions", lstTipoDocumentoIdentificacions);
-
+		
 		model.addAttribute("cliente", new Cliente());
 		return "clientes/nuevoCliente";
 	}
 	
-	@RequestMapping(value="/nuevoCliente.htm",method= RequestMethod.POST)
+	@RequestMapping(value="nuevoCliente.htm",method= RequestMethod.POST)
 	public String nuevoCliente( @ModelAttribute("cliente")Cliente cliente){
 		clienteService.insert(cliente);
-		return "redirect:/mantenimientoClientes.htm";
+		return "redirect:../clientes/mantenimientoClientes.htm";
 	}
 	
-	@RequestMapping(value="/modificarCliente.htm",method= RequestMethod.POST)
+	@RequestMapping(value="modificarCliente.htm",method= RequestMethod.POST)
 	public String grabarCliente( @ModelAttribute("cliente")Cliente cliente){
 		clienteService.update(cliente);
-		return "redirect:/mantenimientoClientes.htm";
+		return "redirect:../clientes/mantenimientoClientes.htm";
 	}
 	
 	@RequestMapping(value="/eliminarCliente.htm",method= RequestMethod.GET)
 	public String eliminarCliente( @RequestParam("clienteEliminarId") Integer clienteEliminarId ){
 		
 		clienteService.delete(clienteService.obtenerCliente(clienteEliminarId));
-		return "redirect:/mantenimientoClientes.htm";
+		return "redirect:../clientes/mantenimientoClientes.htm";
 	}
 }
 

@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
+@RequestMapping("ventas/")
 public class VentasController {
 
-	@RequestMapping(value="/mantenimientoVentas.htm", method=RequestMethod.GET )
+	@RequestMapping(value="mantenimientoVentas.htm", method=RequestMethod.GET )
 	public String mantenimientoVentas(Model model)
 	{
 //		model.addAttribute("cliente", new Cliente());

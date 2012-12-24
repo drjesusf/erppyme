@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="org.erppyme.model" default-access="field" default-lazy="false">
+	<class name="Usuario" table="USUARIO">
+		<id name="codUsuario" type="integer">
+			<column name="CODUSUARIO" not-null="true"/>
+			<generator class="native"/>
+		</id>
+		 
+		<property name="nombres" type="string">
+			<column name="NOMBRES" not-null="true"></column>
+		</property>
+		<property name="apellidos" type="string">
+			<column name="APELLIDOS" not-null="true"></column>
+		</property>
+		<property name="usuario" type="string">
+			<column name="USUARIO" not-null="true"></column>
+		</property>
+		<property name="password" type="string">
+			<column name="PASSWORD" not-null="true"></column>
+		</property>
+	</class>
+</hibernate-mapping> 

@@ -16,12 +16,13 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 
 @Controller
+@RequestMapping("productos/")
 public class ProductoController {
 	
 	@Autowired
 	private ProductoService productoService;
 
-	@RequestMapping(value="/mantenimientoProductos.htm",method= RequestMethod.GET)
+	@RequestMapping(value="mantenimientoProductos.htm",method= RequestMethod.GET)
 	public String mantenimientoClientes(Model model){	
 		List<Producto> listaProductos = productoService.consulta();
 		model.addAttribute("listaProductos",listaProductos);
@@ -29,10 +30,10 @@ public class ProductoController {
 		return "productos/mantenimientoProductos";
 	}
 	
-	@RequestMapping(value="/nuevoProducto.htm",method= RequestMethod.POST)
+	@RequestMapping(value="nuevoProducto.htm",method= RequestMethod.POST)
 	public String nuevoProducto( @ModelAttribute("producto")Producto producto){
 		productoService.insert(producto);
-		return "redirect:/mantenimientoProductos.htm";
+		return "redirect:../productos/mantenimientoProductos.htm";
 	}
 	
 	@RequestMapping( value = "obtenerProducto.htm", method = RequestMethod.POST)
@@ -45,16 +46,16 @@ public class ProductoController {
 		
 	}
 	
-	@RequestMapping(value="/modificarProducto.htm",method= RequestMethod.POST)
+	@RequestMapping(value="modificarProducto.htm",method= RequestMethod.POST)
 	public String grabarProducto( @ModelAttribute("producto")Producto producto){
 		productoService.update(producto);
-		return "redirect:/mantenimientoProductos.htm";
+		return "redirect:../productos/mantenimientoProductos.htm";
 	}
 	
-	@RequestMapping(value="/eliminarProducto.htm",method= RequestMethod.GET)
+	@RequestMapping(value="eliminarProducto.htm",method= RequestMethod.GET)
 	public String eliminarProducto( @ModelAttribute("codProducto")Integer codProducto){
 		productoService.delete(productoService.obtenerProducto(codProducto));
-		return "redirect:/mantenimientoProductos.htm";
+		return "redirect:../productos/mantenimientoProductos.htm";
 	}
 }
 

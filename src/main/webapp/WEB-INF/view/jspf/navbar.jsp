@@ -56,7 +56,7 @@
 		  </p>
 		  <ul class="nav">
 			<li class="active" id="liIndex">
-				<a href="../erppyme">Inicio</a>
+				<a href="../security/inicio.htm">Inicio</a>
 			</li>
 			<li class="dropdown" id="liClientes">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -64,7 +64,7 @@
 					<b class="caret"></b>
 				</a>
 				<ul class="dropdown-menu">
-			      <li> <a href="mantenimientoClientes.htm">Mantenimiento Clientes</a> </li> 
+			      <li> <a href="../clientes/mantenimientoClientes.htm">Mantenimiento Clientes</a> </li> 
 			    </ul>
 			</li>
 			<li class="dropdown" id="liProductos">
@@ -73,11 +73,11 @@
 					<b class="caret"></b>
 				</a>
 				<ul class="dropdown-menu">
-			      <li> <a href="mantenimientoProductos.htm">Mantenimiento Productos</a> </li> 
+			      <li> <a href="../productos/mantenimientoProductos.htm">Mantenimiento Productos</a> </li> 
 			    </ul>
 			</li>
 			<li id="liVentas">
-				<a href="mantenimientoVentas.htm">Ventas</a>
+				<a href="../ventas/mantenimientoVentas.htm">Ventas</a>
 			</li>
 		  </ul>
 		
