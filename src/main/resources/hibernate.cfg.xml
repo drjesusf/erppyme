@@ -34,5 +34,7 @@
 		<mapping resource="org/erppyme/model/Producto.hbm.xml"/>
 		<mapping resource="org/erppyme/model/TipoCliente.hbm.xml"/>
 		<mapping resource="org/erppyme/security/Usuario.hbm.xml"/>
+		<mapping resource="org/erppyme/model/UnidadMedida.hbm.xml"/>
+		
 	</session-factory>
 </hibernate-configuration>

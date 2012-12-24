@@ -13,12 +13,14 @@ public class DetalleDocumentoVentaProducto{
 	private BigDecimal precioProducto;
 	private String  descripcion;
 	private String estado;
+	private int numeroItem;
 	
 	public DetalleDocumentoVentaProducto(){}
 	
 	public DetalleDocumentoVentaProducto(Integer codDetallesDocumentoVentaProducto, Producto producto,
 										DocumentoVenta documentoVenta, int cantidadUnidadesProducto, 
-										BigDecimal precioProducto, String  descripcion, String estado) {
+										BigDecimal precioProducto, String  descripcion, String estado,
+										int numeroItem) {
 		super();
 		this.codDetallesDocumentoVentaProducto = codDetallesDocumentoVentaProducto;
 		this.producto = producto;
@@ -27,6 +29,7 @@ public class DetalleDocumentoVentaProducto{
 		this.precioProducto = precioProducto;
 		this.descripcion = descripcion;
 		this.estado = estado;
+		this.numeroItem = numeroItem;
 	}
 	
 	public Integer getCodDetallesDocumentoVentaProducto() {
@@ -84,6 +87,14 @@ public class DetalleDocumentoVentaProducto{
 
 	public void setEstado(String estado) {
 		this.estado = estado;
+	}
+
+	public int getNumeroItem() {
+		return numeroItem;
+	}
+
+	public void setNumeroItem(int numeroItem) {
+		this.numeroItem = numeroItem;
 	}
 
 	

@@ -33,7 +33,7 @@
 				$("#codProducto").val(response.codProducto);
 				$("#nombre").val(response.nombre);
 				$("#descripcion").val(response.descripcion);
-				$("#codUnidadMedida").val(response.codUnidadMedida);					
+				$("#unidadMedida select").val(response.unidadMedida.codUnidadMedida);
 				$("#precioReferencial").val(response.precioReferencial);					
 				$("#estado").val(response.estado);
 			} ,
@@ -113,7 +113,7 @@
 													<td hidden="true">${producto.codProducto}</td>
 													<td >${producto.nombre}</td>
 													<td>${producto.descripcion}</td>
-													<td>${producto.codUnidadMedida}</td>
+													<td>${producto.unidadMedida.nombre}</td>
 													<td>${producto.precioReferencial}</td>
 													<td>${producto.estado}</td>
 													<td>
