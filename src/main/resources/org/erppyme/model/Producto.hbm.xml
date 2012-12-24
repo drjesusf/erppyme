@@ -16,13 +16,9 @@
 		<property name="descripcion" type="string">
 			<column name="DESCRIPCION" not-null="false"></column>
 		</property>
-<!-- 		Aqui se debe agregar esto  -->
-<!-- 		<many-to-one name="tipoDocumentoIdentificacion" class="TipoDocumentoIdentificacion"> -->
-<!-- 			<column name="CODTIPODOCUMENTOIDENTIFICACION"/> -->
-<!-- 		</many-to-one> -->
-		<property name="codUnidadMedida" type="int">
-			<column name="CODUNIDADMEDIDA" not-null="true"></column>
-		</property>
+		<many-to-one name="unidadMedida" class="UnidadMedida">
+			<column name="CODUNIDADMEDIDA"/>
+		</many-to-one>
 		<property name="estado" type="string">
 			<column name="ESTADO" not-null="true"></column>
 		</property>

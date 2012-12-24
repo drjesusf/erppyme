@@ -50,10 +50,13 @@
 	        backdrop: true,
 	        keyboard: true
 	    }).css({
-// 	    	height: '300px',
-	        width: '900px',
+	    	height: '95%',
+	        width: '95%',
 	        'margin-left': function () {
 	            return -($(this).width() / 2);
+	        },
+		    'margin-top': function () {
+	            return -($(this).height() / 2);
 	        }
 	    });
 		$("#modalNuevaGuiaRemision").modal("show");
@@ -240,12 +243,12 @@
 			<h3 id="myModalLabel3">Nueva Guia de Remision</h3>
 		</div>
 		<div class="modal-body" style="height: 380px">
-			<c:import url="../ventas/guiaRemision.jsp"></c:import>
+<%-- 			<c:import url="../ventas/guiaRemision.jsp"></c:import> --%>
 		</div>
-		<div class="modal-footer">
-			<button class="btn btn-primary" onclick="agregarNuevo()">Agregar</button>
-			<button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button>
-		</div>
+<!-- 		<div class="modal-footer"> -->
+<!-- 			<button class="btn btn-primary" onclick="agregarNuevo()">Agregar</button> -->
+<!-- 			<button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button> -->
+<!-- 		</div> -->
 	</div>
 </body>
 </html>
