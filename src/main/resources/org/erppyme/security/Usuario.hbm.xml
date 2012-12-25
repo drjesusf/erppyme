@@ -3,7 +3,7 @@
 "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping package="org.erppyme.model" default-access="field" default-lazy="false">
+<hibernate-mapping package="org.erppyme.security" default-access="field" default-lazy="false">
 	<class name="Usuario" table="USUARIO">
 		<id name="codUsuario" type="integer">
 			<column name="CODUSUARIO" not-null="true"/>
