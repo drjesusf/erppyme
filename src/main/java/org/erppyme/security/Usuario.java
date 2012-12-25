@@ -1,13 +1,20 @@
 package org.erppyme.security;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Usuario {
 	private int codUsuario;
 	private String nombres;
 	private String apellidos;
 	private String usuario;
 	private String password;
+	
+	private Set<Rol> roles;  
+	
 	public Usuario() {
 		super();
+		roles = new HashSet<Rol>(0);
 	}
 	public Usuario(int codUsuario, String nombres, String apellidos,
 			String usuario, String password) {
@@ -17,6 +24,8 @@ public class Usuario {
 		this.apellidos = apellidos;
 		this.usuario = usuario;
 		this.password = password;
+		
+		roles = new HashSet<Rol>(0);
 	}
 	public int getCodUsuario() {
 		return codUsuario;
@@ -47,6 +56,12 @@ public class Usuario {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	public Set<Rol> getRoles() {
+		return roles;
+	}
+	public void setRoles(Set<Rol> roles) {
+		this.roles = roles;
 	}
 	
 	

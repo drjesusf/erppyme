@@ -20,6 +20,9 @@
 	<aop:config>
 	  <aop:advisor advice-ref="customizableTraceInterceptor" pointcut="execution(public * org.erppyme.service..*(..))"/>
 	  <aop:advisor advice-ref="customizableTraceInterceptor" pointcut="execution(public * org.erppyme.controller..*(..))"/>
+<!-- 	  <aop:advisor advice-ref="customizableTraceInterceptor" pointcut="execution(public * org.erppyme.repository..*(..))"/> -->
+	  <aop:advisor advice-ref="customizableTraceInterceptor" pointcut="execution(public * org.erppyme.security..*(..))"/>
+	  <aop:advisor advice-ref="customizableTraceInterceptor" pointcut="execution(public * org.erppyme.modelview..*(..))"/>
 	</aop:config>
 
 </beans>

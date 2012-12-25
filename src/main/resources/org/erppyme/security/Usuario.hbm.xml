@@ -22,5 +22,9 @@
 		<property name="password" type="string">
 			<column name="PASSWORD" not-null="true"></column>
 		</property>
+		<set name="roles" table="ROLESPORUSUARIO" cascade="all">
+			<key column="CODUSUARIO"/>
+			<many-to-many column="CODROL" class="org.erppyme.security.Rol"/>
+		</set>
 	</class>
 </hibernate-mapping> 
