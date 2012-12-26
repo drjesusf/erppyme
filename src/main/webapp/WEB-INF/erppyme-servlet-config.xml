@@ -8,5 +8,5 @@
 	<!-- Declare a view resolver -->
 	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
     		p:prefix="/WEB-INF/view/" p:suffix=".jsp" p:order="1"/>
-    		
+    		 
 </beans>

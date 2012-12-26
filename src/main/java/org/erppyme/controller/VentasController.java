@@ -2,6 +2,7 @@ package org.erppyme.controller;
 
 import java.util.List;
 
+import org.erppyme.model.DetalleDocumentoVentaProducto;
 import org.erppyme.model.TipoDocumentoIdentificacion;
 import org.erppyme.modelview.GuiaRemision;
 import org.erppyme.service.TipoDocumentoIdentificacionService;
