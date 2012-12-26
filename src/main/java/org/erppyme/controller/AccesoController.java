@@ -22,5 +22,11 @@ public class AccesoController {
 		System.out.println("Entro AccesoController -> inicio.htm ");
 		return "inicio/index";
 	}
+	
+	@RequestMapping(value = "asignarRolesPorUsuario.htm", method = RequestMethod.GET)
+	public String asignarRolesPorUsuario(){
+		
+		return "security/asignarRolesPorUsuario";
+	}
 
 }

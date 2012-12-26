@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes("lstTipoDocumentoIdentificacion")
 @RequestMapping("clientes/")
 public class ClienteController {
-	
+	 
 	@Autowired
 	private ClienteService clienteService;
 	@Autowired

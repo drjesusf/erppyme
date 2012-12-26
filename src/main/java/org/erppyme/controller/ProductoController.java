@@ -21,7 +21,7 @@ public class ProductoController {
 
 	@Autowired
 	private ProductoService productoService;
-
+ 
 	@Autowired
 	private UnidadMedidaService unidadMedidaService;
 
