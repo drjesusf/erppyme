@@ -12,19 +12,30 @@
 			document.getElementById("liIndex").removeAttribute("class");
 			document.getElementById("liClientes").setAttribute("class", clasesLiDropDownActivo);
 			document.getElementById("liProductos").setAttribute("class",clasesLiDropDown);
-			document.getElementById("liVentas").removeAttribute("class");
+			document.getElementById("liVentas").setAttribute("class",clasesLiDropDown);
+			document.getElementById("liSeguridad").setAttribute("class",clasesLiDropDown);
 			break;
 		case "mantenimientoProductos":
 			document.getElementById("liIndex").removeAttribute("class");
 			document.getElementById("liClientes").setAttribute("class",clasesLiDropDown);
 			document.getElementById("liProductos").setAttribute("class", clasesLiDropDownActivo);
-			document.getElementById("liVentas").removeAttribute("class");
+			document.getElementById("liVentas").setAttribute("class",clasesLiDropDown);
+			document.getElementById("liSeguridad").setAttribute("class",clasesLiDropDown);
 			break;
 		case "mantenimientoVentas":
 			document.getElementById("liIndex").removeAttribute("class");
 			document.getElementById("liClientes").setAttribute("class",clasesLiDropDown);
 			document.getElementById("liProductos").setAttribute("class",clasesLiDropDown);
 			document.getElementById("liVentas").setAttribute("class", clasesLiActivo);
+			document.getElementById("liSeguridad").setAttribute("class",clasesLiDropDown);
+			break;
+		
+		case "asignarRolesPorUsuario":
+			document.getElementById("liIndex").removeAttribute("class");
+			document.getElementById("liClientes").setAttribute("class",clasesLiDropDown);
+			document.getElementById("liProductos").setAttribute("class",clasesLiDropDown);
+			document.getElementById("liVentas").setAttribute("class",clasesLiDropDown);
+			document.getElementById("liSeguridad").setAttribute("class", clasesLiActivo);
 			break;
 		}
 	}
@@ -78,6 +89,17 @@
 			</li>
 			<li id="liVentas">
 				<a href="../ventas/mantenimientoVentas.htm">Ventas</a>
+			</li>
+			<li class="dropdown" id="liSeguridad">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+					Seguridad
+					<b class="caret"></b>
+				</a>
+				
+				<ul class="dropdown-menu">
+				  <li> <a href="../security/administracionUsuarios.htm">Administraci&oacute;n de Usuarios</a> </li>
+			      <li> <a href="../security/asignarRolesPorUsuario.htm">Asignar Roles por Usuario</a> </li> 
+			    </ul>
 			</li>
 		  </ul>
 		

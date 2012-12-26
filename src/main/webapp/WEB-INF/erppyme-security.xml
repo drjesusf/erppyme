@@ -25,7 +25,7 @@
 		<access-denied-handler error-page="/security/login.htm?error=true"/>
 
 		<logout invalidate-session="true" 
-			logout-success-url="/logout/success" 
+			logout-success-url="/security/login.htm?error=true" 
 			logout-url="/logout"
 		/>
 	</http>
