@@ -243,54 +243,9 @@
 				aria-hidden="true">×</button>
 			<h4 id="myModalLabel3">Nueva Guia de Remision</h4>
 		</div>
-		<div class="modal-body" style="height: 380px">
+		<div class="modal-body" style="max-height: 90%; padding-top: 1px">
 			<c:import url="../ventas/guiaRemision.jsp"></c:import>
 		</div>
-<!-- 		<div class="modal-footer"> -->
-<!-- 			<button class="btn btn-primary" onclick="agregarNuevo()">Agregar</button> -->
-<!-- 			<button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar</button> -->
-<!-- 		</div> -->
-
-
-<div class="accordion" id="accordion2">
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-        Collapsible Group Item #1
-      </a>
-    </div>
-    <div id="collapseOne" class="accordion-body collapse in">
-      <div class="accordion-inner">
-        Anim pariatur cliche...
-      </div>
-    </div>
-  </div>
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-        Collapsible Group Item #2
-      </a>
-    </div>
-    <div id="collapseTwo" class="accordion-body collapse">
-      <div class="accordion-inner">
-        Anim pariatur cliche...
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#demo"> -->
-<!--   simple collapsible -->
-<!-- </button> -->
- 
-<!-- <div id="demo" class="collapse in">sdsd</div> -->
-<!-- <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#demo1"> -->
-<!--   simple collapsible 1 -->
-<!-- </button> -->
- 
-<!-- <div id="demo1" class="collapse in">sdsd</div> -->
-
-
 	</div>
 </body>
 </html>
