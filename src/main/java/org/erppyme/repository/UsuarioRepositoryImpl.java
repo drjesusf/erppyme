@@ -61,21 +61,23 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
 	}
 
 	@Override
-	public List obtenerUsuarioPorUsername(String usuario) {
+	public Usuario obtenerUsuarioPorUsername(String usuario) {
 		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
-		List lstUsuarios = session.createQuery("from Usuario").list();
+		Usuario usuarios = (Usuario)session.createQuery("from Usuario where usuario= :usuario")
+														.setParameter("usuario", usuario)
+														.uniqueResult();
 		session.close();
-		return lstUsuarios;
+		return usuarios;
 	}
 	
-	public List obtenerUsuarios(){
-		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
-		session.beginTransaction();
-		Usuario usuarioExistente = (Usuario)session.createQuery("from Usuario <where usuario = :usuario")
-									.setParameter("usuario", usuario)
-									.uniqueResult();
-		session.close();
-		return usuarioExistente;
-	}
+//	public List obtenerUsuarios(){
+//		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
+//		session.beginTransaction();
+//		Usuario usuarioExistente = (Usuario)session.createQuery("from Usuario <where usuario = :usuario")
+//									.setParameter("usuario", usuario)
+//									.uniqueResult();
+//		session.close();
+//		return usuarioExistente;
+//	}
 }

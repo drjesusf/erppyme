@@ -30,10 +30,10 @@ public class CustomUserDetailsService implements UserDetailsService {
 			throws UsernameNotFoundException {
 		
 		Usuario usuarioExistente = usuarioRepository.obtenerUsuarioPorUsername(username);
-		 List<Rol> listRols = new ArrayList<Rol>(usuarioExistente.getRoles());
+		List<Rol> listRols = new ArrayList<Rol>(usuarioExistente.getRoles());
 		User user = new User(usuarioExistente.getUsuario(),usuarioExistente.getPassword(),
 								true,true,true,true,getAuthorities(listRols));
-	
+//		User user  =  new User("dcubas", "1234", true, true, true, true, new List<>)
 		return user;
 	}
 	
