@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+	
+<tiles-definitions>
+	<definition name="plantillaPrincipal" template="/WEB-INF/view/layouts/principal-tiles.jsp">
+		<put-attribute name="titulo-content" value=""/>
+		<put-attribute name="menu-content" value="/WEB-INF/view/jspf/navbar.jsp"/>
+		<put-attribute name="interno-content" value=""/>
+		<put-attribute name="piePagina-content" value="/WEB-INF/view/jspf/piePagina.jsp"/>
+	</definition>	
+	
+	<definition name="/security/asignarRolesPorUsuario" extends="plantillaPrincipal">
+		<put-attribute name="titulo-content" value=".:ERPPYME:. Asignar Roles por usuario"/>
+		<put-attribute name="interno-content" value="/WEB-INF/view/security/asignarRolesPorUsuario.jsp"/>
+	</definition>
+
+</tiles-definitions>

@@ -14,5 +14,9 @@
 			<column name="DESCRIPCION" not-null="true"></column>
 		</property>
 		
+		<property name="estado" type="string">
+			<column name="ESTADO" not-null="true"></column>
+		</property>
+		
 	</class>
 </hibernate-mapping> 

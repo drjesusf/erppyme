@@ -1,5 +1,6 @@
 package org.erppyme.security;
 
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -9,7 +10,8 @@ public class Usuario {
 	private String apellidos;
 	private String usuario;
 	private String password;
-	
+	private String estado;
+	private Calendar fechaCreacion;
 	private Set<Rol> roles;  
 	
 	public Usuario() {
@@ -17,14 +19,15 @@ public class Usuario {
 		roles = new HashSet<Rol>(0);
 	}
 	public Usuario(int codUsuario, String nombres, String apellidos,
-			String usuario, String password) {
+			String usuario, String password, String estado, Calendar fechaCreacion) {
 		super();
 		this.codUsuario = codUsuario;
 		this.nombres = nombres;
 		this.apellidos = apellidos;
 		this.usuario = usuario;
 		this.password = password;
-		
+		this.estado = estado;
+		this.fechaCreacion = fechaCreacion;
 		roles = new HashSet<Rol>(0);
 	}
 	public int getCodUsuario() {
@@ -57,11 +60,24 @@ public class Usuario {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public String getEstado() {
+		return estado;
+	}
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
 	public Set<Rol> getRoles() {
 		return roles;
 	}
 	public void setRoles(Set<Rol> roles) {
 		this.roles = roles;
+	}
+	public Calendar getFechaCreacion() {
+		return fechaCreacion;
+	}
+	public void setFechaCreacion(Calendar fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
 	}
 	
 	

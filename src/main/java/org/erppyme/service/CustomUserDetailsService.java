@@ -55,17 +55,24 @@ public class CustomUserDetailsService implements UserDetailsService {
 		return authorities;
 	}
 	
-	public List<String> getRoles(Integer role) {
-		List<String> roles = new ArrayList<String>();
-
-		if (role.intValue() == 1) {
-			roles.add("ROLE_USER");
-			roles.add("ROLE_ADMIN");
-
-		} else if (role.intValue() == 2) {
-			roles.add("ROLE_USER");
-		}
-
-		return roles;
+	public List obtenerUsuarios(){
+		return usuarioRepository.obtenerUsuarios();
 	}
+	
+	public List filtrarUsuarios(String identificador, String cadena){
+		return usuarioRepository.filtrarUsuarios(identificador,cadena);
+	}
+//	public List<String> getRoles(Integer role) {
+//		List<String> roles = new ArrayList<String>();
+//
+//		if (role.intValue() == 1) {
+//			roles.add("ROLE_USER");
+//			roles.add("ROLE_ADMIN");
+//
+//		} else if (role.intValue() == 2) {
+//			roles.add("ROLE_USER");
+//		}
+//
+//		return roles;
+//	}
 }

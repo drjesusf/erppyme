@@ -3,6 +3,7 @@ package org.erppyme.security;
 public class Rol {
 	private int codRol;
 	private String descripcion;
+	private String estado;
 	
 	public Rol() {	
 		super();
@@ -24,6 +25,14 @@ public class Rol {
 	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
 	}
 	
 	

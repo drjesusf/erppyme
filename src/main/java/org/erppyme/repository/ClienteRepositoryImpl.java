@@ -19,6 +19,8 @@ public class ClienteRepositoryImpl implements ClienteRepository {
 		hibernateTemplate = new HibernateTemplate(sessionFactory);
 	}
 	
+	public ClienteRepositoryImpl(){}
+	
 	public void insert(Cliente cliente) {
 		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
 		session.beginTransaction();

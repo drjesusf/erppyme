@@ -26,7 +26,7 @@
 			document.getElementById("liIndex").removeAttribute("class");
 			document.getElementById("liClientes").setAttribute("class",clasesLiDropDown);
 			document.getElementById("liProductos").setAttribute("class",clasesLiDropDown);
-			document.getElementById("liVentas").setAttribute("class", clasesLiActivo);
+			document.getElementById("liVentas").setAttribute("class", clasesLiDropDownActivo);
 			document.getElementById("liSeguridad").setAttribute("class",clasesLiDropDown);
 			break;
 		
@@ -35,7 +35,7 @@
 			document.getElementById("liClientes").setAttribute("class",clasesLiDropDown);
 			document.getElementById("liProductos").setAttribute("class",clasesLiDropDown);
 			document.getElementById("liVentas").setAttribute("class",clasesLiDropDown);
-			document.getElementById("liSeguridad").setAttribute("class", clasesLiActivo);
+			document.getElementById("liSeguridad").setAttribute("class", clasesLiDropDownActivo);
 			break;
 		}
 	}
@@ -94,10 +94,9 @@
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 					Seguridad
 					<b class="caret"></b>
-				</a>
-				
+				</a>				
 				<ul class="dropdown-menu">
-				  <li> <a href="../security/administracionUsuarios.htm">Administraci&oacute;n de Usuarios</a> </li>
+<!-- 				  <li> <a href="../security/administracionUsuarios.htm">Administraci&oacute;n de Usuarios</a> </li> -->
 			      <li> <a href="../security/asignarRolesPorUsuario.htm">Asignar Roles por Usuario</a> </li> 
 			    </ul>
 			</li>

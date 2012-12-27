@@ -9,14 +9,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 @Service
 public class ClienteServiceImpl implements ClienteService {
-	@Autowired
+	
 	private ClienteRepository clienteRepository;
 	
-//	@Autowired
-//	public ClienteServiceImpl(ClienteRepository clienteRepository){
-//		this.clienteRepository = clienteRepository;
-//	}
+	@Autowired
+	public ClienteServiceImpl(ClienteRepository clienteRepository){
+		this.clienteRepository = clienteRepository;
+	}
 
+	public ClienteServiceImpl(){}
+	
 	public void insert(Cliente cliente) {
 		clienteRepository.insert(cliente);
 
