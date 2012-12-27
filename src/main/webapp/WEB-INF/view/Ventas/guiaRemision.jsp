@@ -2,23 +2,39 @@
 <%@ taglib prefix="f" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
+<script type="text/javascript">
+	$(function() {
+		$("#input_documentoVenta_fechaEmision").datepicker();
+	});
+	$(function() {
+		$("#button_documentoVenta_fechaEmision").datepicker();
+	});
+</script>
+
+
 <form:form method="POST" modelAttribute="guiaRemision"
 	class="form-horizontal" name="formGuiaRemision" id="formGuiaRemision"
 	action="guardarNuevaGuiaRemision.htm">
-
 	<div class="row-fluid">
 		<div class="span12">
 			<div class="btn-toolbar">
 				<div class="btn-group">
-					<button class="btn"><i class="icon-hdd"></i></button>
-					<button class="btn"><i class="icon-print"></i></button>
-					<button class="btn"><i class="icon-download-alt"></i></button>
-					<button class="btn"><i class="icon-asterisk"></i></button>
+					<button class="btn">
+						<i class="icon-hdd"></i>
+					</button>
+					<button class="btn">
+						<i class="icon-print"></i>
+					</button>
+					<button class="btn">
+						<i class="icon-download-alt"></i>
+					</button>
+					<button class="btn">
+						<i class="icon-asterisk"></i>
+					</button>
 				</div>
 			</div>
 		</div>
 	</div>
-
 	<div class="accordion" id="accordion2">
 		<div class="accordion-group">
 			<div class="accordion-heading">
@@ -40,7 +56,6 @@
 							</div>
 						</div>
 					</div>
-
 					<div class="row-fluid">
 						<div class="span12 altura-elemento_formulario-alto">
 							<div id="controlTipoDocumentoIdentificacion"
@@ -68,7 +83,12 @@
 								<label class="control-label" for="nroDocumentoIdentificacion">Nro.
 									Doc. Ident.</label>
 								<div class="controls">
-									<form:input path="cliente.nroDocumentoIdentificacion" />
+									<div class="input-append">
+										<form:input path="cliente.nroDocumentoIdentificacion" />
+										<button class="btn" type="button">
+											<i class="icon-search"></i>
+										</button>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -90,26 +110,21 @@
 								</div>
 							</div>
 						</div>
-
-						<!-- 						<div class="input-append"> -->
-						<!-- 						  <input class="span2" id="appendedInputButton" type="text"> -->
-
-						<!-- 						</div> -->
-
-						<div class="span2 altura-elemento_formulario-alto">
+						<div class="span4 altura-elemento_formulario-alto">
 							<div class="control-group">
 								<label class="control-label" for="fecha">Fecha</label>
 								<div class="controls">
 									<div class="input-append">
-										<form:input path="documentoVenta.fechaEmision" />
-										<button class="btn" type="button" onclick="alert 'HOLA' ">
+										<form:input path="documentoVenta.fechaEmision"
+											id="input_documentoVenta_fechaEmision" />
+										<button class="btn" type="button" id="button_documentoVenta_fechaEmision">
 											<i class="icon-calendar"></i>
 										</button>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="span4 altura-elemento_formulario-alto"></div>
+						<div class="span2 altura-elemento_formulario-alto"></div>
 					</div>
 
 					<div class="row-fluid">
@@ -145,7 +160,8 @@
 				<div class="accordion-inner">
 					<div class="row-fluid">
 						<div class="span12">
-							<table class="table table-bordered" id="tabla-clientes-cabecera" style="margin-bottom: 0">
+							<table class="table table-bordered" id="tabla-clientes-cabecera"
+								style="margin-bottom: 0">
 								<thead>
 									<!-- 									<tr> -->
 									<!-- 										<th colspan="10"><a href="#" id="tooltip" rel="tooltip" -->
@@ -171,7 +187,7 @@
 									</tr>
 								</thead>
 							</table>
-							<div style="height: 150px; overflow: auto">
+							<div style="height: 130px; overflow: auto">
 								<table class="table table-bordered" id="tabla-clientes-cuerpo">
 									<tbody>
 										<tr>
