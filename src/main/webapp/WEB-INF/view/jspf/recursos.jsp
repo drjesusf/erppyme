@@ -1,12 +1,6 @@
 <!-- Jquery -->
 <script type="text/javascript" src="../resources/js/jquery/jquery-1.8.2.min.js"></script>
 
-<!-- Bootstrap -->
-<link href="../resources/css/bootstrap/bootstrap.min.css" rel="stylesheet">
-<link href="../resources/css/bootstrap/bootstrap-responsive.min.css" rel="stylesheet">
-
-<script type="text/javascript" src="../resources/js/bootstrap/bootstrap.js"></script>
-
 <!-- JqueryUI -->
 <link href="../resources/css/jquery-ui/jquery-ui-1.9.1.custom.min.css" rel="stylesheet">
 
@@ -24,7 +18,13 @@
 <!-- Habilitar el diseño web para cualquier dispositivo movil -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- Bootstrap -->
+<link href="../resources/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link href="../resources/css/bootstrap/bootstrap-responsive.min.css" rel="stylesheet">
+
+<script type="text/javascript" src="../resources/js/bootstrap/bootstrap.js"></script>
+
 <!-- GreyPower -->
-<link href="../resources/css/greypower/validaciones.css" rel="stylesheet">
 <link href="../resources/css/greypower/greypower-estilos.css" rel="stylesheet">
+<script type="text/javascript" src="../resources/js/greypower/greypower-javascripts.js"></script>
 

@@ -241,7 +241,7 @@
 		<div class="modal-header">
 			<button type="button" class="close" data-dismiss="modal"
 				aria-hidden="true">×</button>
-			<h4 id="myModalLabel3">Nueva Guia de Remision</h4>
+			<h5 id="myModalLabel3" class="titulo-cabecera-modal">Nueva Guia de Remision</h5>
 		</div>
 		<div class="modal-body" style="max-height: 90%; padding-top: 1px">
 			<c:import url="../ventas/guiaRemision.jsp"></c:import>

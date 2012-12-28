@@ -10,9 +10,15 @@
 	height: 20px;
 }
 
-/* .margen-bajo-tabla{ */
-/* 	magin-bottom: 0; */
-/* } */
 div.ui-datepicker {
-	font-size: 70%;
+	font-size: 80%;
+}
+
+div.modal-header{
+	height: 15px;
+}
+
+h5.titulo-cabecera-modal{
+	margin-bottom: 0;
+	margin-top: 0;
 }

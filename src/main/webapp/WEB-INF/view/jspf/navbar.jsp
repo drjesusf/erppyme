@@ -1,45 +1,3 @@
-
-<script type="text/javascript">
-	function seleccionarItemNavBar()
-	{
-		var clasesLiDropDown = "dropdown";
-		var clasesLiDropDownActivo = "active dropdown";
-		var clasesLiActivo = "active";
-		
-		switch( document.getElementById("ventanaActiva").getAttribute("value") )
-		{
-		case "mantenimientoClientes":
-			document.getElementById("liIndex").removeAttribute("class");
-			document.getElementById("liClientes").setAttribute("class", clasesLiDropDownActivo);
-			document.getElementById("liProductos").setAttribute("class",clasesLiDropDown);
-			document.getElementById("liVentas").setAttribute("class",clasesLiDropDown);
-			document.getElementById("liSeguridad").setAttribute("class",clasesLiDropDown);
-			break;
-		case "mantenimientoProductos":
-			document.getElementById("liIndex").removeAttribute("class");
-			document.getElementById("liClientes").setAttribute("class",clasesLiDropDown);
-			document.getElementById("liProductos").setAttribute("class", clasesLiDropDownActivo);
-			document.getElementById("liVentas").setAttribute("class",clasesLiDropDown);
-			document.getElementById("liSeguridad").setAttribute("class",clasesLiDropDown);
-			break;
-		case "mantenimientoVentas":
-			document.getElementById("liIndex").removeAttribute("class");
-			document.getElementById("liClientes").setAttribute("class",clasesLiDropDown);
-			document.getElementById("liProductos").setAttribute("class",clasesLiDropDown);
-			document.getElementById("liVentas").setAttribute("class", clasesLiDropDownActivo);
-			document.getElementById("liSeguridad").setAttribute("class",clasesLiDropDown);
-			break;
-		
-		case "asignarRolesPorUsuario":
-			document.getElementById("liIndex").removeAttribute("class");
-			document.getElementById("liClientes").setAttribute("class",clasesLiDropDown);
-			document.getElementById("liProductos").setAttribute("class",clasesLiDropDown);
-			document.getElementById("liVentas").setAttribute("class",clasesLiDropDown);
-			document.getElementById("liSeguridad").setAttribute("class", clasesLiDropDownActivo);
-			break;
-		}
-	}
-</script>
 <div class="navbar">
   <div class="navbar-inner">
     <div class="container">	  	 
@@ -54,7 +12,7 @@
 				<li>
 					<a href="#">Cerrar Sesi&oacute;n</a>
 				</li>
-		 		<li>
+		 		<li> 
 		 			<a href="#">Cambiar Contrase&ntilde;a</a>
 		 		</li>			    	
 		    </ul>
