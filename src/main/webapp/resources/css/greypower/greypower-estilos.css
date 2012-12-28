@@ -1,0 +1,24 @@
+.altura-elemento_formulario-alto {
+	height: 40px;
+}
+
+.altura-elemento_formulario-medio {
+	height: 30px;
+}
+
+.altura-elemento_formulario-bajo {
+	height: 20px;
+}
+
+div.ui-datepicker {
+	font-size: 80%;
+}
+
+div.modal-header{
+	height: 15px;
+}
+
+h5.titulo-cabecera-modal{
+	margin-bottom: 0;
+	margin-top: 0;
+}

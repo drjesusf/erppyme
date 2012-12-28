@@ -91,6 +91,5 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
 		session.close();
 		return lstUsuarios;
 	}
-	
-	
+
 }
