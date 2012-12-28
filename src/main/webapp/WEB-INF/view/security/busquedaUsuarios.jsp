@@ -25,14 +25,14 @@
             	var nombreCompleto = ui.item.nombres +" "+ ui.item.apellidos
                  $( "#buscarUsuario" ).val( nombreCompleto ); 
                  $( "#buscarUsuario-id" ).val( ui.item.codUsuario ); 
-//                  cargarGrillaUsuarios(ui.item.codUsuarios);
+                 cargarGrillaUsuarios(ui.item.codUsuarios);
                 return false;
             }
         })
         .data( "autocomplete" )._renderItem = function( ul, item ) {
             return $( "<li>" )
                 .data( "item.autocomplete", item )
-                .append( "<a>" + item.nombres + "&nbsp"+ item.apellidos +"<br>" + 
+                .append( "<a>" + item.nombres + "&nbsp"+ item.apellidos +" | " + 
                 				 item.usuario + "</a>" )
                 .appendTo( ul );
         };

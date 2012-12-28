@@ -10,6 +10,7 @@ public class Usuario {
 	private String apellidos;
 	private String usuario;
 	private String password;
+	private String password_confirmacion;
 	private String estado;
 	private Calendar fechaCreacion;
 	private Set<Rol> roles;  
@@ -78,6 +79,12 @@ public class Usuario {
 	}
 	public void setFechaCreacion(Calendar fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
+	}
+	public String getPassword_confirmacion() {
+		return password_confirmacion;
+	}
+	public void setPassword_confirmacion(String password_confirmacion) {
+		this.password_confirmacion = password_confirmacion;
 	}
 	
 	

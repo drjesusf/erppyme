@@ -3,6 +3,7 @@ package org.erppyme.controller;
 import java.util.List;
 
 import org.erppyme.model.Cliente;
+import org.erppyme.security.Usuario;
 import org.erppyme.service.CustomUserDetailsService;
 import org.erppyme.service.RolService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,8 +37,11 @@ public class AccesoController {
 	public String asignarRolesPorUsuario(ModelMap model){
 		List lstRoles = rolService.obtenerRoles();
 		List lstUsuarios = customUserDetailsService.obtenerUsuarios();
+		Usuario usuario = new Usuario();
+		
 		model.addAttribute("lstRoles", lstRoles);
 		model.addAttribute("lstUsuarios", lstUsuarios);
+		model.addAttribute("usuario", usuario);
 		
 		return "security/asignarRolesPorUsuario";
 	}
@@ -50,5 +54,7 @@ public class AccesoController {
 		
 		return lstClientes;
 	}
+	
+	
 
 }
