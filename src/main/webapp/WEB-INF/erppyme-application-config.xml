@@ -34,6 +34,8 @@
 	
 	<import resource="classpath:org/erppyme/application-config.xml" />
 	
+	<import resource="erppyme-tiles-context.xml" />
+	
 	<bean id="deployProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean"
         p:location="/WEB-INF/spring.properties" />
         

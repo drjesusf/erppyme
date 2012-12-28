@@ -20,6 +20,8 @@ public class UnidadMedidaRepositoryImpl implements UnidadMedidaRepository {
 		hibernateTemplate = new HibernateTemplate(sessionFactory);
 	}
 	
+	public UnidadMedidaRepositoryImpl(){}
+	
 	@Override
 	public void insert(UnidadMedida unidadMedida) {
 		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();

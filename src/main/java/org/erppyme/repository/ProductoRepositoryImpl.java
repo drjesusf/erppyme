@@ -19,6 +19,8 @@ public class ProductoRepositoryImpl implements ProductoRepository {
 		hibernateTemplate = new HibernateTemplate(sessionFactory);
 	}
 	
+	public ProductoRepositoryImpl(){}
+	
 	public void insert(Producto producto) {
 		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
 		session.beginTransaction();

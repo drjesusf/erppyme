@@ -6,6 +6,7 @@ import org.erppyme.model.Cliente;
 import org.erppyme.security.Usuario;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
@@ -18,6 +19,8 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
 	public UsuarioRepositoryImpl(SessionFactory sessionFactory){
 		hibernateTemplate = new HibernateTemplate(sessionFactory);
 	}
+	
+	public UsuarioRepositoryImpl(){}
 	
 	public void insert(Usuario usuario){
 		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
@@ -64,20 +67,29 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
 	public Usuario obtenerUsuarioPorUsername(String usuario) {
 		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
-		Usuario usuarios = (Usuario)session.createQuery("from Usuario where usuario= :usuario")
-														.setParameter("usuario", usuario)
-														.uniqueResult();
+		Usuario usuarioExistente = (Usuario)session.createQuery("from Usuario where usuario = :usuario")
+				.setParameter("usuario", usuario)
+				.uniqueResult();
 		session.close();
-		return usuarios;
+		return usuarioExistente;
 	}
 	
-//	public List obtenerUsuarios(){
-//		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
-//		session.beginTransaction();
-//		Usuario usuarioExistente = (Usuario)session.createQuery("from Usuario <where usuario = :usuario")
-//									.setParameter("usuario", usuario)
-//									.uniqueResult();
-//		session.close();
-//		return usuarioExistente;
-//	}
+	public List obtenerUsuarios(){
+		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		List lstUsuarios = session.createQuery("from Usuario ").list();
+		session.close();
+		return lstUsuarios;
+	}
+
+	@Override
+	public List filtrarUsuarios(String identificador, String cadena) {
+		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		List lstUsuarios = session.createCriteria(Usuario.class)
+				.add(Restrictions.like(identificador, cadena+"%")).list();
+		session.close();
+		return lstUsuarios;
+	}
+
 }

@@ -18,6 +18,8 @@ public class TipoDocumentoIdentificacionRepositoryImpl implements TipoDocumentoI
 		hibernateTemplate = new HibernateTemplate(sessionFactory);
 	} 
 	
+	public TipoDocumentoIdentificacionRepositoryImpl(){}
+	
 	public List<TipoDocumentoIdentificacion> consulta(){
 		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
 		session.beginTransaction();

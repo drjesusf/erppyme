@@ -7,12 +7,7 @@
 <head>
 	<c:import url="../jspf/recursos.jsp"></c:import>
 	<title>.:ERPPYME:. Relacion de Clientes</title>	
-	<style scoped>
-       #clientsDb {
-/*            width: 400px; */
-/*            height: 120px;   */
-       }
-    </style>
+	
 	<script>
 		$(function() {
 			$("a").each(function(){

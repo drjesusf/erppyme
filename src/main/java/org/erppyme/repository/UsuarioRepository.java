@@ -11,5 +11,7 @@ public interface UsuarioRepository {
 	public List consulta();
 	public Usuario obtenerUsuarioPorUsername(String usuario);
 	public Usuario validarUsuario(Usuario usuario);
+	public List obtenerUsuarios();
+	public List filtrarUsuarios(String identificador, String cadena);
 	
 }
