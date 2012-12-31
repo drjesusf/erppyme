@@ -256,7 +256,7 @@
 			<h5 id="myModalLabel4" class="titulo-cabecera-modal">Busqueda de Cliente</h5>
 		</div>
 		<div class="modal-body" style="max-height: 90%; padding-top: 1px">
-			<c:import url="../clientes/busqueda.jsp"></c:import>
+<%-- 			<c:import url="../clientes/busqueda.jsp"></c:import> --%>
 		</div>
 	</div>
 </body>
