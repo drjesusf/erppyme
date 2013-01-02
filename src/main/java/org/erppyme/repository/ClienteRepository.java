@@ -11,5 +11,6 @@ public interface ClienteRepository {
 	public List consulta();
 	public Cliente obtenerCliente(Integer clienteId);
 	public List filtrarClientes(String identificador,String cadena);
+	public Cliente buscarClientePorIdentificacion(Integer nroDocumentoIdentificacion);
 	
 }

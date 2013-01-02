@@ -86,7 +86,8 @@
 									<table class="table table-bordered" id="clientes">
 										<thead>
 											<tr>
-												<th colspan="10"><a href="#" id="tooltip" rel="tooltip"
+												<th colspan="10">
+												<a class="etiqueta" href="#" id="tooltip" rel="tooltip"
 													data-placement="right"
 													title="Click para agregar un nuevo producto"
 													onclick="ventanaNuevo()"> <i class="icon-plus" /></i>

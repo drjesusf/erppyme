@@ -71,4 +71,14 @@ public class ClienteRepositoryImpl implements ClienteRepository {
 		return lstClientes;
 	}
 
+	@Override
+	public Cliente buscarClientePorIdentificacion(
+			Integer nroDocumentoIdentificacion) {
+		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		Cliente cliente = (Cliente)session.createQuery("from Cliente where nroDocumentoIdentificacion = " + nroDocumentoIdentificacion).uniqueResult();
+		session.close();
+		return cliente;
+	}
+
 }

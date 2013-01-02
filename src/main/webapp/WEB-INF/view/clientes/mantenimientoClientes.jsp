@@ -265,7 +265,7 @@
 				            		<thead>
 				            			<tr>
 				            				<th colspan="10">
-				            					<a href="#" id="tooltip" rel="tooltip" data-placement="right" title="Click para agregar un nuevo cliente"
+				            					<a class="etiqueta" href="#" id="tooltip" rel="tooltip" data-placement="right" title="Click para agregar un nuevo cliente"
 				            						onclick="ventanaNuevoCliente()">
 				            						<i class="icon-plus">
 				            						</i>

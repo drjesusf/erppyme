@@ -11,5 +11,6 @@ public interface ClienteService {
 	public void delete(Cliente cliente);
 	public List consulta();
 	public List filtrarClientes(String identificador,String cadena);
+	public Cliente buscarClientePorIdentificacion(Integer nroDocumentoIdentificacion);
 	
 }

@@ -50,4 +50,10 @@ public class ClienteServiceImpl implements ClienteService {
 		
 	}
 
+	@Override
+	public Cliente buscarClientePorIdentificacion(
+			Integer nroDocumentoIdentificacion) {
+		return clienteRepository.buscarClientePorIdentificacion(nroDocumentoIdentificacion);
+	}
+
 }
