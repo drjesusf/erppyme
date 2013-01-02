@@ -63,6 +63,7 @@
 		$("#modalNuevaGuiaRemision").modal("show");
 	};
 	
+
 	function mostrarModalNuevaFactura() {
 		$('#modalNuevaFactura').modal({
 	        backdrop: true,
@@ -145,7 +146,7 @@
 									<table class="table table-bordered" id="clientes">
 										<thead>
 											<tr>
-												<th colspan="10"><a href="#" id="tooltip" rel="tooltip"
+												<th colspan="10"><a class="etiqueta" href="#" id="tooltip" rel="tooltip"
 													data-placement="right"
 													title="Click para agregar una nueva venta"
 													onclick="ventanaNuevo()"> <i class="icon-plus" /></i>
@@ -175,7 +176,7 @@
 									<table class="table table-bordered" id="clientes">
 										<thead>
 											<tr>
-												<th colspan="10"><a href="#" id="tooltip" rel="tooltip"
+												<th colspan="10"><a class="etiqueta" href="#" id="tooltip" rel="tooltip"
 													data-placement="right"
 													title="Click para agregar un nuevo documento"
 													onclick="mostrarModalNuevaGuiaRemision()"> <i class="icon-plus" /></i>
@@ -203,7 +204,7 @@
 									<table class="table table-bordered" id="clientes">
 										<thead>
 											<tr>
-												<th colspan="10"><a href="#" id="tooltip" rel="tooltip"
+												<th colspan="10"><a class="etiqueta" href="#" id="tooltip" rel="tooltip"
 													data-placement="right"
 													title="Click para agregar un nuevo documento"
 													onclick="ventanaNuevo()"> <i class="icon-plus" /></i>
@@ -259,5 +260,6 @@
 <%-- 			<c:import url="../clientes/busqueda.jsp"></c:import> --%>
 		</div>
 	</div>
+	
 </body>
 </html>

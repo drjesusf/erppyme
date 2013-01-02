@@ -18,18 +18,18 @@ public class GuiaRemision {
 	private DocumentoVenta documentoVenta;
 	private List <DetalleDocumentoVentaProducto> detallesDocumentoVentaProducto;
 	private TipoDocumentoIdentificacion tipoDocumentoIdentificacion;
-	private List <Producto> productos;
+	private Producto producto;
 	
 	public GuiaRemision( Venta venta, DocumentoVenta documentoVenta,
 						 List <DetalleDocumentoVentaProducto> detallesDocumentoVentaProducto,
 						 TipoDocumentoIdentificacion tipoDocumentoIdentificacion,
-						 List <Producto> productos)
+						 Producto producto)
 	{
 		this.venta = venta;
 		this.documentoVenta = documentoVenta;
 		this.detallesDocumentoVentaProducto = detallesDocumentoVentaProducto;
 		this.tipoDocumentoIdentificacion = tipoDocumentoIdentificacion;
-		this.productos = productos;
+		this.producto = producto;
 	}
 	
 	public GuiaRemision(){}
@@ -59,14 +59,6 @@ public class GuiaRemision {
 		this.detallesDocumentoVentaProducto = detallesDocumentoVentaProducto;
 	}
 
-	public List<Producto> getProductos() {
-		return productos;
-	}
-
-	public void setProductos(List<Producto> productos) {
-		this.productos = productos;
-	}
-	
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -82,6 +74,14 @@ public class GuiaRemision {
 	public void setTipoDocumentoIdentificacion(
 			TipoDocumentoIdentificacion tipoDocumentoIdentificacion) {
 		this.tipoDocumentoIdentificacion = tipoDocumentoIdentificacion;
+	}
+
+	public Producto getProducto() {
+		return producto;
+	}
+
+	public void setProducto(Producto producto) {
+		this.producto = producto;
 	}
 
 

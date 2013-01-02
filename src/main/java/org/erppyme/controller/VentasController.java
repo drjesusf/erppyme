@@ -3,8 +3,10 @@ package org.erppyme.controller;
 import java.util.List;
 
 import org.erppyme.model.DetalleDocumentoVentaProducto;
+import org.erppyme.model.Producto;
 import org.erppyme.model.TipoDocumentoIdentificacion;
 import org.erppyme.modelview.GuiaRemision;
+import org.erppyme.service.ProductoService;
 import org.erppyme.service.TipoDocumentoIdentificacionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,12 +23,16 @@ public class VentasController {
 	@Autowired
 	private TipoDocumentoIdentificacionService tipoDocumentoIdentificacionService;
 	
+	@Autowired
+	private ProductoService productoService;
+	
 	@RequestMapping(value="mantenimientoVentas.htm", method=RequestMethod.GET )
-
 	public String mantenimientoVentas(Model model)
 	{
+		List<Producto> lstProductos = productoService.consulta();
 		List<TipoDocumentoIdentificacion> lstTipoDocumentoIdentificacionService = tipoDocumentoIdentificacionService.consulta();
 		model.addAttribute("lstTipoDocumentoIdentificacion", lstTipoDocumentoIdentificacionService);
+		model.addAttribute("lstProductos", lstProductos);
 		model.addAttribute("guiaRemision", new GuiaRemision());
 		
 		return "ventas/mantenimientoVentas";
