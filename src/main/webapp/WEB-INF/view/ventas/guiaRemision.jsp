@@ -33,6 +33,22 @@
 		});
 	}
 	
+
+	function mostrarModalBusquedaProducto() {
+// 		llenarComboProductos();
+		$('#modalBusquedaProducto').modal({
+	        backdrop: true,
+	        keyboard: true
+	    }).css({
+	        width: 'auto',
+// 	        height: '400px',
+	        'margin-left': function () {
+	            return -($(this).width() / 2);
+	        }
+	    });
+		$("#modalBusquedaProducto").modal("show");
+	};
+	
 </script>
 
 <form:form method="POST" modelAttribute="guiaRemision"
@@ -204,7 +220,7 @@
 											<a class="etiqueta" href="#" id="tooltip" rel="tooltip" 
 												data-placement="right"
 												title="Click para agregar un nuevo producto"
-												onclick="mostrarVentanaBusquedaRapidaProducto()">
+												onclick="mostrarModalBusquedaProducto()">
 												<i class="icon-plus"/>
 												</i>
 												<span class="label label-info">Agregar</span>
@@ -449,6 +465,18 @@
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
+	
+	<div id="modalBusquedaProducto" class="modal hide" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel5" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">×</button>
+			<h5 id="myModalLabel5" class="titulo-cabecera-modal">Busqueda de Producto</h5>
+		</div>
+		<div class="modal-body" style="max-height: 90%; padding-top: 1px">
+			<c:import url="../productos/busquedaProductosCombo.jsp"></c:import>
 		</div>
 	</div>
 </form:form>
