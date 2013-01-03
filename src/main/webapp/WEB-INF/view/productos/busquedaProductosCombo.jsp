@@ -18,7 +18,7 @@
 		}).change();
 	});
 	
-	function obtenerProductoPorCodProducto(codProducto){					
+	function obtenerProductoPorCodProducto(codProducto){	
 		$.ajax({
 			url:"../productos/obtenerProducto.htm",  
 			dataType : "JSON",
@@ -30,24 +30,16 @@
 						"<td hidden='true'>1</td>"+ 
 						"<td hidden='true'>0</td>"+
 						"<td hidden='true'>1</td>"+
-						"<td align='center'>1</td>"+
-						"<td align='center'>"+response.codProducto+"</td>"+
-						"<td align='center'>0</td>"+
-						"<td align='center'>"+response.nombre+"</td>"+
-						"<td align='center'>"+response.precioReferencial+"</td>"+
-						"<td align='center'>0</td>"+ 
-						"<td align='center'><div class='btn-group'>"+
+						"<td align='center' width='5%'>1</td>"+
+						"<td align='center' width='7.6%'>"+response.codProducto+"</td>"+
+						"<td align='center' width='7.4%'>0</td>"+
+						"<td align='center' width='50%'>"+response.nombre+"</td>"+
+						"<td align='center' width='10%'>"+response.precioReferencial+"</td>"+
+						"<td align='center' width='15%'>0</td>"+ 
+						"<td align='center' width='7%'><div class='btn-group'>"+
 						"<a class='btn' data-toggle='modal' role='button'> <i class='icon-pencil'></i></a>"+
 						"<a class='btn' data-toggle='modal' role='button'> <i class='icon-trash'></i></a>"+
 						"</div></td></tr>");
-				
-// 				$('#myTable > tbody:last').append('<tr>...</tr><tr>...</tr>');
-// 				$("#codProducto").val(response.codProducto);
-// 				$("#nombre").val(response.nombre);
-// 				$("#descripcion").val(response.descripcion);
-// 				$("#codUnidadMedida").val(response.codUnidadMedida);					
-// 				$("#precioReferencial").val(response.precioReferencial);					
-// 				$("#estado").val(response.estado);
 			} ,
 			error: function(response){
 				alert("error 1");

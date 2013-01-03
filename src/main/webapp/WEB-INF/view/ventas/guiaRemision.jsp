@@ -231,14 +231,14 @@
 										<th hidden="true">cantidadUnidadesProducto</th>
 										<th hidden="true">numeroItem</th>
 
-										<th align="center">Item</th>
-										<th align="center">Cod. Producto</th>
-										<th align="center">Cantidad</th>
-										<th align="center">Descripcion</th>
-										<th align="center">Precio Unitario</th>
-										<th align="center">Total</th>
-										<th align="center">Acci&oacute;n</th>
-										<th align="center" width="3px"></th>
+										<th align="center" width="5%">Item</th>
+										<th align="center" width="12%">Cod. Producto</th>
+										<th align="center" width="6%">Cantidad</th>
+										<th align="center" width="41%">Descripcion</th>
+										<th align="center" width="14%">Precio Unitario</th>
+										<th align="center" width="15%">Total</th>
+										<th align="center" width="6%">Acci&oacute;n</th>
+										<th align="center" width="1%"></th>
 									</tr>
 								</thead>
 							</table>
