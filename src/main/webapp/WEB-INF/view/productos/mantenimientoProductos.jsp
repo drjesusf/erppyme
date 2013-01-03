@@ -29,13 +29,13 @@
 			beforeSend:function(){
 			},
 			success:function(response){
-				$("#modalModificar").modal("show");
 				$("#codProducto").val(response.codProducto);
 				$("#nombre").val(response.nombre);
 				$("#descripcion").val(response.descripcion);
 				$("#unidadMedida select").val(response.unidadMedida.codUnidadMedida);
 				$("#precioReferencial").val(response.precioReferencial);					
 				$("#estado").val(response.estado);
+				$("#modalModificar").modal("show");
 			} ,
 			error: function(response){
 				alert("error");

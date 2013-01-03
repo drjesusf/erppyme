@@ -44,17 +44,15 @@ public class ProductoController {
 	}
 
 	@RequestMapping(value = "obtenerProducto.htm", method = RequestMethod.POST)
-	public @ResponseBody
-	Producto obtenerProducto(Map<String, Object> model,
-			@RequestParam("codProducto") Integer codProducto) {
+	public @ResponseBody Producto obtenerProducto(Map<String, Object> model, @RequestParam("codProducto") Integer codProducto) {
 		System.out.println("Entro obtenerProducto con: " + codProducto);
 		Producto producto = productoService.obtenerProducto(codProducto);
-		model.put("cliente", producto);
 		System.out.println("Producto ->" + producto.getNombre());
 		return producto;
 
 	}
 	
+
 	@RequestMapping(value="modificarProducto.htm",method= RequestMethod.POST)
 	public String grabarProducto( @ModelAttribute("producto")Producto producto){
 
