@@ -50,23 +50,23 @@
 
 	function mostrarMedidasMonitor() {
 		
-		alert("LARGO 1: "+$("#collapseOne").height()+"--- largo1: "+$("#collapseTwo").height());
-		alert("resolucion LARGO 1: "+screen.height+"--- resolucion ancho: "+screen.width);
+// 		alert("LARGO 1: "+$("#collapseOne").height()+"--- largo1: "+$("#collapseTwo").height());
+// 		alert("resolucion LARGO 1: "+screen.height+"--- resolucion ancho: "+screen.width);
 // 		$("#collapseOne").height();
 // 		$("#collapseOne").width();
 	}
 	
-	function modificarTamanioCollapseDetalleGuiaRemision()
-	{
-		alert("ENTRA AQUI");
-		if($("#collapseOne").height() == 0)
-		{
-			$("#collapseTwo").height(screen.height-116)
-		}
-	}
+// 	function modificarTamanioCollapseDetalleGuiaRemision()
+// 	{
+// 		alert("ENTRA AQUI");
+// 		if($("#collapseOne").height() == 0)
+// 		{
+// 			$("#collapseTwo").height(screen.height-116)
+// 		}
+// 	}
 	
 </script>
-
+<input id="numeroItem" hidden="true" value ="0"/>
 <form:form method="POST" modelAttribute="guiaRemision"
 	class="form-horizontal" name="formGuiaRemision" id="formGuiaRemision"
 	action="guardarNuevaGuiaRemision.htm">
@@ -259,219 +259,24 @@
 								</thead>
 							</table>
 							<div style="height: 200px; overflow: auto">
+							
 								<table class="table table-bordered" id="tablaDetalleGuiaRemision">
 									<tbody>
-<!-- 										<tr> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-<!-- 											<td hidden="true">codDocumentoVenta</td> -->
-<!-- 											<td hidden="true">cantidadUnidadesProducto</td> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
+										<tr>
+											<td hidden="true">numeroItem</td>
+											<td hidden="true">codDocumentoVenta</td>
+											<td hidden="true">cantidadUnidadesProducto</td>
+											<td hidden="true">numeroItem</td>
 
-<!-- 											<td align="center">Item</td> -->
-<!-- 											<td align="center">codProducto</td> -->
-<!-- 											<td align="center">Cantidad</td> -->
-<!-- 											<td align="center">Descripcion</td> -->
-<!-- 											<td align="center">Precio Unitario</td> -->
-<!-- 											<td align="center">Total</td> -->
-<!-- 											<td align="center">Acci&oacute;n</td> -->
-<!-- 										</tr> -->
-<!-- 										<tr> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-<!-- 											<td hidden="true">codDocumentoVenta</td> -->
-<!-- 											<td hidden="true">cantidadUnidadesProducto</td> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
+											<td align="center">Item</td>
+											<td align="center"><a  href='#' rel='tooltip' data-placement='right' title='Click para agregar un nuevo producto'>HOLA</a></td>
+											<td align="center" style="padding: 0px"><input type="text" class="text-box-tabla" id="cantidadUnidadesProducto" value=""/></td>
+											<td align="center" style="padding: 0px"><input type="text" class="text-box-tabla" id="descripcion" name="descripcion" value="" /></td>
+											<td align="center"></td>
+											<td align="center">Total</td>
+											<td align="center">Acci&oacute;n</td>
+										</tr>
 
-<!-- 											<td align="center">Item</td> -->
-<!-- 											<td align="center">codProducto</td> -->
-<!-- 											<td align="center">Cantidad</td> -->
-<!-- 											<td align="center">Descripcion</td> -->
-<!-- 											<td align="center">Precio Unitario</td> -->
-<!-- 											<td align="center">Total</td> -->
-<!-- 											<td align="center">Acci&oacute;n</td> -->
-<!-- 										</tr> -->
-<!-- 										<tr> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-<!-- 											<td hidden="true">codDocumentoVenta</td> -->
-<!-- 											<td hidden="true">cantidadUnidadesProducto</td> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-
-<!-- 											<td align="center">Item</td> -->
-<!-- 											<td align="center">codProducto</td> -->
-<!-- 											<td align="center">Cantidad</td> -->
-<!-- 											<td align="center">Descripcion</td> -->
-<!-- 											<td align="center">Precio Unitario</td> -->
-<!-- 											<td align="center">Total</td> -->
-<!-- 											<td align="center">Acci&oacute;n</td> -->
-<!-- 										</tr> -->
-<!-- 										<tr> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-<!-- 											<td hidden="true">codDocumentoVenta</td> -->
-<!-- 											<td hidden="true">cantidadUnidadesProducto</td> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-
-<!-- 											<td align="center">Item</td> -->
-<!-- 											<td align="center">codProducto</td> -->
-<!-- 											<td align="center">Cantidad</td> -->
-<!-- 											<td align="center">Descripcion</td> -->
-<!-- 											<td align="center">Precio Unitario</td> -->
-<!-- 											<td align="center">Total</td> -->
-<!-- 											<td align="center">Acci&oacute;n</td> -->
-<!-- 										</tr> -->
-<!-- 										<tr> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-<!-- 											<td hidden="true">codDocumentoVenta</td> -->
-<!-- 											<td hidden="true">cantidadUnidadesProducto</td> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-
-<!-- 											<td align="center">Item</td> -->
-<!-- 											<td align="center">codProducto</td> -->
-<!-- 											<td align="center">Cantidad</td> -->
-<!-- 											<td align="center">Descripcion</td> -->
-<!-- 											<td align="center">Precio Unitario</td> -->
-<!-- 											<td align="center">Total</td> -->
-<!-- 											<td align="center">Acci&oacute;n</td> -->
-<!-- 										</tr> -->
-<!-- 										<tr> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-<!-- 											<td hidden="true">codDocumentoVenta</td> -->
-<!-- 											<td hidden="true">cantidadUnidadesProducto</td> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-
-<!-- 											<td align="center">Item</td> -->
-<!-- 											<td align="center">codProducto</td> -->
-<!-- 											<td align="center">Cantidad</td> -->
-<!-- 											<td align="center">Descripcion</td> -->
-<!-- 											<td align="center">Precio Unitario</td> -->
-<!-- 											<td align="center">Total</td> -->
-<!-- 											<td align="center">Acci&oacute;n</td> -->
-<!-- 										</tr> -->
-<!-- 										<tr> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-<!-- 											<td hidden="true">codDocumentoVenta</td> -->
-<!-- 											<td hidden="true">cantidadUnidadesProducto</td> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-
-<!-- 											<td align="center">Item</td> -->
-<!-- 											<td align="center">codProducto</td> -->
-<!-- 											<td align="center">Cantidad</td> -->
-<!-- 											<td align="center">Descripcion</td> -->
-<!-- 											<td align="center">Precio Unitario</td> -->
-<!-- 											<td align="center">Total</td> -->
-<!-- 											<td align="center">Acci&oacute;n</td> -->
-<!-- 										</tr> -->
-<!-- 										<tr> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-<!-- 											<td hidden="true">codDocumentoVenta</td> -->
-<!-- 											<td hidden="true">cantidadUnidadesProducto</td> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-
-<!-- 											<td align="center">Item</td> -->
-<!-- 											<td align="center">codProducto</td> -->
-<!-- 											<td align="center">Cantidad</td> -->
-<!-- 											<td align="center">Descripcion</td> -->
-<!-- 											<td align="center">Precio Unitario</td> -->
-<!-- 											<td align="center">Total</td> -->
-<!-- 											<td align="center">Acci&oacute;n</td> -->
-<!-- 										</tr> -->
-
-<!-- 										<tr> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-<!-- 											<td hidden="true">codDocumentoVenta</td> -->
-<!-- 											<td hidden="true">cantidadUnidadesProducto</td> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-
-<!-- 											<td align="center">Item</td> -->
-<!-- 											<td align="center">codProducto</td> -->
-<!-- 											<td align="center">Cantidad</td> -->
-<!-- 											<td align="center">Descripcion</td> -->
-<!-- 											<td align="center">Precio Unitario</td> -->
-<!-- 											<td align="center">Total</td> -->
-<!-- 											<td align="center">Acci&oacute;n</td> -->
-<!-- 										</tr> -->
-<!-- 										<tr> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-<!-- 											<td hidden="true">codDocumentoVenta</td> -->
-<!-- 											<td hidden="true">cantidadUnidadesProducto</td> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-
-<!-- 											<td align="center">Item</td> -->
-<!-- 											<td align="center">codProducto</td> -->
-<!-- 											<td align="center">Cantidad</td> -->
-<!-- 											<td align="center">Descripcion</td> -->
-<!-- 											<td align="center">Precio Unitario</td> -->
-<!-- 											<td align="center">Total</td> -->
-<!-- 											<td align="center">Acci&oacute;n</td> -->
-<!-- 										</tr> -->
-<!-- 										<tr> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-<!-- 											<td hidden="true">codDocumentoVenta</td> -->
-<!-- 											<td hidden="true">cantidadUnidadesProducto</td> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-
-<!-- 											<td align="center">Item</td> -->
-<!-- 											<td align="center">codProducto</td> -->
-<!-- 											<td align="center">Cantidad</td> -->
-<!-- 											<td align="center">Descripcion</td> -->
-<!-- 											<td align="center">Precio Unitario</td> -->
-<!-- 											<td align="center">Total</td> -->
-<!-- 											<td align="center">Acci&oacute;n</td> -->
-<!-- 										</tr> -->
-<!-- 										<tr> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-<!-- 											<td hidden="true">codDocumentoVenta</td> -->
-<!-- 											<td hidden="true">cantidadUnidadesProducto</td> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-
-<!-- 											<td align="center">Item</td> -->
-<!-- 											<td align="center">codProducto</td> -->
-<!-- 											<td align="center">Cantidad</td> -->
-<!-- 											<td align="center">Descripcion</td> -->
-<!-- 											<td align="center">Precio Unitario</td> -->
-<!-- 											<td align="center">Total</td> -->
-<!-- 											<td align="center">Acci&oacute;n</td> -->
-<!-- 										</tr> -->
-<!-- 										<tr> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-<!-- 											<td hidden="true">codDocumentoVenta</td> -->
-<!-- 											<td hidden="true">cantidadUnidadesProducto</td> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-
-<!-- 											<td align="center">Item</td> -->
-<!-- 											<td align="center">codProducto</td> -->
-<!-- 											<td align="center">Cantidad</td> -->
-<!-- 											<td align="center">Descripcion</td> -->
-<!-- 											<td align="center">Precio Unitario</td> -->
-<!-- 											<td align="center">Total</td> -->
-<!-- 											<td align="center">Acci&oacute;n</td> -->
-<!-- 										</tr> -->
-<!-- 										<tr> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-<!-- 											<td hidden="true">codDocumentoVenta</td> -->
-<!-- 											<td hidden="true">cantidadUnidadesProducto</td> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-
-<!-- 											<td align="center">Item</td> -->
-<!-- 											<td align="center">codProducto</td> -->
-<!-- 											<td align="center">Cantidad</td> -->
-<!-- 											<td align="center">Descripcion</td> -->
-<!-- 											<td align="center">Precio Unitario</td> -->
-<!-- 											<td align="center">Total</td> -->
-<!-- 											<td align="center">Acci&oacute;n</td> -->
-<!-- 										</tr> -->
-<!-- 										<tr> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-<!-- 											<td hidden="true">codDocumentoVenta</td> -->
-<!-- 											<td hidden="true">cantidadUnidadesProducto</td> -->
-<!-- 											<td hidden="true">numeroItem</td> -->
-
-<!-- 											<td align="center">Item</td> -->
-<!-- 											<td align="center">codProducto</td> -->
-<!-- 											<td align="center">Cantidad</td> -->
-<!-- 											<td align="center">Descripcion</td> -->
-<!-- 											<td align="center">Precio Unitario</td> -->
-<!-- 											<td align="center">Total</td> -->
-<!-- 											<td align="center">Acci&oacute;n</td> -->
-<!-- 										</tr> -->
 									</tbody>
 								</table>
 							</div>
