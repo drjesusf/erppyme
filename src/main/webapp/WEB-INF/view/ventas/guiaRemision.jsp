@@ -35,19 +35,35 @@
 	
 
 	function mostrarModalBusquedaProducto() {
-// 		llenarComboProductos();
+		mostrarMedidasMonitor();
 		$('#modalBusquedaProducto').modal({
 	        backdrop: true,
 	        keyboard: true
 	    }).css({
 	        width: 'auto',
-// 	        height: '400px',
 	        'margin-left': function () {
 	            return -($(this).width() / 2);
 	        }
 	    });
 		$("#modalBusquedaProducto").modal("show");
 	};
+
+	function mostrarMedidasMonitor() {
+		
+		alert("LARGO 1: "+$("#collapseOne").height()+"--- largo1: "+$("#collapseTwo").height());
+		alert("resolucion LARGO 1: "+screen.height+"--- resolucion ancho: "+screen.width);
+// 		$("#collapseOne").height();
+// 		$("#collapseOne").width();
+	}
+	
+	function modificarTamanioCollapseDetalleGuiaRemision()
+	{
+		alert("ENTRA AQUI");
+		if($("#collapseOne").height() == 0)
+		{
+			$("#collapseTwo").height(screen.height-116)
+		}
+	}
 	
 </script>
 
@@ -89,7 +105,7 @@
 				<a class="accordion-toggle" data-toggle="collapse"
 					href="#collapseOne"> Datos Generales </a>
 			</div>
-			<div id="collapseOne" class="accordion-body collapse in">
+			<div id="collapseOne" class="accordion-body collapse in" onclick="modificarTamanioCollapseDetalleGuiaRemision()">
 				<div class="accordion-inner">
 					<div class="row-fluid">
 						<div class="span4 altura-elemento_formulario-alto">
@@ -206,7 +222,7 @@
 				<a class="accordion-toggle" data-toggle="collapse"
 					href="#collapseTwo">Detalle</a>
 			</div>
-			<div id="collapseTwo" class="accordion-body collapse">
+			<div id="collapseTwo" class="accordion-body collapse in" onclick="modificarTamanioCollapseDetalleGuiaRemision()">
 				<div class="accordion-inner">
 					<div class="row-fluid">
 						<div class="span12">
