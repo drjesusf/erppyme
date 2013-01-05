@@ -58,7 +58,7 @@
 	
 	function modificarTamanioCollapseDetalleGuiaRemision()
 	{
-		alert("ENTRA AQUI");
+		alert("ENTRA AQUI"); 
 		if($("#collapseOne").height() == 0)
 		{
 			$("#collapseTwo").height(screen.height-116)
