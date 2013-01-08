@@ -68,6 +68,7 @@
 </script>
 <input id="numeroItem" hidden="true" value ="0"/>
 <form:form method="POST" modelAttribute="guiaRemision"
+<input id="codTipoDocumentoVentaGuiaRemision" hidden="true" value ="0"/>
 	class="form-horizontal" name="formGuiaRemision" id="formGuiaRemision"
 	action="guardarNuevaGuiaRemision.htm">
 	<div class="row-fluid">
@@ -75,8 +76,8 @@
 			<div class="btn-toolbar">
 				<div class="btn-group">
 					<a id="a_Guardar" href="#" rel="tooltip" title="Guardar"
-						data-placement="right">
-						<button class="btn">
+						data-placement="right" >
+						<button class="btn" onclick=" alert('HOLA')">
 							<i class="icon-hdd"></i>
 						</button>
 					</a> <a id="a_Imprimir" href="#" rel="tooltip" title="Imprimir"
@@ -226,9 +227,9 @@
 				<div class="accordion-inner">
 					<div class="row-fluid">
 						<div class="span12">
-							<table class="table table-bordered" id="cabeceraTablaDetalleGuiaRemision"
-								style="margin-bottom: 0">
-								<thead>
+							<div style="height: 200px; overflow: auto">
+								<table class="table table-bordered" id="tablaDetalleGuiaRemision">
+									<thead>
 									<tr>
 										<th colspan="10">
 											<a class="etiqueta" href="#" id="tooltip" rel="tooltip" 
@@ -257,26 +258,7 @@
 										<th align="center" width="1%"></th>
 									</tr>
 								</thead>
-							</table>
-							<div style="height: 200px; overflow: auto">
-							
-								<table class="table table-bordered" id="tablaDetalleGuiaRemision">
-									<tbody>
-										<tr>
-											<td hidden="true">numeroItem</td>
-											<td hidden="true">codDocumentoVenta</td>
-											<td hidden="true">cantidadUnidadesProducto</td>
-											<td hidden="true">numeroItem</td>
-
-											<td align="center">Item</td>
-											<td align="center"><a  href='#' rel='tooltip' data-placement='right' title='Click para agregar un nuevo producto'>HOLA</a></td>
-											<td align="center" style="padding: 0px"><input type="text" class="text-box-tabla" id="cantidadUnidadesProducto" value=""/></td>
-											<td align="center" style="padding: 0px"><input type="text" class="text-box-tabla" id="descripcion" name="descripcion" value="" /></td>
-											<td align="center"></td>
-											<td align="center">Total</td>
-											<td align="center">Acci&oacute;n</td>
-										</tr>
-
+									<tbody  >
 									</tbody>
 								</table>
 							</div>

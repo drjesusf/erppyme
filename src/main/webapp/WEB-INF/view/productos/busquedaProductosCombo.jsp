@@ -26,12 +26,12 @@
 			data : {codProducto : codProducto},	
 			beforeSend:function(){},
 			success:function(response){
-				$("#numeroItemDetalleGuiaRemision").val($("#numeroItem").val()+1);
+				$("#numeroItem").val(parseInt($("#numeroItem").val())+parseInt(1));
 				$("#tablaDetalleGuiaRemision > tbody:last").append("<tr>"+
 						"<td hidden='true'>1</td>"+ 
 						"<td hidden='true'>0</td>"+
 						"<td hidden='true'>1</td>"+
-						"<td align='center' width='5%'>"+$("#numeroItemDetalleGuiaRemision").val()+"</td>"+
+						"<td align='center' width='5%'>"+$("#numeroItem").val()+"</td>"+
 						"<td align='center' width='7.6%'><a class='etiqueta' href='#' rel='tooltip' data-placement='right' title='"+response.nombre+"'>"+response.codProducto+"</a></td>"+
 						"<td align='center' width='7.4%'>0</td>"+
 						"<td align='center' width='50%'>"+response.nombre+"</td>"+
@@ -53,7 +53,14 @@
 	
 	function ingresarProductoTabla(codProducto)
 	{
-		obtenerProductoPorCodProducto($("#producto\\.codProducto option:selected").val());
+		if( $("#numeroItem").val() > 14)
+		{
+			alert("tiene mas de 15 filas");	
+		}
+		else
+		{
+			obtenerProductoPorCodProducto($("#producto\\.codProducto option:selected").val());	
+		}
 	}
 </script>
 
