@@ -8,6 +8,7 @@ import org.erppyme.model.TipoDocumentoIdentificacion;
 import org.erppyme.modelview.GuiaRemision;
 import org.erppyme.service.ProductoService;
 import org.erppyme.service.TipoDocumentoIdentificacionService;
+import org.erppyme.service.TipoDocumentoVentaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +29,9 @@ public class VentasController {
 	
 	@Autowired
 	private ProductoService productoService;
+	
+	@Autowired
+	private TipoDocumentoVentaService tipoDocumentoVentaService;
 	
 	@RequestMapping(value="mantenimientoVentas.htm", method=RequestMethod.GET )
 	public String mantenimientoVentas(Model model)
