@@ -28,18 +28,19 @@
 			data : {codProducto : codProducto},	
 			beforeSend:function(){},
 			success:function(response){
-				$("#numeroItemDetalleGuiaRemision").val($("#numeroItem").val()+1);
+				$("#numeroItem").val(parseInt($("#numeroItem").val())+parseInt(1));
 				$("#tablaDetalleGuiaRemision > tbody:last").append("<tr>"+
 						"<td hidden='true'>1</td>"+ 
 						"<td hidden='true'>0</td>"+
 						"<td hidden='true'>1</td>"+
-						"<td align='center' >"+$("#numeroItemDetalleGuiaRemision").val()+"</td>"+
-						"<td align='center' ><a class='etiqueta' href='#' rel='tooltip' data-placement='right' title='"+response.nombre+"'>"+response.codProducto+"</a></td>"+
-						"<td align='center' ><input type='text' id='cantidadUnidadesProducto' value='0' style='display:table-cell; width:99%; height: 32px ; border: 0; padding:0;'/></td>"+
-						"<td align='center' ><input type='text' id='descripcion' value='"+response.nombre+"' style='display:table-cell; width:99%; height: 32px ; border: 0; padding:0;'/></td>"+
-						"<td align='center' >"+response.precioReferencial+"</td>"+
-						"<td align='center' >0</td>"+ 
-						"<td align='center' ><div class='btn-group'>"+
+
+						"<td align='center' width='5%'>"+$("#numeroItem").val()+"</td>"+
+						"<td align='center' width='7.6%'><a class='etiqueta' href='#' rel='tooltip' data-placement='right' title='"+response.nombre+"'>"+response.codProducto+"</a></td>"+
+						"<td align='center' width='7.4%'>0</td>"+
+						"<td align='center' width='50%'>"+response.nombre+"</td>"+
+						"<td align='center' width='10%'>"+response.precioReferencial+"</td>"+
+						"<td align='center' width='15%'>0</td>"+ 
+						"<td align='center' width='7%'><div class='btn-group'>"+
 						"<a class='btn' rel='tooltip' data-original-title='Modificar' data-toggle='modal' data-placement='left' role='button'> <i class='icon-pencil'></i></a>"+
 						"<a class='btn' rel='tooltip' data-original-title='Eliminar' data-toggle='modal'  data-placement='left' role='button'> <i class='icon-trash'></i></a>"+
 						"</div></td>/tr>")
@@ -63,7 +64,14 @@
 	
 	function ingresarProductoTabla(codProducto)
 	{
-		obtenerProductoPorCodProducto($("#producto\\.codProducto option:selected").val());
+		if( $("#numeroItem").val() > 14)
+		{
+			alert("tiene mas de 15 filas");	
+		}
+		else
+		{
+			obtenerProductoPorCodProducto($("#producto\\.codProducto option:selected").val());	
+		}
 	}
 </script>
 

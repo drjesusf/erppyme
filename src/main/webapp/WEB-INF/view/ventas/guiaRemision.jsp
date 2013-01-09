@@ -71,6 +71,7 @@
 </script>
 <input id="numeroItemDetalleGuiaRemision" hidden="true" value ="0"/>
 <form:form method="POST" modelAttribute="guiaRemision"
+<input id="codTipoDocumentoVentaGuiaRemision" hidden="true" value ="0"/>
 	class="form-horizontal" name="formGuiaRemision" id="formGuiaRemision"
 	action="guardarNuevaGuiaRemision.htm">
 	<div class="row-fluid">
@@ -78,8 +79,8 @@
 			<div class="btn-toolbar">
 				<div class="btn-group">
 					<a id="a_Guardar" href="#" rel="tooltip" title="Guardar"
-						data-placement="right">
-						<button class="btn">
+						data-placement="right" >
+						<button class="btn" onclick=" alert('HOLA')">
 							<i class="icon-hdd"></i>
 						</button>
 					</a> <a id="a_Imprimir" href="#" rel="tooltip" title="Imprimir"
@@ -229,71 +230,40 @@
 				<div class="accordion-inner">
 					<div class="row-fluid">
 						<div class="span12">
-<!-- 							<table class="table table-bordered" id="cabeceraTablaDetalleGuiaRemision" -->
-<!-- 								style="margin-bottom: 0"> -->
-<!-- 								<thead> -->
-<!-- 									<tr> -->
-<!-- 										<th colspan="10"> -->
-<!-- 											<a class="etiqueta" href="#" id="tooltip" rel="tooltip"  -->
-<!-- 												data-placement="right" -->
-<!-- 												title="Click para agregar un nuevo producto" -->
-<!-- 												onclick="mostrarModalBusquedaProducto()"> -->
-<!-- 												<i class="icon-plus"/> -->
-<!-- 												</i> -->
-<!-- 												<span class="label label-info">Agregar</span> -->
-<!-- 											</a> -->
-<!-- 										</th> -->
-<!-- 									</tr> -->
-<!-- 									<tr> -->
-<!-- 										<th hidden="true">numeroItem</th> -->
-<!-- 										<th hidden="true">codDocumentoVenta</th> -->
-<!-- 										<th hidden="true">cantidadUnidadesProducto</th> -->
-<!-- 										<th hidden="true">numeroItem</th> -->
 
-<!-- 										<th align="center" width="5%">Item</th> -->
-<!-- 										<th align="center" width="11%">Cod. Producto</th> -->
-<!-- 										<th align="center" width="6%">Cantidad</th> -->
-<!-- 										<th align="center" width="42%">Descripcion</th> -->
-<!-- 										<th align="center" width="14%">Precio Unitario</th> -->
-<!-- 										<th align="center" width="11%">Total</th> -->
-<!-- 										<th align="center" width="10%">Acci&oacute;n</th> -->
-<!-- 										<th align="center" width="1%"></th> -->
-<!-- 									</tr> -->
-<!-- 								</thead> -->
-<!-- 							</table> -->
-							<div >
-							
+							<div style="height: 200px; overflow: auto">
 								<table class="table table-bordered" id="tablaDetalleGuiaRemision">
 									<thead>
-										<tr>
-											<th colspan="10">
-												<a class="etiqueta" href="#" id="tooltip" rel="tooltip" 
-													data-placement="right"
-													title="Click para agregar un nuevo producto"
-													onclick="mostrarModalBusquedaProducto()">
-													<i class="icon-plus"/>
-													</i>
-													<span class="label label-info">Agregar</span>
-												</a>
-											</th>
-										</tr>
-											<tr >
-												<th hidden="true">numeroItem</th>
-												<th hidden="true">codDocumentoVenta</th>
-												<th hidden="true">cantidadUnidadesProducto</th>
-												<th hidden="true">numeroItem</th>
-		
-												<th align="center" width="100px">Item</th>
-												<th align="center" width="150px">Cod. Producto</th>
-												<th align="center" width="100px">Cantidad</th>
-												<th align="center" width="400px">Descripcion</th>
-												<th align="center" width="150px">Precio Unitario</th>
-												<th align="center" width="100px">Total</th>
-												<th align="center" width="100px">Acci&oacute;n</th>
-											</tr>
-									</thead>
-									<tbody >
-									
+									<tr>
+										<th colspan="10">
+											<a class="etiqueta" href="#" id="tooltip" rel="tooltip" 
+												data-placement="right"
+												title="Click para agregar un nuevo producto"
+												onclick="mostrarModalBusquedaProducto()">
+												<i class="icon-plus"/>
+												</i>
+												<span class="label label-info">Agregar</span>
+											</a>
+										</th>
+									</tr>
+									<tr>
+										<th hidden="true">numeroItem</th>
+										<th hidden="true">codDocumentoVenta</th>
+										<th hidden="true">cantidadUnidadesProducto</th>
+										<th hidden="true">numeroItem</th>
+
+										<th align="center" width="5%">Item</th>
+										<th align="center" width="12%">Cod. Producto</th>
+										<th align="center" width="6%">Cantidad</th>
+										<th align="center" width="41%">Descripcion</th>
+										<th align="center" width="14%">Precio Unitario</th>
+										<th align="center" width="15%">Total</th>
+										<th align="center" width="6%">Acci&oacute;n</th>
+										<th align="center" width="1%"></th>
+									</tr>
+								</thead>
+									<tbody  >
+
 									</tbody>
 								</table>
 							</div>
