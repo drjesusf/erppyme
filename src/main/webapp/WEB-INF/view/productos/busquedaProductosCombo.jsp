@@ -16,6 +16,8 @@
 				
 			}
 		}).change();
+// 		$("input[type=text]").addClass("text-box-tabla");
+
 	});
 	
 	function obtenerProductoPorCodProducto(codProducto){	
@@ -31,19 +33,27 @@
 						"<td hidden='true'>1</td>"+ 
 						"<td hidden='true'>0</td>"+
 						"<td hidden='true'>1</td>"+
-						"<td align='center' width='5%'>"+$("#numeroItemDetalleGuiaRemision").val()+"</td>"+
-						"<td align='center' width='7.6%'><a class='etiqueta' href='#' rel='tooltip' data-placement='right' title='"+response.nombre+"'>"+response.codProducto+"</a></td>"+
-						"<td align='center' width='7.4%'>0</td>"+
-						"<td align='center' width='50%'>"+response.nombre+"</td>"+
-						"<td align='center' width='10%'>"+response.precioReferencial+"</td>"+
-						"<td align='center' width='15%'>0</td>"+ 
-						"<td align='center' width='7%'><div class='btn-group'>"+
+						"<td align='center' >"+$("#numeroItemDetalleGuiaRemision").val()+"</td>"+
+						"<td align='center' ><a class='etiqueta' href='#' rel='tooltip' data-placement='right' title='"+response.nombre+"'>"+response.codProducto+"</a></td>"+
+						"<td align='center' ><input type='text' id='cantidadUnidadesProducto' value='0' style='display:table-cell; width:99%; height: 32px ; border: 0; padding:0;'/></td>"+
+						"<td align='center' ><input type='text' id='descripcion' value='"+response.nombre+"' style='display:table-cell; width:99%; height: 32px ; border: 0; padding:0;'/></td>"+
+						"<td align='center' >"+response.precioReferencial+"</td>"+
+						"<td align='center' >0</td>"+ 
+						"<td align='center' ><div class='btn-group'>"+
 						"<a class='btn' rel='tooltip' data-original-title='Modificar' data-toggle='modal' data-placement='left' role='button'> <i class='icon-pencil'></i></a>"+
 						"<a class='btn' rel='tooltip' data-original-title='Eliminar' data-toggle='modal'  data-placement='left' role='button'> <i class='icon-trash'></i></a>"+
-						"</div></td></tr>");
+						"</div></td>/tr>")
+						;
 				$("[rel=tooltip]").tooltip();
 				
-				
+// 				<th align="center" width="5%">Item</th>
+// 				<th align="center" width="11%">Cod. Producto</th>
+// 				<th align="center" width="6%">Cantidad</th>
+// 				<th align="center" width="42%">Descripcion</th>
+// 				<th align="center" width="14%">Precio Unitario</th>
+// 				<th align="center" width="11%">Total</th>
+// 				<th align="center" width="10%">Acci&oacute;n</th>
+// 				<th align="center" width="1%"></th>
 			} ,
 			error: function(response){
 				alert("error 1");
