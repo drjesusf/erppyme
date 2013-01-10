@@ -25,7 +25,7 @@
 		<property name="estado" type="string">
 			<column name="ESTADO" not-null="true"></column>
 		</property>
-		<property name="fechaCreacion" type="calendar">
+		<property name="fechaCreacion" type="date">
 			<column name="FECHACREACION" not-null="true"></column>
 		</property>
 		<set name="roles" table="ROLESPORUSUARIO" cascade="all">

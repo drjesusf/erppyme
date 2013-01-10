@@ -55,7 +55,7 @@
 				</a>				
 				<ul class="dropdown-menu">
 <!-- 				  <li> <a href="../security/administracionUsuarios.htm">Administraci&oacute;n de Usuarios</a> </li> -->
-			      <li> <a href="../security/asignarRolesPorUsuario.htm">Administraci&oacute;n de Usuarios</a> </li> 
+			      <li> <a href="../security/administracionDeUsuarios.htm">Administraci&oacute;n de Usuarios</a> </li> 
 			    </ul>
 			</li>
 		  </ul>

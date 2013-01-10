@@ -1,5 +1,8 @@
 package org.erppyme.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.erppyme.model.Cliente;
@@ -7,8 +10,12 @@ import org.erppyme.security.Usuario;
 import org.erppyme.service.CustomUserDetailsService;
 import org.erppyme.service.RolService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,8 +40,8 @@ public class AccesoController {
 		return "inicio/index";
 	}
 	
-	@RequestMapping(value = "asignarRolesPorUsuario.htm", method = RequestMethod.GET)
-	public String asignarRolesPorUsuario(ModelMap model){
+	@RequestMapping(value = "administracionDeUsuarios.htm", method = RequestMethod.GET)
+	public String administracionDeUsuarios(ModelMap model){
 		List lstRoles = rolService.obtenerRoles();
 		List lstUsuarios = customUserDetailsService.obtenerUsuarios();
 		Usuario usuario = new Usuario();
@@ -43,7 +50,7 @@ public class AccesoController {
 		model.addAttribute("lstUsuarios", lstUsuarios);
 		model.addAttribute("usuario", usuario);
 		
-		return "security/asignarRolesPorUsuario";
+		return "security/administracionDeUsuarios";
 	}
 	
 	@RequestMapping(value="filtroUsuarios.htm",method= RequestMethod.GET)
@@ -54,7 +61,38 @@ public class AccesoController {
 		
 		return lstClientes;
 	}
+	@RequestMapping(value = "obtenerUsuario.htm", method = RequestMethod.POST)
+	public @ResponseBody Usuario obtenerUsuario(@RequestParam("codUsuario") Integer codUsuario){
+		return customUserDetailsService.obtenerUsuario(codUsuario);
+	}
+	@RequestMapping(value = "modificarUsuario.htm", method = RequestMethod.POST)
+	public String modificarUsuario(@ModelAttribute("usuario")Usuario usuario){
+		customUserDetailsService.update(usuario);
+		return "redirect:../security/administracionDeUsuarios.htm";
+	}
+	@RequestMapping(value = "nuevoUsuario.htm", method = RequestMethod.POST)
+	public String nuevoUsuario(@ModelAttribute("usuario")Usuario usuario){
+		customUserDetailsService.insert(usuario);
+		return "redirect:../security/administracionDeUsuarios.htm";
+	}
 	
+	@RequestMapping(value = "eliminarUsuario.htm", method = RequestMethod.POST)
+	public String eliminarUsuario(@ModelAttribute("usuario")Usuario usuario){
+		customUserDetailsService.delete(usuario);
+		return "redirect:../security/administracionDeUsuarios.htm";
+	}
 	
+	@RequestMapping(value = "cambiarContrasenaUsuario.htm", method = RequestMethod.POST)
+	public String cambiarContrasenaUsuario(@ModelAttribute("usuario")Usuario usuario){
+		customUserDetailsService.update(usuario);
+		return "redirect:../security/administracionDeUsuarios.htm";
+	}
+	
+	@InitBinder
+	public void initBinder(WebDataBinder webDataBinder) {
+		 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		 dateFormat.setLenient(false);
+		 webDataBinder.registerCustomEditor( Date.class, new CustomDateEditor(dateFormat, true));
+	}
 
 }

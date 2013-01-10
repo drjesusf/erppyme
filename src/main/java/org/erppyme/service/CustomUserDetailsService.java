@@ -62,6 +62,22 @@ public class CustomUserDetailsService implements UserDetailsService {
 	public List filtrarUsuarios(String identificador, String cadena){
 		return usuarioRepository.filtrarUsuarios(identificador,cadena);
 	}
+	
+	public Usuario obtenerUsuario(Integer codUsuario){
+		return usuarioRepository.obtenerUsuario(codUsuario);
+	}
+	
+	public void insert(Usuario usuario){
+		usuarioRepository.insert(usuario);
+	}
+	
+	public void update(Usuario usuario){
+		usuarioRepository.update(usuario);
+	}
+	
+	public void delete(Usuario usuario){
+		usuarioRepository.delete(usuario);
+	}
 //	public List<String> getRoles(Integer role) {
 //		List<String> roles = new ArrayList<String>();
 //

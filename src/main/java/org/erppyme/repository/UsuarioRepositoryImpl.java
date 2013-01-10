@@ -92,4 +92,15 @@ public class UsuarioRepositoryImpl implements UsuarioRepository {
 		return lstUsuarios;
 	}
 
+	@Override
+	public Usuario obtenerUsuario(Integer codUsuario) {
+		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		Usuario usuario = (Usuario)session.get(Usuario.class, codUsuario);
+		session.close();
+		return usuario;
+	}
+	
+	
+
 }
