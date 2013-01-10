@@ -12,6 +12,7 @@
 	
 	<fieldset>
     <legend></legend>
+    <input type="hidden" id="codUsuario" name="codUsuario">
     
     <div id="controlNombres" class="control-group">
 		<label class="control-label" for="nombre">Nombre</label>
@@ -29,6 +30,27 @@
 		</div>		
 	</div>
     
+    <div id="controlEstado" class="control-group">
+		<label class="control-label" for="inputEstado">Estado</label>
+		<div class="controls">
+			<form:select path="estado" class="input-medium">
+				<form:option value="ACT">ACTIVO</form:option>
+				<form:option value="INA">INACTIVO</form:option>
+			</form:select>
+			<span class="help-inline" id="e_estado" style="visibility: hidden;">Seleccionar estado</span>
+		</div>
+	</div>
+	
+	<div id="controlFechaCreacion" class="control-group">
+		<label class="control-label" for="fechaCreacion">Fecha de Creacion</label>
+		<div class="controls">
+			<input type="text" id="fechaCreacion" name="fechaCreacion" 
+				value='' 
+ 				class="input-medium" /> 
+			<span class="help-inline" id="e_fechaCreacion" style="visibility: hidden;">Ingresar Fecha de Creacion</span>
+			
+		</div>		
+	</div>
     <div id="controlUsuario" class="control-group">
 		<label class="control-label" for="usuario">Usuario</label>
 		<div class="controls">
@@ -40,7 +62,7 @@
     <div id="controlPassword" class="control-group">
 		<label class="control-label" for="password">Password</label>
 		<div class="controls">
-			<form:input path="password" class="input-medium" />
+			<form:password path="password" class="input-medium" />
 			<span class="help-inline" id="e_password" style="visibility: hidden;">Ingresar Password</span>
 		</div>		
 	</div>
@@ -48,7 +70,7 @@
     <div id="controlPassword_confirmacion" class="control-group">
 		<label class="control-label" for="password_confirmacion">Repetir Password</label>
 		<div class="controls">
-			<form:input path="password_confirmacion" class="input-medium" />
+			<form:password path="password_confirmacion" class="input-medium" />
 			<span class="help-inline" id="e_password_confirmacion" style="visibility: hidden;">Ingresar Password</span>
 		</div>		
 	</div>

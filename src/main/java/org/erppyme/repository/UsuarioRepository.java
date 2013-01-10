@@ -13,5 +13,6 @@ public interface UsuarioRepository {
 	public Usuario validarUsuario(Usuario usuario);
 	public List obtenerUsuarios();
 	public List filtrarUsuarios(String identificador, String cadena);
+	public Usuario obtenerUsuario(Integer codUsuario);
 	
 }
