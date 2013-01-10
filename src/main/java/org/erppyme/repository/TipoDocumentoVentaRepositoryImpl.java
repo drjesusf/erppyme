@@ -1,8 +1,5 @@
 package org.erppyme.repository;
 
-import java.util.List;
-
-import org.erppyme.model.TipoDocumentoIdentificacion;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;

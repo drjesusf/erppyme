@@ -2,7 +2,7 @@ package org.erppyme.controller;
 
 import java.util.List;
 
-import org.erppyme.model.DetalleDocumentoVentaProducto;
+import org.erppyme.model.Cliente;
 import org.erppyme.model.Producto;
 import org.erppyme.model.TipoDocumentoIdentificacion;
 import org.erppyme.modelview.GuiaRemision;
@@ -12,12 +12,12 @@ import org.erppyme.service.TipoDocumentoVentaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttributes;
+
 
 
 @Controller
@@ -30,8 +30,8 @@ public class VentasController {
 	@Autowired
 	private ProductoService productoService;
 	
-	@Autowired
-	private TipoDocumentoVentaService tipoDocumentoVentaService;
+//	@Autowired
+//	private ProductoService productoService;
 	
 	@RequestMapping(value="mantenimientoVentas.htm", method=RequestMethod.GET )
 	public String mantenimientoVentas(Model model)
@@ -46,14 +46,22 @@ public class VentasController {
 	}
 	
 
-	@RequestMapping(value="/nuevaGuiaRemision.htm", method=RequestMethod.GET )
-	public String nuevaGuiaRemision(Model model)
+	@RequestMapping(value="/guardarNuevaGuiaRemision.htm", method=RequestMethod.POST )
+	public String nuevaGuiaRemision(@RequestParam("cliente.codCliente")Integer codCliente)
 	{
+		
+		//Primero debe guardar la Venta
+		//Luego el documento de Venta
+		//Finalmente el detalle de la venta
+		
+		System.out.println("codCliente: "+codCliente);
 //		model.addAttribute("cliente", new Cliente());
 //		model.addAttribute("venta", new Venta());
-		model.addAttribute("tipoDocumentoIdentificacion", new TipoDocumentoIdentificacion());
-		model.addAttribute("guiaRemision", new GuiaRemision());
-		return "ventas/mantenimientoVentas";
+//		model.addAttribute("tipoDocumentoIdentificacion", new TipoDocumentoIdentificacion());
+//		model.addAttribute("guiaRemision", new GuiaRemision());
+		
+		
+		return "redirect:../security/inicio.htm";
 	}
 	
 	@RequestMapping(value="/guardarNuevaGuiaRemision.htm", method=RequestMethod.GET )

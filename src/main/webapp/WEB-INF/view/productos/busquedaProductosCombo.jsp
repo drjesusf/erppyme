@@ -10,14 +10,9 @@
 
 			if($("#producto\\.codProducto option:selected").val() != 0 )
 			{
-// 				alert("seleccionado: "+$("#producto\\.codProducto option:selected").val());
 				ingresarProductoTabla($("#producto\\.codProducto option:selected").val());
-// 				obtenerProductoPorCodigo($("#producto\\.codProducto option:selected").val());
-				
 			}
 		}).change();
-// 		$("input[type=text]").addClass("text-box-tabla");
-
 	});
 	
 	function obtenerProductoPorCodProducto(codProducto){	
@@ -28,33 +23,22 @@
 			data : {codProducto : codProducto},	
 			beforeSend:function(){},
 			success:function(response){
-				$("#numeroItem").val(parseInt($("#numeroItem").val())+parseInt(1));
+				$("#numeroItemDetalleGuiaRemision").val(parseInt($("#numeroItemDetalleGuiaRemision").val())+parseInt(1));
 				$("#tablaDetalleGuiaRemision > tbody:last").append("<tr>"+
 						"<td hidden='true'>1</td>"+ 
 						"<td hidden='true'>0</td>"+
 						"<td hidden='true'>1</td>"+
-
-						"<td align='center' width='5%'>"+$("#numeroItem").val()+"</td>"+
+						"<td align='center' width='5%'>"+$("#numeroItemDetalleGuiaRemision").val()+"</td>"+
 						"<td align='center' width='7.6%'><a class='etiqueta' href='#' rel='tooltip' data-placement='right' title='"+response.nombre+"'>"+response.codProducto+"</a></td>"+
-						"<td align='center' width='7.4%'>0</td>"+
-						"<td align='center' width='50%'>"+response.nombre+"</td>"+
+						"<td align='center' width='7.4%' style='padding:0; padding-left:8px;'><input type='text' class='text-box-tabla' id='cantidadUnidadesProducto' value='0' style='display:table-cell; width:99%; height: 44px ; border: 0; padding:0;'/></td>"+
+						"<td align='center' width='50%' style='padding:0; padding-left:8px;'><input type='text' class='text-box-tabla' id='descripcion' value='"+response.nombre+"' style='display:table-cell; width:99%; height: 44px ; border: 0; padding:0;'/></td>"+
 						"<td align='center' width='10%'>"+response.precioReferencial+"</td>"+
 						"<td align='center' width='15%'>0</td>"+ 
 						"<td align='center' width='7%'><div class='btn-group'>"+
 						"<a class='btn' rel='tooltip' data-original-title='Modificar' data-toggle='modal' data-placement='left' role='button'> <i class='icon-pencil'></i></a>"+
 						"<a class='btn' rel='tooltip' data-original-title='Eliminar' data-toggle='modal'  data-placement='left' role='button'> <i class='icon-trash'></i></a>"+
-						"</div></td>/tr>")
-						;
+						"</div></td></tr>");
 				$("[rel=tooltip]").tooltip();
-				
-// 				<th align="center" width="5%">Item</th>
-// 				<th align="center" width="11%">Cod. Producto</th>
-// 				<th align="center" width="6%">Cantidad</th>
-// 				<th align="center" width="42%">Descripcion</th>
-// 				<th align="center" width="14%">Precio Unitario</th>
-// 				<th align="center" width="11%">Total</th>
-// 				<th align="center" width="10%">Acci&oacute;n</th>
-// 				<th align="center" width="1%"></th>
 			} ,
 			error: function(response){
 				alert("error 1");
@@ -64,7 +48,7 @@
 	
 	function ingresarProductoTabla(codProducto)
 	{
-		if( $("#numeroItem").val() > 14)
+		if( $("#numeroItemDetalleGuiaRemision").val() > 14)
 		{
 			alert("tiene mas de 15 filas");	
 		}

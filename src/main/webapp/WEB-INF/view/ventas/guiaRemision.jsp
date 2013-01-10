@@ -46,12 +46,16 @@
 	            return -($(this).width() / 2);
 	        }
 	    });
-		$("input[type=text]").addClass("text-box-tabla");
 		$("#modalBusquedaProducto").modal("show");
 	};
 
+	function guardarGuiaRemision()
+	{
+		$("#formGuiaRemision").submit();
+	}
+	
+	
 	function mostrarMedidasMonitor() {
-		
 // 		alert("LARGO 1: "+$("#collapseOne").height()+"--- largo1: "+$("#collapseTwo").height());
 // 		alert("resolucion LARGO 1: "+screen.height+"--- resolucion ancho: "+screen.width);
 // 		$("#collapseOne").height();
@@ -71,16 +75,16 @@
 </script>
 <input id="numeroItemDetalleGuiaRemision" hidden="true" value ="0"/>
 <form:form method="POST" modelAttribute="guiaRemision"
-<input id="codTipoDocumentoVentaGuiaRemision" hidden="true" value ="0"/>
 	class="form-horizontal" name="formGuiaRemision" id="formGuiaRemision"
 	action="guardarNuevaGuiaRemision.htm">
+	<input id="codTipoDocumentoVentaGuiaRemision" type="hidden" value ="1" />
 	<div class="row-fluid">
 		<div class="span12">
 			<div class="btn-toolbar">
 				<div class="btn-group">
 					<a id="a_Guardar" href="#" rel="tooltip" title="Guardar"
 						data-placement="right" >
-						<button class="btn" onclick=" alert('HOLA')">
+						<button class="btn" onclick="guardarGuiaRemision()">
 							<i class="icon-hdd"></i>
 						</button>
 					</a> <a id="a_Imprimir" href="#" rel="tooltip" title="Imprimir"
@@ -258,8 +262,7 @@
 										<th align="center" width="41%">Descripcion</th>
 										<th align="center" width="14%">Precio Unitario</th>
 										<th align="center" width="15%">Total</th>
-										<th align="center" width="6%">Acci&oacute;n</th>
-										<th align="center" width="1%"></th>
+										<th align="center" width="7%">Acci&oacute;n</th>
 									</tr>
 								</thead>
 									<tbody  >
@@ -274,4 +277,28 @@
 		</div>
 	</div>
 	<c:import url="../productos/busquedaProductosCombo.jsp"></c:import>
+	
+	<div id="modalMensaje" class="modal hide" tabindex="-1"
+	role="dialog" aria-labelledby="myModalLabel5" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"
+				aria-hidden="true">×</button>
+			<h5 id="myModalLabel5" class="titulo-cabecera-modal">Busqueda de
+				Producto</h5>
+		</div>
+		<div class="modal-body" style="max-height: 90%; padding-top: 1px">
+			<div id="controlProducto" class="control-group">
+				<label class="control-label" for="inputProducto">Producto</label>
+				<div id="productos" class="controls">
+					<form:select class="input-medium" path="producto.codProducto">
+						<form:option value="0">--Seleccionar--</form:option>
+						<form:options items="${lstProductos}" itemValue="codProducto"
+							itemLabel="nombre" />
+					</form:select>
+					<span class="help-inline" id="e_producto"
+						style="visibility: hidden;">Seleccionar Producto</span>
+				</div>
+			</div>
+		</div>
+	</div>
 </form:form>
