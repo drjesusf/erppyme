@@ -33,9 +33,45 @@
 		});
 	}
 	
-</script>
 
+	function mostrarModalBusquedaProducto() {
+// 		alert($("#tablaDetalleGuiaRemision").width());
+		mostrarMedidasMonitor();
+		$('#modalBusquedaProducto').modal({
+	        backdrop: true,
+	        keyboard: true
+	    }).css({
+	        width: 'auto',
+	        'margin-left': function () {
+	            return -($(this).width() / 2);
+	        }
+	    });
+		$("input[type=text]").addClass("text-box-tabla");
+		$("#modalBusquedaProducto").modal("show");
+	};
+
+	function mostrarMedidasMonitor() {
+		
+// 		alert("LARGO 1: "+$("#collapseOne").height()+"--- largo1: "+$("#collapseTwo").height());
+// 		alert("resolucion LARGO 1: "+screen.height+"--- resolucion ancho: "+screen.width);
+// 		$("#collapseOne").height();
+// 		$("#collapseOne").width();
+	}
+	
+// 	function modificarTamanioCollapseDetalleGuiaRemision()
+// 	{
+// 		alert("ENTRA AQUI");
+// 		if($("#collapseOne").height() == 0)
+// 		{
+// 			$("#collapseTwo").height(screen.height-116)
+// 		}
+// 	}
+
+	
+</script>
+<input id="numeroItemDetalleGuiaRemision" hidden="true" value ="0"/>
 <form:form method="POST" modelAttribute="guiaRemision"
+<input id="codTipoDocumentoVentaGuiaRemision" hidden="true" value ="0"/>
 	class="form-horizontal" name="formGuiaRemision" id="formGuiaRemision"
 	action="guardarNuevaGuiaRemision.htm">
 	<div class="row-fluid">
@@ -43,8 +79,8 @@
 			<div class="btn-toolbar">
 				<div class="btn-group">
 					<a id="a_Guardar" href="#" rel="tooltip" title="Guardar"
-						data-placement="right">
-						<button class="btn">
+						data-placement="right" >
+						<button class="btn" onclick=" alert('HOLA')">
 							<i class="icon-hdd"></i>
 						</button>
 					</a> <a id="a_Imprimir" href="#" rel="tooltip" title="Imprimir"
@@ -73,7 +109,7 @@
 				<a class="accordion-toggle" data-toggle="collapse"
 					href="#collapseOne"> Datos Generales </a>
 			</div>
-			<div id="collapseOne" class="accordion-body collapse in">
+			<div id="collapseOne" class="accordion-body collapse in" onclick="modificarTamanioCollapseDetalleGuiaRemision()">
 				<div class="accordion-inner">
 					<div class="row-fluid">
 						<div class="span4 altura-elemento_formulario-alto">
@@ -142,18 +178,16 @@
 								</div>
 							</div>
 						</div>
-						<div class="span4 altura-elemento_formulario-alto">
+						<div class="span5 altura-elemento_formulario-alto">
 							<div class="control-group">
 								<label class="control-label" for="fecha">Fecha</label>
 								<div class="controls">
 									<div class="input-append">
 										<form:input path="documentoVenta.fechaEmision"
-											id="input_documentoVenta_fechaEmision" />
-										<a id="a_MostrarCalendario" href="#" rel="tooltip"
-											title="Calendario">
-											<button class="btn" type="button"
-												id="button_documentoVenta_fechaEmision"
-												onclick="button_documentoVenta_fechaEmision_onClick()">
+											id="input_documentoVenta_fechaEmision" autocomplete="false" disabled="true"/>
+										<a id="a_MostrarCalendario" href="#" rel="tooltip" 
+											title="Calendario" onclick="button_documentoVenta_fechaEmision_onClick()">
+											<button class="btn" type="button">
 												<i class="icon-calendar"></i>
 											</button>
 										</a>
@@ -161,7 +195,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="span2 altura-elemento_formulario-alto"></div>
+						<div class="span1 altura-elemento_formulario-alto"></div>
 					</div>
 
 					<div class="row-fluid">
@@ -192,19 +226,20 @@
 				<a class="accordion-toggle" data-toggle="collapse"
 					href="#collapseTwo">Detalle</a>
 			</div>
-			<div id="collapseTwo" class="accordion-body collapse">
+			<div id="collapseTwo" class="accordion-body collapse in" onclick="modificarTamanioCollapseDetalleGuiaRemision()">
 				<div class="accordion-inner">
 					<div class="row-fluid">
 						<div class="span12">
-							<table class="table table-bordered" id="tabla-clientes-cabecera"
-								style="margin-bottom: 0">
-								<thead>
+
+							<div style="height: 200px; overflow: auto">
+								<table class="table table-bordered" id="tablaDetalleGuiaRemision">
+									<thead>
 									<tr>
 										<th colspan="10">
 											<a class="etiqueta" href="#" id="tooltip" rel="tooltip" 
 												data-placement="right"
 												title="Click para agregar un nuevo producto"
-												onclick="mostrarVentanaBusquedaRapidaProducto()">
+												onclick="mostrarModalBusquedaProducto()">
 												<i class="icon-plus"/>
 												</i>
 												<span class="label label-info">Agregar</span>
@@ -217,231 +252,18 @@
 										<th hidden="true">cantidadUnidadesProducto</th>
 										<th hidden="true">numeroItem</th>
 
-										<th align="center">Item</th>
-										<th align="center">Cod. Producto</th>
-										<th align="center">Cantidad</th>
-										<th align="center">Descripcion</th>
-										<th align="center">Precio Unitario</th>
-										<th align="center">Total</th>
-										<th align="center">Acci&oacute;n</th>
-										<th align="center" width="3px"></th>
+										<th align="center" width="5%">Item</th>
+										<th align="center" width="12%">Cod. Producto</th>
+										<th align="center" width="6%">Cantidad</th>
+										<th align="center" width="41%">Descripcion</th>
+										<th align="center" width="14%">Precio Unitario</th>
+										<th align="center" width="15%">Total</th>
+										<th align="center" width="6%">Acci&oacute;n</th>
+										<th align="center" width="1%"></th>
 									</tr>
 								</thead>
-							</table>
-							<div style="height: 200px; overflow: auto">
-								<table class="table table-bordered" id="tabla-clientes-cuerpo">
-									<tbody>
-										<tr>
-											<td hidden="true">numeroItem</td>
-											<td hidden="true">codDocumentoVenta</td>
-											<td hidden="true">cantidadUnidadesProducto</td>
-											<td hidden="true">numeroItem</td>
+									<tbody  >
 
-											<td align="center">Item</td>
-											<td align="center">codProducto</td>
-											<td align="center">Cantidad</td>
-											<td align="center">Descripcion</td>
-											<td align="center">Precio Unitario</td>
-											<td align="center">Total</td>
-											<td align="center">Acci&oacute;n</td>
-										</tr>
-										<tr>
-											<td hidden="true">numeroItem</td>
-											<td hidden="true">codDocumentoVenta</td>
-											<td hidden="true">cantidadUnidadesProducto</td>
-											<td hidden="true">numeroItem</td>
-
-											<td align="center">Item</td>
-											<td align="center">codProducto</td>
-											<td align="center">Cantidad</td>
-											<td align="center">Descripcion</td>
-											<td align="center">Precio Unitario</td>
-											<td align="center">Total</td>
-											<td align="center">Acci&oacute;n</td>
-										</tr>
-										<tr>
-											<td hidden="true">numeroItem</td>
-											<td hidden="true">codDocumentoVenta</td>
-											<td hidden="true">cantidadUnidadesProducto</td>
-											<td hidden="true">numeroItem</td>
-
-											<td align="center">Item</td>
-											<td align="center">codProducto</td>
-											<td align="center">Cantidad</td>
-											<td align="center">Descripcion</td>
-											<td align="center">Precio Unitario</td>
-											<td align="center">Total</td>
-											<td align="center">Acci&oacute;n</td>
-										</tr>
-										<tr>
-											<td hidden="true">numeroItem</td>
-											<td hidden="true">codDocumentoVenta</td>
-											<td hidden="true">cantidadUnidadesProducto</td>
-											<td hidden="true">numeroItem</td>
-
-											<td align="center">Item</td>
-											<td align="center">codProducto</td>
-											<td align="center">Cantidad</td>
-											<td align="center">Descripcion</td>
-											<td align="center">Precio Unitario</td>
-											<td align="center">Total</td>
-											<td align="center">Acci&oacute;n</td>
-										</tr>
-										<tr>
-											<td hidden="true">numeroItem</td>
-											<td hidden="true">codDocumentoVenta</td>
-											<td hidden="true">cantidadUnidadesProducto</td>
-											<td hidden="true">numeroItem</td>
-
-											<td align="center">Item</td>
-											<td align="center">codProducto</td>
-											<td align="center">Cantidad</td>
-											<td align="center">Descripcion</td>
-											<td align="center">Precio Unitario</td>
-											<td align="center">Total</td>
-											<td align="center">Acci&oacute;n</td>
-										</tr>
-										<tr>
-											<td hidden="true">numeroItem</td>
-											<td hidden="true">codDocumentoVenta</td>
-											<td hidden="true">cantidadUnidadesProducto</td>
-											<td hidden="true">numeroItem</td>
-
-											<td align="center">Item</td>
-											<td align="center">codProducto</td>
-											<td align="center">Cantidad</td>
-											<td align="center">Descripcion</td>
-											<td align="center">Precio Unitario</td>
-											<td align="center">Total</td>
-											<td align="center">Acci&oacute;n</td>
-										</tr>
-										<tr>
-											<td hidden="true">numeroItem</td>
-											<td hidden="true">codDocumentoVenta</td>
-											<td hidden="true">cantidadUnidadesProducto</td>
-											<td hidden="true">numeroItem</td>
-
-											<td align="center">Item</td>
-											<td align="center">codProducto</td>
-											<td align="center">Cantidad</td>
-											<td align="center">Descripcion</td>
-											<td align="center">Precio Unitario</td>
-											<td align="center">Total</td>
-											<td align="center">Acci&oacute;n</td>
-										</tr>
-										<tr>
-											<td hidden="true">numeroItem</td>
-											<td hidden="true">codDocumentoVenta</td>
-											<td hidden="true">cantidadUnidadesProducto</td>
-											<td hidden="true">numeroItem</td>
-
-											<td align="center">Item</td>
-											<td align="center">codProducto</td>
-											<td align="center">Cantidad</td>
-											<td align="center">Descripcion</td>
-											<td align="center">Precio Unitario</td>
-											<td align="center">Total</td>
-											<td align="center">Acci&oacute;n</td>
-										</tr>
-
-										<tr>
-											<td hidden="true">numeroItem</td>
-											<td hidden="true">codDocumentoVenta</td>
-											<td hidden="true">cantidadUnidadesProducto</td>
-											<td hidden="true">numeroItem</td>
-
-											<td align="center">Item</td>
-											<td align="center">codProducto</td>
-											<td align="center">Cantidad</td>
-											<td align="center">Descripcion</td>
-											<td align="center">Precio Unitario</td>
-											<td align="center">Total</td>
-											<td align="center">Acci&oacute;n</td>
-										</tr>
-										<tr>
-											<td hidden="true">numeroItem</td>
-											<td hidden="true">codDocumentoVenta</td>
-											<td hidden="true">cantidadUnidadesProducto</td>
-											<td hidden="true">numeroItem</td>
-
-											<td align="center">Item</td>
-											<td align="center">codProducto</td>
-											<td align="center">Cantidad</td>
-											<td align="center">Descripcion</td>
-											<td align="center">Precio Unitario</td>
-											<td align="center">Total</td>
-											<td align="center">Acci&oacute;n</td>
-										</tr>
-										<tr>
-											<td hidden="true">numeroItem</td>
-											<td hidden="true">codDocumentoVenta</td>
-											<td hidden="true">cantidadUnidadesProducto</td>
-											<td hidden="true">numeroItem</td>
-
-											<td align="center">Item</td>
-											<td align="center">codProducto</td>
-											<td align="center">Cantidad</td>
-											<td align="center">Descripcion</td>
-											<td align="center">Precio Unitario</td>
-											<td align="center">Total</td>
-											<td align="center">Acci&oacute;n</td>
-										</tr>
-										<tr>
-											<td hidden="true">numeroItem</td>
-											<td hidden="true">codDocumentoVenta</td>
-											<td hidden="true">cantidadUnidadesProducto</td>
-											<td hidden="true">numeroItem</td>
-
-											<td align="center">Item</td>
-											<td align="center">codProducto</td>
-											<td align="center">Cantidad</td>
-											<td align="center">Descripcion</td>
-											<td align="center">Precio Unitario</td>
-											<td align="center">Total</td>
-											<td align="center">Acci&oacute;n</td>
-										</tr>
-										<tr>
-											<td hidden="true">numeroItem</td>
-											<td hidden="true">codDocumentoVenta</td>
-											<td hidden="true">cantidadUnidadesProducto</td>
-											<td hidden="true">numeroItem</td>
-
-											<td align="center">Item</td>
-											<td align="center">codProducto</td>
-											<td align="center">Cantidad</td>
-											<td align="center">Descripcion</td>
-											<td align="center">Precio Unitario</td>
-											<td align="center">Total</td>
-											<td align="center">Acci&oacute;n</td>
-										</tr>
-										<tr>
-											<td hidden="true">numeroItem</td>
-											<td hidden="true">codDocumentoVenta</td>
-											<td hidden="true">cantidadUnidadesProducto</td>
-											<td hidden="true">numeroItem</td>
-
-											<td align="center">Item</td>
-											<td align="center">codProducto</td>
-											<td align="center">Cantidad</td>
-											<td align="center">Descripcion</td>
-											<td align="center">Precio Unitario</td>
-											<td align="center">Total</td>
-											<td align="center">Acci&oacute;n</td>
-										</tr>
-										<tr>
-											<td hidden="true">numeroItem</td>
-											<td hidden="true">codDocumentoVenta</td>
-											<td hidden="true">cantidadUnidadesProducto</td>
-											<td hidden="true">numeroItem</td>
-
-											<td align="center">Item</td>
-											<td align="center">codProducto</td>
-											<td align="center">Cantidad</td>
-											<td align="center">Descripcion</td>
-											<td align="center">Precio Unitario</td>
-											<td align="center">Total</td>
-											<td align="center">Acci&oacute;n</td>
-										</tr>
 									</tbody>
 								</table>
 							</div>
@@ -451,4 +273,5 @@
 			</div>
 		</div>
 	</div>
+	<c:import url="../productos/busquedaProductosCombo.jsp"></c:import>
 </form:form>

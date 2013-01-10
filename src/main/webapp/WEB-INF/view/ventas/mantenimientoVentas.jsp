@@ -63,6 +63,7 @@
 		$("#modalNuevaGuiaRemision").modal("show");
 	};
 	
+
 	function mostrarModalNuevaFactura() {
 		$('#modalNuevaFactura').modal({
 	        backdrop: true,
@@ -77,43 +78,47 @@
 		$("#modalNuevaFactura").modal("show");
 	};
 	
-	function ventanaModificar(codProducto){					
+
+	function ventanaModificar(codProducto) {
 		$.ajax({
-			url:"obtenerProducto.htm",
+			url : "obtenerProducto.htm",
 			dataType : "JSON",
-			type: "POST",
-			data : {codProducto : codProducto},				
-			beforeSend:function(){
+			type : "POST",
+			data : {
+				codProducto : codProducto
 			},
-			success:function(response){
+			beforeSend : function() {
+			},
+			success : function(response) {
 				$("#modalModificar").modal("show");
 				$("#codProducto").val(response.codProducto);
 				$("#nombre").val(response.nombre);
 				$("#descripcion").val(response.descripcion);
-				$("#codUnidadMedida").val(response.codUnidadMedida);					
-				$("#precioReferencial").val(response.precioReferencial);					
+				$("#codUnidadMedida").val(response.codUnidadMedida);
+				$("#precioReferencial").val(response.precioReferencial);
 				$("#estado").val(response.estado);
-			} ,
-			error: function(response){
+			},
+			error : function(response) {
 				alert("error");
 			}
 		});
 	}
-	
-	function guardarProducto(){
+
+	function guardarProducto() {
 		document.modificarProducto.submit();
 	}
-	function eliminaProducto(){
-		document.location.href = "eliminarProducto.htm?codProducto="+$("#codProductoEliminar").val();
+	function eliminaProducto() {
+		document.location.href = "eliminarProducto.htm?codProducto="
+				+ $("#codProductoEliminar").val();
 	}
-	function ventanaEliminar(codProducto){
+	function ventanaEliminar(codProducto) {
 		$("#modalEliminar").modal("show");
 		$("#codProductoEliminar").val(codProducto);
 	}
-	function cargarGrillaProductos(codProducto){
-		document.location.href = "obtenerProductoFiltrado.htm?codProducto="+codProducto;
+	function cargarGrillaProductos(codProducto) {
+		document.location.href = "obtenerProductoFiltrado.htm?codProducto="
+				+ codProducto;
 	}
-	
 </script>
 <style type="text/css" >
 
@@ -145,7 +150,7 @@
 									<table class="table table-bordered" id="clientes">
 										<thead>
 											<tr>
-												<th colspan="10"><a href="#" id="tooltip" rel="tooltip"
+												<th colspan="10"><a class="etiqueta" href="#" id="tooltip" rel="tooltip"
 													data-placement="right"
 													title="Click para agregar una nueva venta"
 													onclick="ventanaNuevo()"> <i class="icon-plus" /></i>
@@ -175,7 +180,7 @@
 									<table class="table table-bordered" id="clientes">
 										<thead>
 											<tr>
-												<th colspan="10"><a href="#" id="tooltip" rel="tooltip"
+												<th colspan="10"><a class="etiqueta" href="#" id="tooltip" rel="tooltip"
 													data-placement="right"
 													title="Click para agregar un nuevo documento"
 													onclick="mostrarModalNuevaGuiaRemision()"> <i class="icon-plus" /></i>
@@ -203,7 +208,7 @@
 									<table class="table table-bordered" id="clientes">
 										<thead>
 											<tr>
-												<th colspan="10"><a href="#" id="tooltip" rel="tooltip"
+												<th colspan="10"><a class="etiqueta" href="#" id="tooltip" rel="tooltip"
 													data-placement="right"
 													title="Click para agregar un nuevo documento"
 													onclick="ventanaNuevo()"> <i class="icon-plus" /></i>
@@ -259,5 +264,6 @@
 <%-- 			<c:import url="../clientes/busqueda.jsp"></c:import> --%>
 		</div>
 	</div>
+	
 </body>
 </html>
