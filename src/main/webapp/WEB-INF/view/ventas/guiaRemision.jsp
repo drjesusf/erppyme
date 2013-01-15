@@ -71,9 +71,34 @@
 // 		}
 // 	}
 
+	$("#collapseTwo").live('shown', function(){
+// 		alert("HOLA");
+		// 	    $(this).parent().find('a').addClass('open'); //add active state to button on open
+		if( $("#codVenta").val() == "" )
+		{
+// 			alert("entra aqui 1");
+			$("#collapseTwo").collapse("hide");	
+// 			$("#collapseTwo").collapse({hide:true});	
+		}
+		else
+		{
+// 			alert("entra aqui 2");
+			$("#collapseTwo").collapse("show");	
+		}
+	});
 	
+// 	$("#collapseTwo").on("show", function(){
+// 		alert("HOLA show");
+// 	});
+	
+// 	$("#collapseTwo").on("shown", function(){
+// 		alert("HOLA shown");
+// 	});
+
+
 </script>
 <input id="numeroItemDetalleGuiaRemision" hidden="true" value ="0"/>
+<input id="codVenta" hidden="true" value =""/>
 <form:form method="POST" modelAttribute="guiaRemision"
 	class="form-horizontal" name="formGuiaRemision" id="formGuiaRemision"
 	action="guardarNuevaGuiaRemision.htm">
@@ -113,7 +138,7 @@
 				<a class="accordion-toggle" data-toggle="collapse"
 					href="#collapseOne"> Datos Generales </a>
 			</div>
-			<div id="collapseOne" class="accordion-body collapse in" onclick="modificarTamanioCollapseDetalleGuiaRemision()">
+			<div id="collapseOne" class="accordion-body collapse in">
 				<div class="accordion-inner">
 					<div class="row-fluid">
 						<div class="span4 altura-elemento_formulario-alto">
@@ -230,12 +255,12 @@
 				<a class="accordion-toggle" data-toggle="collapse"
 					href="#collapseTwo">Detalle</a>
 			</div>
-			<div id="collapseTwo" class="accordion-body collapse in" onclick="modificarTamanioCollapseDetalleGuiaRemision()">
+			<div id="collapseTwo" class="accordion-body collapse in">
 				<div class="accordion-inner">
 					<div class="row-fluid">
 						<div class="span12">
 
-							<div style="height: 200px; overflow: auto">
+							<div style="height: 180px; overflow: auto">
 								<table class="table table-bordered" id="tablaDetalleGuiaRemision">
 									<thead>
 									<tr>
@@ -278,27 +303,27 @@
 	</div>
 	<c:import url="../productos/busquedaProductosCombo.jsp"></c:import>
 	
-	<div id="modalMensaje" class="modal hide" tabindex="-1"
-	role="dialog" aria-labelledby="myModalLabel5" aria-hidden="true">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal"
-				aria-hidden="true">×</button>
-			<h5 id="myModalLabel5" class="titulo-cabecera-modal">Busqueda de
-				Producto</h5>
-		</div>
-		<div class="modal-body" style="max-height: 90%; padding-top: 1px">
-			<div id="controlProducto" class="control-group">
-				<label class="control-label" for="inputProducto">Producto</label>
-				<div id="productos" class="controls">
-					<form:select class="input-medium" path="producto.codProducto">
-						<form:option value="0">--Seleccionar--</form:option>
-						<form:options items="${lstProductos}" itemValue="codProducto"
-							itemLabel="nombre" />
-					</form:select>
-					<span class="help-inline" id="e_producto"
-						style="visibility: hidden;">Seleccionar Producto</span>
-				</div>
-			</div>
-		</div>
-	</div>
+<!-- 	<div id="modalMensaje" class="modal hide" tabindex="-1" -->
+<!-- 	role="dialog" aria-labelledby="myModalLabel5" aria-hidden="true"> -->
+<!-- 		<div class="modal-header"> -->
+<!-- 			<button type="button" class="close" data-dismiss="modal" -->
+<!-- 				aria-hidden="true">×</button> -->
+<!-- 			<h5 id="myModalLabel5" class="titulo-cabecera-modal">Busqueda de -->
+<!-- 				Producto</h5> -->
+<!-- 		</div> -->
+<!-- 		<div class="modal-body" style="max-height: 90%; padding-top: 1px"> -->
+<!-- 			<div id="controlProducto" class="control-group"> -->
+<!-- 				<label class="control-label" for="inputProducto">Producto</label> -->
+<!-- 				<div id="productos" class="controls"> -->
+<%-- 					<form:select class="input-medium" path="producto.codProducto"> --%>
+<%-- 						<form:option value="0">--Seleccionar--</form:option> --%>
+<%-- 						<form:options items="${lstProductos}" itemValue="codProducto" --%>
+<%-- 							itemLabel="nombre" /> --%>
+<%-- 					</form:select> --%>
+<!-- 					<span class="help-inline" id="e_producto" -->
+<!-- 						style="visibility: hidden;">Seleccionar Producto</span> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+<!-- 	</div> -->
 </form:form>
