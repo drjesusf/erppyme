@@ -13,11 +13,12 @@ public class Producto {
 	private UnidadMedida unidadMedida;
 	private String estado;
 	private BigDecimal precioReferencial;
+	private int stock;
 	
 	public Producto(){}
 	
 	public Producto(int codProducto, String nombre, String descripcion, UnidadMedida unidadMedida,
-						String estado, BigDecimal precioReferencial)
+						String estado, BigDecimal precioReferencial, int stock)
 	{
 		super();
 		this.codProducto = codProducto;
@@ -26,6 +27,7 @@ public class Producto {
 		this.setUnidadMedida(unidadMedida);
 		this.estado = estado;
 		this.precioReferencial = precioReferencial;
+		this.stock = stock;
 	}
 	
 	public int getCodProducto() {
@@ -74,5 +76,13 @@ public class Producto {
 
 	public void setUnidadMedida(UnidadMedida unidadMedida) {
 		this.unidadMedida = unidadMedida;
+	}
+
+	public int getStock() {
+		return stock;
+	}
+
+	public void setStock(int stock) {
+		this.stock = stock;
 	}
 }
