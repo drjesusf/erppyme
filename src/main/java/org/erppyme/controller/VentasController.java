@@ -54,7 +54,7 @@ public class VentasController {
 		//Luego el documento de Venta
 		//Finalmente el detalle de la venta
 		
-		System.out.println("codCliente: "+codCliente);
+		System.out.println("este es el codCliente: "+codCliente);
 //		model.addAttribute("cliente", new Cliente());
 //		model.addAttribute("venta", new Venta());
 //		model.addAttribute("tipoDocumentoIdentificacion", new TipoDocumentoIdentificacion());

@@ -26,6 +26,7 @@
 				$("#cliente\\.nombre").val(response.nombre);
 				$("#cliente\\.direccion").val(response.direccion);					
 				$("#cliente\\.nroDocumentoIdentificacion").val(response.nroDocumentoIdentificacion);
+// 				alert($("#cliente\\.codCliente").val());
 			} ,
 			error: function(response){
 				alert("error");
