@@ -3,6 +3,7 @@ package org.erppyme.service;
 import java.util.List;
 
 import org.erppyme.model.Producto;
+import org.erppyme.model.Venta;
 
 public interface ProductoService {
 	public Producto obtenerProducto(Integer codProducto);

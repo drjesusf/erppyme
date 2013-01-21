@@ -10,7 +10,7 @@
 			<generator class="native"/>
 		</id>
 		
-		<many-to-one name="Cliente" class="Cliente">
+		<many-to-one name="cliente" class="Cliente">
 			<column name="CODCLIENTE"/>
 		</many-to-one>
 		<property name="fechaVenta" type="date">
@@ -22,8 +22,8 @@
 		<property name="montoNeto" type="big_decimal">
 			<column name="MONTONETO" not-null="true"></column>
 		</property>
-				<property name="descuento" type="big_decimal">
-			<column name="MONTONETO" not-null="true"></column>
+		<property name="descuento" type="big_decimal">
+			<column name="DESCUENTO" not-null="true"></column>
 		</property>
 		<property name="estado" type="string">
 			<column name="ESTADO" not-null="true"></column>

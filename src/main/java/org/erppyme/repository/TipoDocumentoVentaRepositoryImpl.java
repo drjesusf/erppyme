@@ -4,7 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
-
+import org.springframework.stereotype.Repository;
+@Repository
 public class TipoDocumentoVentaRepositoryImpl implements
 		TipoDocumentoVentaRepository {
 
@@ -15,6 +16,8 @@ public class TipoDocumentoVentaRepositoryImpl implements
 		hibernateTemplate = new HibernateTemplate(sessionFactory);
 	} 
 
+	public TipoDocumentoVentaRepositoryImpl(){}
+	
 	public int obtenerCodTipoDocumentoVenta(String nombre) {
 		Session session = hibernateTemplate.getSessionFactory().getCurrentSession();
 		session.beginTransaction();

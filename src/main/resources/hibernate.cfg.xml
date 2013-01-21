@@ -37,6 +37,6 @@
 		<mapping resource="org/erppyme/security/Rol.hbm.xml"/>
 		<mapping resource="org/erppyme/model/UnidadMedida.hbm.xml"/>
 		<mapping resource="org/erppyme/model/TipoDocumentoVenta.hbm.xml"/>
-		
+		<mapping resource="org/erppyme/model/Venta.hbm.xml"/>
 	</session-factory>
 </hibernate-configuration>

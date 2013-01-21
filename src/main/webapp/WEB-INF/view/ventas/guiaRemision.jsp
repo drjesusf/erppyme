@@ -5,6 +5,7 @@
 <script type="text/javascript">
 	$(function() {
 		$("#input_documentoVenta_fechaEmision").datepicker();
+		$("#collapseTwo").collapse({toggle: true});
 	});
 
 	function button_documentoVenta_fechaEmision_onClick() {
@@ -73,29 +74,35 @@
 // 	}
 
 	$("#collapseTwo").live('shown', function(){
-// 		alert("HOLA");
-		// 	    $(this).parent().find('a').addClass('open'); //add active state to button on open
 		if( $("#codVenta").val() == "" )
 		{
-// 			alert("entra aqui 1");
-			$("#collapseTwo").collapse("hide");	
-// 			$("#collapseTwo").collapse({hide:true});	
+		    $("#collapseTwo").collapse({toggle: true});
+// 			$("#collapseTwo").removeClass("in");
+// 			$("#collapseTwo").css("height","0px")
+			
+// 			$("#collapseTwo").collapse("hide");	
 		}
 		else
 		{
-// 			alert("entra aqui 2");
+			$("#collapseTwo").collapse({toggle: false});
 			$("#collapseTwo").collapse("show");	
 		}
 	});
 	
-// 	$("#collapseTwo").on("show", function(){
-// 		alert("HOLA show");
-// 	});
-	
-// 	$("#collapseTwo").on("shown", function(){
-// 		alert("HOLA shown");
-// 	});
-
+	function verificarSiExisteCodigoVenta(){
+		if( $("#codVenta").val().length == 0 )
+		{
+		    $("#collapseTwo").collapse({toggle: true});
+// 			$("#collapseTwo").removeClass("in");
+// 			$("#collapseTwo").css("height","0px")
+// 			$("#collapseTwo").collapse("hide");	
+		}
+		else
+		{
+			$("#collapseTwo").collapse({toggle: false});
+			$("#collapseTwo").collapse("show");	
+		}
+	}
 
 </script>
 <input id="numeroItemDetalleGuiaRemision" hidden="true" value ="0"/>
@@ -213,7 +220,7 @@
 								<label class="control-label" for="fecha">Fecha</label>
 								<div class="controls">
 									<div class="input-append">
-										<form:input path="documentoVenta.fechaEmision"
+										<form:input path="documentoVenta.fechaEmision" 
 											id="input_documentoVenta_fechaEmision" autocomplete="false" disabled="true"/>
 										<a id="a_MostrarCalendario" href="#" rel="tooltip" 
 											title="Calendario" onclick="button_documentoVenta_fechaEmision_onClick()">
@@ -253,10 +260,10 @@
 		</div>
 		<div class="accordion-group">
 			<div class="accordion-heading">
-				<a class="accordion-toggle" data-toggle="collapse"
-					href="#collapseTwo">Detalle</a>
+				<a class="accordion-toggle" data-toggle="collapse" 
+					href="#collapseTwo" onclick="verificarSiExisteCodigoVenta()">Detalle</a>
 			</div>
-			<div id="collapseTwo" class="accordion-body collapse in">
+			<div id="collapseTwo" class="accordion-body collapse">
 				<div class="accordion-inner">
 					<div class="row-fluid">
 						<div class="span12">

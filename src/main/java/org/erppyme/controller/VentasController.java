@@ -1,14 +1,19 @@
 package org.erppyme.controller;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 import org.erppyme.model.Cliente;
 import org.erppyme.model.Producto;
 import org.erppyme.model.TipoDocumentoIdentificacion;
+import org.erppyme.model.Venta;
 import org.erppyme.modelview.GuiaRemision;
+import org.erppyme.service.ClienteService;
 import org.erppyme.service.ProductoService;
 import org.erppyme.service.TipoDocumentoIdentificacionService;
 import org.erppyme.service.TipoDocumentoVentaService;
+import org.erppyme.service.VentaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,8 +35,11 @@ public class VentasController {
 	@Autowired
 	private ProductoService productoService;
 	
-//	@Autowired
-//	private ProductoService productoService;
+	@Autowired
+	private VentaService ventaService;
+	
+	@Autowired
+	private ClienteService clienteService;
 	
 	@RequestMapping(value="mantenimientoVentas.htm", method=RequestMethod.GET )
 	public String mantenimientoVentas(Model model)
@@ -47,29 +55,32 @@ public class VentasController {
 	
 
 	@RequestMapping(value="/guardarNuevaGuiaRemision.htm", method=RequestMethod.POST )
-	public String nuevaGuiaRemision(@RequestParam("cliente.codCliente")Integer codCliente)
+	public String nuevaGuiaRemision(@RequestParam("cliente.codCliente")int codCliente)
 	{
 		
+		System.out.println("COdCliente: "+ codCliente );
+		Cliente cliente = clienteService.obtenerCliente(codCliente);
+		BigDecimal montoBruto = new BigDecimal(0);
+		BigDecimal montoNeto = new BigDecimal(0);
+		BigDecimal descuento = new BigDecimal(0);
+		Date fechaVenta = new Date();
+		Venta venta = new Venta();
+		
+		venta.setCliente(cliente);
+		venta.setFechaVenta(fechaVenta);
+		venta.setMontoBruto(montoBruto);
+		venta.setMontoNeto(montoNeto);
+		venta.setDescuento(descuento);
+		venta.setEstado("ACT");
 		//Primero debe guardar la Venta
 		//Luego el documento de Venta
 		//Finalmente el detalle de la venta
 		
-		System.out.println("este es el codCliente: "+codCliente);
-//		model.addAttribute("cliente", new Cliente());
-//		model.addAttribute("venta", new Venta());
-//		model.addAttribute("tipoDocumentoIdentificacion", new TipoDocumentoIdentificacion());
-//		model.addAttribute("guiaRemision", new GuiaRemision());
-		
+		ventaService.insert(venta);
 		
 		return "redirect:../security/inicio.htm";
 	}
 	
-	@RequestMapping(value="/guardarNuevaGuiaRemision.htm", method=RequestMethod.GET )
-	public String guardarGuiaRemision(Model model)
-	{
-//		model.addAttribute("cliente", new Cliente());
-//		model.addAttribute("venta", new Venta());
-		return "ventas/mantenimientoVentas";
-	}
+
 	
 }

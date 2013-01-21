@@ -4,7 +4,6 @@ import java.math.BigDecimal;
 import java.util.Date;
 import org.springframework.stereotype.Component;
 
-
 @Component(value = "venta")
 public class Venta {
 
@@ -15,12 +14,13 @@ public class Venta {
 	private BigDecimal montoNeto;
 	private BigDecimal descuento;
 	private String estado;
-	
-	public Venta(){}
-	
-	public Venta( int codVenta, Cliente cliente, Date fechaVenta, BigDecimal montoBruto,
-			 		BigDecimal montoNeto, BigDecimal descuento, String estado)
-	{
+
+	public Venta() {
+	}
+
+	public Venta(int codVenta, Cliente cliente, Date fechaVenta,
+			BigDecimal montoBruto, BigDecimal montoNeto, BigDecimal descuento,
+			String estado) {
 		this.codVenta = codVenta;
 		this.cliente = cliente;
 		this.fechaVenta = fechaVenta;
@@ -28,10 +28,18 @@ public class Venta {
 		this.montoNeto = montoNeto;
 		this.descuento = descuento;
 		this.estado = estado;
-
-
 	}
 
+	public Venta(Cliente cliente, Date fechaVenta,
+			BigDecimal montoBruto, BigDecimal montoNeto, BigDecimal descuento,
+			String estado) {
+		this.cliente = cliente;
+		this.fechaVenta = fechaVenta;
+		this.montoBruto = montoBruto;
+		this.montoNeto = montoNeto;
+		this.descuento = descuento;
+		this.estado = estado;
+	}
 
 	public int getCodVenta() {
 		return codVenta;
@@ -88,5 +96,5 @@ public class Venta {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	
+
 }
