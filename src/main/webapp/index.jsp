@@ -2,3 +2,4 @@
 
 <c:redirect url="security/login.htm"></c:redirect>
 <%-- <c:redirect url="security/inicio.htm"></c:redirect> --%>
+
